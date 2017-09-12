@@ -14,14 +14,30 @@ class DoHomeViewController: UIViewController ,  UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(rgb:0x69D300)
+        makeBackButton()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    func makeBackButton(){
+        let button = UIButton(frame: CGRect(x: 20, y: 100, width: 100, height: 50))
+        button.backgroundColor = .clear
+        button.setTitle("Back", for: .normal)
+        button.setTitleColor(UIColor(rgb:0x50514F), for: .normal)
+        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
     
+        self.view.addSubview(button)
+    }
+
+    func backAction(sender: UIButton!) {
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
+    }
+
+    
+    
+    
+    //TableView
     @IBOutlet weak var DoTableView: UITableView!
     
     
