@@ -97,7 +97,7 @@ class MakeTimeViewController: UIViewController ,  UITableViewDataSource, UITable
         //TODO
         //CreateThingWizard.sharedInstance.
         
-        performSegue(withIdentifier: "MakeNext", sender: tableView.cellForRow(at: indexPath))
+        performSegue(withIdentifier: "Make3", sender: tableView.cellForRow(at: indexPath))
         
         
     }

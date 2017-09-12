@@ -65,7 +65,7 @@
                     <navigationItem key="navigationItem" id="Fsk-Sr-FHG"/>
                     <connections>
                         <segue destination="enh-CZ-6Np" kind="show" identifier="DoSeuge" id="nMN-DO-tiu"/>
-                        <segue destination="MtX-fS-kPZ" kind="show" identifier="MakeSeuge" id="kUN-K6-Lmf"/>
+                        <segue destination="agc-is-LRB" kind="show" identifier="MakeSeuge" id="eRh-bU-PDy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -109,12 +109,12 @@
                     </view>
                     <connections>
                         <outlet property="MakeKindTableView" destination="0WM-v5-hoc" id="6yU-x1-1dm"/>
-                        <segue destination="RvO-3w-oeD" kind="show" identifier="MakeNext" id="FgK-lZ-XKV"/>
+                        <segue destination="RvO-3w-oeD" kind="show" identifier="Make2" id="FgK-lZ-XKV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMn-pV-1K5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2223.1999999999998" y="575.26236881559225"/>
+            <point key="canvasLocation" x="3196" y="512"/>
         </scene>
         <!--Do Home View Controller-->
         <scene sceneID="9nu-H3-9Hp">
@@ -214,11 +214,84 @@
                     </view>
                     <connections>
                         <outlet property="MakeTimeTableView" destination="vbf-zo-p76" id="kSm-aX-54O"/>
+                        <segue destination="tgf-q3-TKT" kind="show" identifier="Make3" id="9T6-ol-Ero"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erM-7B-ExQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3161" y="575"/>
+            <point key="canvasLocation" x="4102" y="552"/>
+        </scene>
+        <!--Make Note View Controller-->
+        <scene sceneID="SN8-L2-1OT">
+            <objects>
+                <viewController id="tgf-q3-TKT" customClass="MakeNoteViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VH9-gQ-Uik"/>
+                        <viewControllerLayoutGuide type="bottom" id="b72-qY-qhR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Iy5-7e-Ird">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZGN-vG-A0S">
+                                <rect key="frame" x="16" y="204" width="343" height="406"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZGN-vG-A0S" firstAttribute="trailing" secondItem="Iy5-7e-Ird" secondAttribute="trailingMargin" id="6Pk-H8-owb"/>
+                            <constraint firstItem="ZGN-vG-A0S" firstAttribute="top" secondItem="VH9-gQ-Uik" secondAttribute="bottom" constant="140" id="L4B-b1-RRs"/>
+                            <constraint firstItem="ZGN-vG-A0S" firstAttribute="leading" secondItem="Iy5-7e-Ird" secondAttribute="leadingMargin" id="Zs5-gV-ROU"/>
+                            <constraint firstItem="b72-qY-qhR" firstAttribute="top" secondItem="ZGN-vG-A0S" secondAttribute="bottom" constant="57" id="ruI-YZ-Ytd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TextField" destination="ZGN-vG-A0S" id="7Se-1j-4mP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngf-ID-cdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5100" y="551.87406296851577"/>
+        </scene>
+        <!--Make Thing View Controller-->
+        <scene sceneID="PGo-Qn-Hvq">
+            <objects>
+                <viewController id="agc-is-LRB" customClass="MakeThingViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bir-2m-7xI"/>
+                        <viewControllerLayoutGuide type="bottom" id="MUO-uK-UTo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J2y-hY-cdA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What Should I Remember?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSn-oX-tCN">
+                                <rect key="frame" x="16" y="216" width="343" height="275"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qSn-oX-tCN" firstAttribute="leading" secondItem="J2y-hY-cdA" secondAttribute="leadingMargin" id="OiI-dT-rnc"/>
+                            <constraint firstItem="qSn-oX-tCN" firstAttribute="top" secondItem="Bir-2m-7xI" secondAttribute="bottom" constant="152" id="SkQ-8Q-Aja"/>
+                            <constraint firstItem="MUO-uK-UTo" firstAttribute="top" secondItem="qSn-oX-tCN" secondAttribute="bottom" constant="176" id="aZB-5h-0D2"/>
+                            <constraint firstItem="qSn-oX-tCN" firstAttribute="trailing" secondItem="J2y-hY-cdA" secondAttribute="trailingMargin" id="l4H-hs-h0n"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TextField" destination="qSn-oX-tCN" id="2CF-Fc-yVK"/>
+                        <segue destination="MtX-fS-kPZ" kind="show" identifier="Make" id="ehk-JE-obj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XyH-It-raF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2088.8000000000002" y="456.52173913043481"/>
         </scene>
     </scenes>
 </document>

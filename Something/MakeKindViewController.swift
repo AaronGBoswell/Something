@@ -93,9 +93,9 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
         tableView.deselectRow(at: indexPath, animated: true)
         
         //TODO somthing with selectedKind
-        //CreateThingWizard.sharedInstance.
+        //CreateThingWizard.sharedInstance.thing.kind = selectedKind.title
         
-        performSegue(withIdentifier: "MakeNext", sender: tableView.cellForRow(at: indexPath))
+        performSegue(withIdentifier: "Make2", sender: tableView.cellForRow(at: indexPath))
         
         
     }
