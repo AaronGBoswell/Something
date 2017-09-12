@@ -22,30 +22,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWu-Re-3vb">
-                                <rect key="frame" x="223" y="410" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="17"/>
-                                <state key="normal" title="Do">
-                                    <color key="titleColor" red="0.3138672113" green="0.31785446410000001" blue="0.30989685649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="DoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a0q-A6-uGt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hR-cJ-zBD">
-                                <rect key="frame" x="82" y="410" width="96" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hR-cJ-zBD">
+                                <rect key="frame" x="58" y="394" width="96" height="30"/>
+                                <color key="backgroundColor" red="0.3138672113" green="0.31785446410000001" blue="0.30989685649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="dYy-sZ-48j"/>
+                                    <constraint firstAttribute="height" constant="30" id="i6G-Ai-03A"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="17"/>
                                 <state key="normal" title="Make">
-                                    <color key="titleColor" red="0.31386721134185791" green="0.31785446405410767" blue="0.30989685654640198" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.75174236299999997" green="0.69932788609999996" blue="0.61179041860000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="MakeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kC0-d5-peW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWu-Re-3vb">
+                                <rect key="frame" x="224" y="394" width="96" height="30"/>
+                                <color key="backgroundColor" red="0.3138672113" green="0.31785446410000001" blue="0.30989685649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="XYA-tz-9Gn"/>
+                                    <constraint firstAttribute="height" constant="30" id="ph4-oA-ofj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="17"/>
+                                <state key="normal" title="Do">
+                                    <color key="titleColor" red="0.75174236299999997" green="0.69932788609999996" blue="0.61179041860000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="DoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a0q-A6-uGt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tWu-Re-3vb" secondAttribute="bottom" constant="243" id="JAU-XL-dtV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7hR-cJ-zBD" secondAttribute="bottom" constant="243" id="MWD-H1-nMO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tWu-Re-3vb" secondAttribute="trailing" constant="39" id="Vyj-a0-os6"/>
+                            <constraint firstItem="7hR-cJ-zBD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="42" id="sA0-dQ-YtA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fsk-Sr-FHG"/>
                     <connections>

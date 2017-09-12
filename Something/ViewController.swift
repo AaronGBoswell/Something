@@ -14,6 +14,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = UIColor(rgb:0x69D300)
+        makeTitle()
+    }
+    
+    
+    //trying this on for size going to make it in storyboard
+    func makeTitle(){
+        let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
+       // label.frame = CGRectMake(50, 50, 200, 21)
+        label.backgroundColor = .clear
+        label.textColor = UIColor(rgb:0x50514F)
+        label.textAlignment = NSTextAlignment.center
+        label.text = "SOMTHING"
+        self.view.addSubview(label)
     }
 
     override func didReceiveMemoryWarning() {
