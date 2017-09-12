@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -68,9 +69,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0WM-v5-hoc">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0WM-v5-hoc">
                                 <rect key="frame" x="16" y="215" width="343" height="444"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cellidentifier" id="vsx-tR-hJ2">
@@ -85,6 +85,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0WM-v5-hoc" firstAttribute="top" secondItem="bQW-mp-Ueh" secondAttribute="bottom" constant="151" id="H6L-I6-hfE"/>
+                            <constraint firstItem="0WM-v5-hoc" firstAttribute="leading" secondItem="yTH-FI-dub" secondAttribute="leadingMargin" id="cRv-E2-gkb"/>
+                            <constraint firstItem="Hrn-FO-edX" firstAttribute="top" secondItem="0WM-v5-hoc" secondAttribute="bottom" constant="8" id="p6y-wi-JQN"/>
+                            <constraint firstItem="0WM-v5-hoc" firstAttribute="trailing" secondItem="yTH-FI-dub" secondAttribute="trailingMargin" id="zdV-ob-fXf"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="MakeTableView" destination="0WM-v5-hoc" id="UVI-iZ-rHS"/>
@@ -106,9 +112,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nVs-xB-s96">
-                                <rect key="frame" x="16" y="203" width="343" height="444"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nVs-xB-s96">
+                                <rect key="frame" x="16" y="203" width="343" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cellidentifier" id="cC1-JY-gsN">
@@ -123,6 +128,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nVs-xB-s96" firstAttribute="leading" secondItem="DJa-z7-9dz" secondAttribute="leadingMargin" id="6D5-eH-UVI"/>
+                            <constraint firstItem="nVs-xB-s96" firstAttribute="trailing" secondItem="DJa-z7-9dz" secondAttribute="trailingMargin" id="7uX-tq-RBz"/>
+                            <constraint firstItem="RLz-3m-qDe" firstAttribute="top" secondItem="nVs-xB-s96" secondAttribute="bottom" constant="8" id="sE1-nK-PCV"/>
+                            <constraint firstItem="nVs-xB-s96" firstAttribute="top" secondItem="UWe-Lb-Bg7" secondAttribute="bottom" constant="139" id="tHS-GW-ZtG"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="DoTableView" destination="nVs-xB-s96" id="T1U-dE-3Os"/>
