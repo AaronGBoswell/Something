@@ -64,7 +64,7 @@ class MakeNoteViewController: UIViewController {
         }
     }
     func makeDoneButton(){
-        let button = UIButton(frame: CGRect(x: 10, y: 300, width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: 300, y: 20, width: 100, height: 50))
         button.backgroundColor = .clear
         button.setTitle("Done", for: .normal)
         button.setTitleColor(UIColor(rgb:0x50514F), for: .normal)
@@ -75,8 +75,8 @@ class MakeNoteViewController: UIViewController {
     
     func doneAction(sender: UIButton!) {
         
-        
-       self.popBack(4)
+        //TODO
+       self.popBack(5)
     }
     func popBack(_ nb: Int) {
         if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
