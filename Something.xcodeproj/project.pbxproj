@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9473FEE01F6852980070F507 /* DoHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEDF1F6852980070F507 /* DoHomeViewController.swift */; };
+		9473FEE21F6852BA0070F507 /* MakeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE11F6852BA0070F507 /* MakeHomeViewController.swift */; };
 		BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E89D1F673350004A5851 /* AppDelegate.swift */; };
 		BD07E8A01F673350004A5851 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E89F1F673350004A5851 /* ViewController.swift */; };
 		BD07E8A31F673350004A5851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD07E8A11F673350004A5851 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9473FEDF1F6852980070F507 /* DoHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoHomeViewController.swift; sourceTree = "<group>"; };
+		9473FEE11F6852BA0070F507 /* MakeHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeHomeViewController.swift; sourceTree = "<group>"; };
 		BD07E89A1F673350004A5851 /* Something.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Something.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD07E89D1F673350004A5851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD07E89F1F673350004A5851 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9473FEDD1F6851700070F507 /* MakeTaskViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9473FEE11F6852BA0070F507 /* MakeHomeViewController.swift */,
+			);
+			name = MakeTaskViewControllers;
+			sourceTree = "<group>";
+		};
+		9473FEDE1F68519A0070F507 /* DoTaskViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9473FEDF1F6852980070F507 /* DoHomeViewController.swift */,
+			);
+			name = DoTaskViewControllers;
+			sourceTree = "<group>";
+		};
 		BD07E8911F673350004A5851 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				BD07E89F1F673350004A5851 /* ViewController.swift */,
+				9473FEDE1F68519A0070F507 /* DoTaskViewControllers */,
+				9473FEDD1F6851700070F507 /* MakeTaskViewControllers */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -297,8 +319,10 @@
 			files = (
 				BD07E8D21F67570D004A5851 /* PredicateFormulator.swift in Sources */,
 				BD07E8A01F673350004A5851 /* ViewController.swift in Sources */,
+				9473FEE01F6852980070F507 /* DoHomeViewController.swift in Sources */,
 				BD07E8D01F675086004A5851 /* CreateThingWizard.swift in Sources */,
 				BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */,
+				9473FEE21F6852BA0070F507 /* MakeHomeViewController.swift in Sources */,
 				BD07E8A61F673350004A5851 /* Something.xcdatamodeld in Sources */,
 				BD07E8D41F675E2D004A5851 /* ColorExtensions.swift in Sources */,
 			);
@@ -547,6 +571,7 @@
 				BD07E8C71F673350004A5851 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BD07E8C81F673350004A5851 /* Build configuration list for PBXNativeTarget "SomethingTests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +580,7 @@
 				BD07E8CA1F673350004A5851 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BD07E8CB1F673350004A5851 /* Build configuration list for PBXNativeTarget "SomethingUITests" */ = {
 			isa = XCConfigurationList;
@@ -563,6 +589,7 @@
 				BD07E8CD1F673350004A5851 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

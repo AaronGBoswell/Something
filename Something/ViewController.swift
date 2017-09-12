@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,5 +20,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func MakeButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "MakeSeuge", sender: self)
+    }
+    
+    @IBAction func DoButton(_ sender: Any) {
+         self.performSegue(withIdentifier: "DoSeuge", sender: self)
+    }
+    
     
 }
