@@ -45,11 +45,12 @@ class DoHomeViewController: UIViewController ,  UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cellidentifier", for: indexPath)
         
+        
         return cell;
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0;
+        return 1;
     }
     
     
