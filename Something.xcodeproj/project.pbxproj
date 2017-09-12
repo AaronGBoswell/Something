@@ -15,6 +15,9 @@
 		BD07E8AB1F673350004A5851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD07E8A91F673350004A5851 /* LaunchScreen.storyboard */; };
 		BD07E8B61F673350004A5851 /* SomethingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E8B51F673350004A5851 /* SomethingTests.swift */; };
 		BD07E8C11F673350004A5851 /* SomethingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E8C01F673350004A5851 /* SomethingUITests.swift */; };
+		BD07E8D01F675086004A5851 /* CreateThingWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E8CF1F675086004A5851 /* CreateThingWizard.swift */; };
+		BD07E8D21F67570D004A5851 /* PredicateFormulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E8D11F67570D004A5851 /* PredicateFormulator.swift */; };
+		BD07E8D41F675E2D004A5851 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E8D31F675E2C004A5851 /* ColorExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		BD07E8BC1F673350004A5851 /* SomethingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomethingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD07E8C01F673350004A5851 /* SomethingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomethingUITests.swift; sourceTree = "<group>"; };
 		BD07E8C21F673350004A5851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD07E8CF1F675086004A5851 /* CreateThingWizard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateThingWizard.swift; path = DataInteraction/CreateThingWizard.swift; sourceTree = "<group>"; };
+		BD07E8D11F67570D004A5851 /* PredicateFormulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PredicateFormulator.swift; path = DataInteraction/PredicateFormulator.swift; sourceTree = "<group>"; };
+		BD07E8D31F675E2C004A5851 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorExtensions.swift; path = AuxillaryExtensions/ColorExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				BD07E89D1F673350004A5851 /* AppDelegate.swift */,
+				BD07E8CE1F675012004A5851 /* DataInteraction */,
 				BD07E89F1F673350004A5851 /* ViewController.swift */,
+				BD07E8D31F675E2C004A5851 /* ColorExtensions.swift */,
 				BD07E8A11F673350004A5851 /* Main.storyboard */,
 				BD07E8A71F673350004A5851 /* Assets.xcassets */,
 				BD07E8A91F673350004A5851 /* LaunchScreen.storyboard */,
@@ -126,6 +134,15 @@
 				BD07E8C21F673350004A5851 /* Info.plist */,
 			);
 			path = SomethingUITests;
+			sourceTree = "<group>";
+		};
+		BD07E8CE1F675012004A5851 /* DataInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				BD07E8CF1F675086004A5851 /* CreateThingWizard.swift */,
+				BD07E8D11F67570D004A5851 /* PredicateFormulator.swift */,
+			);
+			name = DataInteraction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD07E8D21F67570D004A5851 /* PredicateFormulator.swift in Sources */,
 				BD07E8A01F673350004A5851 /* ViewController.swift in Sources */,
+				BD07E8D01F675086004A5851 /* CreateThingWizard.swift in Sources */,
 				BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */,
 				BD07E8A61F673350004A5851 /* Something.xcdatamodeld in Sources */,
+				BD07E8D41F675E2D004A5851 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

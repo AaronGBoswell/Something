@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Kind" representedClassName="Kind" syncable="YES" codeGenerationType="class">
+        <attribute name="alpha" optional="YES" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="color" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="title" attributeType="String" regularExpressionString="Default Title" syncable="YES"/>
+        <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Thing" inverseName="kind" inverseEntity="Thing" syncable="YES"/>
+    </entity>
+    <entity name="Thing" representedClassName="Thing" syncable="YES" codeGenerationType="class">
+        <attribute name="completed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="note" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" defaultValueString="Default Title" syncable="YES"/>
+        <relationship name="kind" maxCount="1" deletionRule="Nullify" destinationEntity="Kind" inverseName="things" inverseEntity="Kind" syncable="YES"/>
+        <relationship name="time" maxCount="1" deletionRule="Nullify" destinationEntity="Time" inverseName="things" inverseEntity="Time" syncable="YES"/>
+    </entity>
+    <entity name="Time" representedClassName="Time" syncable="YES" codeGenerationType="class">
+        <attribute name="alpha" optional="YES" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="title" attributeType="String" defaultValueString="Default Title" syncable="YES"/>
+        <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Thing" inverseName="time" inverseEntity="Thing" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Time" positionX="108" positionY="-144" width="128" height="118"/>
+        <element name="Thing" positionX="-63" positionY="-360" width="128" height="133"/>
+        <element name="Kind" positionX="-63" positionY="-144" width="128" height="118"/>
+    </elements>
 </model>
