@@ -15,8 +15,11 @@ class DoHomeViewController: UIViewController ,  UITableViewDataSource, UITableVi
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(rgb:0x69D300)
         makeBackButton()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+
     
     func makeBackButton(){
         let button = UIButton(frame: CGRect(x: 20, y: 100, width: 100, height: 50))
@@ -42,10 +45,7 @@ class DoHomeViewController: UIViewController ,  UITableViewDataSource, UITableVi
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cellidentifier", for: indexPath)
-        
-        
         return cell;
     }
     

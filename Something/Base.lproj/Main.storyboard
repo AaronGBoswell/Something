@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="972" y="38.23088455772114"/>
         </scene>
-        <!--Make Home View Controller-->
+        <!--Make Kind View Controller-->
         <scene sceneID="CUs-74-r4X">
             <objects>
-                <viewController id="MtX-fS-kPZ" customClass="MakeHomeViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MtX-fS-kPZ" customClass="MakeKindViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bQW-mp-Ueh"/>
                         <viewControllerLayoutGuide type="bottom" id="Hrn-FO-edX"/>
@@ -88,7 +88,7 @@
                                 <rect key="frame" x="16" y="215" width="343" height="444"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cellidentifier" id="vsx-tR-hJ2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellidentifierKind" id="vsx-tR-hJ2">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vsx-tR-hJ2" id="dYq-bV-cXI">
@@ -108,17 +108,18 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="MakeTableView" destination="0WM-v5-hoc" id="UVI-iZ-rHS"/>
+                        <outlet property="MakeKindTableView" destination="0WM-v5-hoc" id="6yU-x1-1dm"/>
+                        <segue destination="RvO-3w-oeD" kind="show" identifier="MakeNext" id="FgK-lZ-XKV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMn-pV-1K5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2223.1999999999998" y="575.26236881559225"/>
         </scene>
-        <!--Do Home Viewv Controller-->
+        <!--Do Home View Controller-->
         <scene sceneID="9nu-H3-9Hp">
             <objects>
-                <viewController id="enh-CZ-6Np" userLabel="Do Home Viewv Controller" customClass="DoHomeViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="enh-CZ-6Np" customClass="DoHomeViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UWe-Lb-Bg7"/>
                         <viewControllerLayoutGuide type="bottom" id="RLz-3m-qDe"/>
@@ -175,6 +176,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ung-Gk-eMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-15" y="38"/>
+        </scene>
+        <!--Make Time View Controller-->
+        <scene sceneID="A6X-8P-cqm">
+            <objects>
+                <viewController id="RvO-3w-oeD" customClass="MakeTimeViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pcb-MK-hQz"/>
+                        <viewControllerLayoutGuide type="bottom" id="rcb-dS-PmQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nX4-LX-rN4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vbf-zo-p76">
+                                <rect key="frame" x="16" y="215" width="343" height="444"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellidentifierTime" id="mFt-V6-Ej2">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mFt-V6-Ej2" id="Kzb-KF-O8G">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rcb-dS-PmQ" firstAttribute="top" secondItem="vbf-zo-p76" secondAttribute="bottom" constant="8" id="9fM-0X-jSF"/>
+                            <constraint firstItem="vbf-zo-p76" firstAttribute="leading" secondItem="nX4-LX-rN4" secondAttribute="leadingMargin" id="JSY-ky-3N8"/>
+                            <constraint firstItem="vbf-zo-p76" firstAttribute="trailing" secondItem="nX4-LX-rN4" secondAttribute="trailingMargin" id="Ox6-1p-S9f"/>
+                            <constraint firstItem="vbf-zo-p76" firstAttribute="top" secondItem="pcb-MK-hQz" secondAttribute="bottom" constant="151" id="Z1q-LU-IHS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="MakeTimeTableView" destination="vbf-zo-p76" id="kSm-aX-54O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erM-7B-ExQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3161" y="575"/>
         </scene>
     </scenes>
 </document>

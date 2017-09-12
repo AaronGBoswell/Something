@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 
-class MakeHomeViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
+class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
     
     
     
@@ -20,15 +20,24 @@ class MakeHomeViewController: UIViewController ,  UITableViewDataSource, UITable
         self.view.backgroundColor = UIColor(rgb:0x69D300)
         
         
-        MakeTableView.delegate = self
-        MakeTableView.dataSource = self
+        MakeKindTableView.delegate = self
+        MakeKindTableView.dataSource = self
         initalizeFetchedResultsController()
         
         makeBackButton()
+         makeTitle()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    
+    func makeTitle(){
+        let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
+        // label.frame = CGRectMake(50, 50, 200, 21)
+        label.backgroundColor = .clear
+        label.textColor = UIColor(rgb:0x50514F)
+        label.textAlignment = NSTextAlignment.center
+        label.text = "Kind"
+        self.view.addSubview(label)
+    }
     
     func makeBackButton(){
         let button = UIButton(frame: CGRect(x: 10, y: 20, width: 100, height: 50))
@@ -49,12 +58,12 @@ class MakeHomeViewController: UIViewController ,  UITableViewDataSource, UITable
  
 
     //TableView 
-    @IBOutlet weak var MakeTableView: UITableView!
+    @IBOutlet weak var MakeKindTableView: UITableView!
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cellidentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellidentifierKind", for: indexPath)
         configureCell(cell: cell, indexPath: indexPath)
         return cell;
     }
@@ -74,6 +83,23 @@ class MakeHomeViewController: UIViewController ,  UITableViewDataSource, UITable
         }
         cell.textLabel?.text = selectedKind.title
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        guard let selectedKind = fetchedResultsController.object(at: indexPath) as? Kind
+            else{
+                fatalError("Failed to initialize ")
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        //TODO somthing with selectedKind
+        //CreateThingWizard.sharedInstance.
+        
+        performSegue(withIdentifier: "MakeNext", sender: tableView.cellForRow(at: indexPath))
+        
+        
+    }
+
 
     
     
@@ -101,17 +127,17 @@ class MakeHomeViewController: UIViewController ,  UITableViewDataSource, UITable
     
 }
 
-extension MakeHomeViewController:NSFetchedResultsControllerDelegate{
+extension MakeKindViewController:NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        MakeTableView.beginUpdates()
+        MakeKindTableView.beginUpdates()
     }
     
     func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            MakeTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            MakeKindTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .delete:
-            MakeTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            MakeKindTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .move:
             break
         case .update:
@@ -122,21 +148,19 @@ extension MakeHomeViewController:NSFetchedResultsControllerDelegate{
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            MakeTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
+            MakeKindTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
         case .delete:
-            MakeTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
+            MakeKindTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
         case .update:
-            configureCell(cell: MakeTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
+            configureCell(cell: MakeKindTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
         case .move:
-            //configureCell(cell: tableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
-            //tableView.moveRow(at: indexPath!, to: newIndexPath! as IndexPath)
-            MakeTableView.reloadData()
+            MakeKindTableView.reloadData()
             
         }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        MakeTableView.endUpdates()
+        MakeKindTableView.endUpdates()
     }
 }
 
