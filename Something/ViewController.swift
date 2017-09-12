@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        self.view.backgroundColor = UIColor(rgb:0x69D300)
     }
 
     override func didReceiveMemoryWarning() {
