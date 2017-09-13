@@ -112,6 +112,8 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
+        fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "id != \(Int64.max)")
+
         do{
             try fetchedResultsController.performFetch()
             print(fetchedResultsController.fetchedObjects ?? "default value")

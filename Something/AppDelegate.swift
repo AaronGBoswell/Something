@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newKind(id: 1,alpha: 1,color: 0xff0000,title: "need to do")
         newKind(id: 2,alpha: 1,color: 0xff0000,title: "nice to do")
         newKind(id: 3,alpha: 1,color: 0xff0000,title: "want to do")
+        newKind(id: Int64.max ,alpha: 1,color: 0xff0000,title: "Doesn't matter")
         
     }
     func newTime(id:Int64, alpha:Int64,color:Int64, title:String){
@@ -65,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newTime(id: 1,alpha: 1, color: 0xff0000, title: "5min")
         newTime(id: 2,alpha: 1, color: 0xff0000, title: "30min")
         newTime(id: 3,alpha: 1, color: 0xff0000, title: "60min")
+        newTime(id: Int64.max ,alpha: 1,color: 0xff0000,title: "Doesn't matter")
+
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

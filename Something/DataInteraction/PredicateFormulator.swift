@@ -16,8 +16,8 @@ class PredicateFormulator {
     public var time:Time?
 
     public func getPredicate() -> NSPredicate{
-        let kindPredicate = kind == nil ? NSPredicate(value: true) : NSPredicate(format: "kind.title contains[cd] %@", kind!.title!)
-        let timePredicate = time == nil ? NSPredicate(value: true) : NSPredicate(format: "time.title contains[cd] %@", time!.title!)
+        let kindPredicate = (kind == nil || kind!.id == Int64.max) ? NSPredicate(value: true) : NSPredicate(format: "kind.title contains[cd] %@", kind!.title!)
+        let timePredicate = (time == nil || time!.id == Int64.max) ? NSPredicate(value: true) : NSPredicate(format: "time.title contains[cd] %@", time!.title!)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [kindPredicate, timePredicate])
         return compoundPredicate
     }
