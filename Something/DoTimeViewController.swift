@@ -95,7 +95,7 @@ class DoTimeViewController: UIViewController ,  UITableViewDataSource, UITableVi
         tableView.deselectRow(at: indexPath, animated: true)
         
         //TODO
-        //CreateThingWizard.sharedInstance.
+        PredicateFormulator.sharedPredicateFormulator.time = selectedTime
         
         performSegue(withIdentifier: "Do", sender: tableView.cellForRow(at: indexPath))
         
@@ -107,7 +107,7 @@ class DoTimeViewController: UIViewController ,  UITableViewDataSource, UITableVi
     
     func initalizeFetchedResultsController(){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Time")
-        let sort = NSSortDescriptor(key: "title", ascending: false)
+        let sort = NSSortDescriptor(key: "id", ascending: true)
         request.sortDescriptors = [sort]
         
         

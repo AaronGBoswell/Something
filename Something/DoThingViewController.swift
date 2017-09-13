@@ -90,6 +90,7 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //TODO this should bring you to a detaile view of the Thing
         guard let selectedThing = fetchedResultsController.object(at: indexPath) as? Thing
             else{
                 fatalError("Failed to initialize ")
@@ -119,7 +120,7 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
     
     func initalizeFetchedResultsController(){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Thing")
-        let sort = NSSortDescriptor(key: "title", ascending: false)
+        let sort = NSSortDescriptor(key: "title", ascending: true)
         request.sortDescriptors = [sort]
         
         
@@ -127,6 +128,10 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
+        
+        //TODO FYI henry, delete after viewing
+        fetchedResultsController.fetchRequest.predicate = PredicateFormulator.sharedPredicateFormulator.getPredicate()
+        
         do{
             try fetchedResultsController.performFetch()
             print(fetchedResultsController.fetchedObjects ?? "default value")

@@ -96,8 +96,7 @@ class DoKindViewController: UIViewController ,  UITableViewDataSource, UITableVi
         tableView.deselectRow(at: indexPath, animated: true)
         
         //TODO
-        //CreateThingWizard.sharedInstance.
-        
+        PredicateFormulator.sharedPredicateFormulator.kind = selectedKind
         performSegue(withIdentifier: "Do2", sender: tableView.cellForRow(at: indexPath))
         
         
@@ -108,7 +107,7 @@ class DoKindViewController: UIViewController ,  UITableViewDataSource, UITableVi
     
     func initalizeFetchedResultsController(){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Kind")
-        let sort = NSSortDescriptor(key: "title", ascending: false)
+        let sort = NSSortDescriptor(key: "id", ascending: true)
         request.sortDescriptors = [sort]
         
         

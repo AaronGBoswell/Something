@@ -13,13 +13,14 @@ import CoreData
 class MakeThingViewController: UIViewController {
     
     
-    
+    //TODO This should not be capital
     @IBOutlet weak var TextField: UITextView!
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(rgb:0x69D300)
+        
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -32,6 +33,7 @@ class MakeThingViewController: UIViewController {
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         //TODO
+        CreateThingWizard.sharedCreateThingWizard.thing.title = TextField.text
         view.endEditing(true)
         performSegue(withIdentifier: "Make", sender: self)
     }

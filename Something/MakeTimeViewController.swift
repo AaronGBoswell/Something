@@ -95,7 +95,7 @@ class MakeTimeViewController: UIViewController ,  UITableViewDataSource, UITable
         tableView.deselectRow(at: indexPath, animated: true)
         
         //TODO
-        //CreateThingWizard.sharedInstance.
+        CreateThingWizard.sharedCreateThingWizard.thing.time = selectedTime
         
         performSegue(withIdentifier: "Make3", sender: tableView.cellForRow(at: indexPath))
         
@@ -107,7 +107,7 @@ class MakeTimeViewController: UIViewController ,  UITableViewDataSource, UITable
     
     func initalizeFetchedResultsController(){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Time")
-        let sort = NSSortDescriptor(key: "title", ascending: false)
+        let sort = NSSortDescriptor(key: "id", ascending: true)
         request.sortDescriptors = [sort]
         
         

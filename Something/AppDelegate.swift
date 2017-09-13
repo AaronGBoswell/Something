@@ -39,30 +39,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupKinds()
         setupTimes()
     }
-    func newKind(alpha:Int64,color:Int64, title:String){
+    func newKind(id:Int64, alpha:Int64,color:Int64, title:String){
         let kind = NSEntityDescription.insertNewObject(forEntityName: "Kind", into: persistentContainer.viewContext) as! Kind
+        kind.id = id
         kind.alpha = alpha
         kind.color = color
         kind.title = title
         saveContext()
     }
     func setupKinds(){
-        newKind(alpha: 1,color: 0xff0000,title: "need to do")
-        newKind(alpha: 1,color: 0xff0000,title: "want to do")
-        newKind(alpha: 1,color: 0xff0000,title: "nice to do")
+        newKind(id: 1,alpha: 1,color: 0xff0000,title: "need to do")
+        newKind(id: 2,alpha: 1,color: 0xff0000,title: "nice to do")
+        newKind(id: 3,alpha: 1,color: 0xff0000,title: "want to do")
         
     }
-    func newTime(alpha:Int64,color:Int64, title:String){
+    func newTime(id:Int64, alpha:Int64,color:Int64, title:String){
         let time = NSEntityDescription.insertNewObject(forEntityName: "Time", into: persistentContainer.viewContext) as! Time
+        time.id = id
         time.alpha = alpha
         time.color = color
         time.title = title
         saveContext()
     }
     func setupTimes(){
-        newTime(alpha: 1, color: 0xff0000, title: "5min")
-        newTime(alpha: 1, color: 0xff0000, title: "30min")
-        newTime(alpha: 1, color: 0xff0000, title: "60min")
+        newTime(id: 1,alpha: 1, color: 0xff0000, title: "5min")
+        newTime(id: 2,alpha: 1, color: 0xff0000, title: "30min")
+        newTime(id: 3,alpha: 1, color: 0xff0000, title: "60min")
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -132,8 +134,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data Saving support
 
     func saveContext () {
-        /*
+        
         let context = persistentContainer.viewContext
+        context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         if context.hasChanges {
             do {
                 try context.save()
@@ -144,7 +147,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
-        */
+ 
     }
 
 }

@@ -92,8 +92,7 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
         }
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //TODO somthing with selectedKind
-        //CreateThingWizard.sharedInstance.thing.kind = selectedKind.title
+        CreateThingWizard.sharedCreateThingWizard.thing.kind = selectedKind
         
         performSegue(withIdentifier: "Make2", sender: tableView.cellForRow(at: indexPath))
         
@@ -105,7 +104,7 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
     
     func initalizeFetchedResultsController(){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Kind")
-        let sort = NSSortDescriptor(key: "title", ascending: false)
+        let sort = NSSortDescriptor(key: "id", ascending: true)
         request.sortDescriptors = [sort]
         
       
