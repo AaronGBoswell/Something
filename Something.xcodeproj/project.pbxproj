@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9473FEE01F6852980070F507 /* DoHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEDF1F6852980070F507 /* DoHomeViewController.swift */; };
+		9473FEE01F6852980070F507 /* DoTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEDF1F6852980070F507 /* DoTimeViewController.swift */; };
 		9473FEE21F6852BA0070F507 /* MakeKindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE11F6852BA0070F507 /* MakeKindViewController.swift */; };
 		9473FEE41F687C4A0070F507 /* MakeTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE31F687C4A0070F507 /* MakeTimeViewController.swift */; };
 		9473FEE61F6882BA0070F507 /* MakeThingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE51F6882BA0070F507 /* MakeThingViewController.swift */; };
 		9473FEE81F6886830070F507 /* MakeNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE71F6886830070F507 /* MakeNoteViewController.swift */; };
+		94E4FA401F68B2DC00FA18A5 /* DoKindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E4FA3F1F68B2DC00FA18A5 /* DoKindViewController.swift */; };
+		94E4FA421F68B47900FA18A5 /* DoThingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E4FA411F68B47900FA18A5 /* DoThingViewController.swift */; };
 		BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E89D1F673350004A5851 /* AppDelegate.swift */; };
 		BD07E8A01F673350004A5851 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E89F1F673350004A5851 /* ViewController.swift */; };
 		BD07E8A31F673350004A5851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD07E8A11F673350004A5851 /* Main.storyboard */; };
@@ -43,11 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9473FEDF1F6852980070F507 /* DoHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoHomeViewController.swift; sourceTree = "<group>"; };
+		9473FEDF1F6852980070F507 /* DoTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoTimeViewController.swift; sourceTree = "<group>"; };
 		9473FEE11F6852BA0070F507 /* MakeKindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeKindViewController.swift; sourceTree = "<group>"; };
 		9473FEE31F687C4A0070F507 /* MakeTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTimeViewController.swift; sourceTree = "<group>"; };
 		9473FEE51F6882BA0070F507 /* MakeThingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeThingViewController.swift; sourceTree = "<group>"; };
 		9473FEE71F6886830070F507 /* MakeNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeNoteViewController.swift; sourceTree = "<group>"; };
+		94E4FA3F1F68B2DC00FA18A5 /* DoKindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoKindViewController.swift; sourceTree = "<group>"; };
+		94E4FA411F68B47900FA18A5 /* DoThingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoThingViewController.swift; sourceTree = "<group>"; };
 		BD07E89A1F673350004A5851 /* Something.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Something.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD07E89D1F673350004A5851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD07E89F1F673350004A5851 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +110,9 @@
 		9473FEDE1F68519A0070F507 /* DoTaskViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9473FEDF1F6852980070F507 /* DoHomeViewController.swift */,
+				9473FEDF1F6852980070F507 /* DoTimeViewController.swift */,
+				94E4FA3F1F68B2DC00FA18A5 /* DoKindViewController.swift */,
+				94E4FA411F68B47900FA18A5 /* DoThingViewController.swift */,
 			);
 			name = DoTaskViewControllers;
 			sourceTree = "<group>";
@@ -327,11 +333,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD07E8D21F67570D004A5851 /* PredicateFormulator.swift in Sources */,
+				94E4FA401F68B2DC00FA18A5 /* DoKindViewController.swift in Sources */,
 				9473FEE81F6886830070F507 /* MakeNoteViewController.swift in Sources */,
 				BD07E8A01F673350004A5851 /* ViewController.swift in Sources */,
-				9473FEE01F6852980070F507 /* DoHomeViewController.swift in Sources */,
+				9473FEE01F6852980070F507 /* DoTimeViewController.swift in Sources */,
 				BD07E8D01F675086004A5851 /* CreateThingWizard.swift in Sources */,
 				BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */,
+				94E4FA421F68B47900FA18A5 /* DoThingViewController.swift in Sources */,
 				9473FEE61F6882BA0070F507 /* MakeThingViewController.swift in Sources */,
 				9473FEE41F687C4A0070F507 /* MakeTimeViewController.swift in Sources */,
 				9473FEE21F6852BA0070F507 /* MakeKindViewController.swift in Sources */,
