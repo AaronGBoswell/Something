@@ -63,7 +63,7 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellidentifierKind", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellidentifierKind", for: indexPath) as! MakeTableViewCell
         configureCell(cell: cell, indexPath: indexPath)
         return cell;
     }
@@ -76,12 +76,13 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
         return sectionInfo.numberOfObjects
 
     }
-    func configureCell(cell: UITableViewCell, indexPath: IndexPath) {
+    func configureCell(cell: MakeTableViewCell, indexPath: IndexPath) {
         guard let selectedKind = fetchedResultsController.object(at: indexPath) as? Kind
             else{
                 fatalError("Failed to initialize ")
         }
-        cell.textLabel?.text = selectedKind.title
+        //cell.initialize(color: UIColor(rgb: selectedKind.color as! Int), data: selectedKind.title!)
+        cell.initialize(color: .green, data: selectedKind.title!)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -153,7 +154,9 @@ extension MakeKindViewController:NSFetchedResultsControllerDelegate{
         case .delete:
             MakeKindTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
         case .update:
-            configureCell(cell: MakeKindTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
+             break;
+            //configureCell(cell: MakeKindTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
+           
         case .move:
             MakeKindTableView.reloadData()
             

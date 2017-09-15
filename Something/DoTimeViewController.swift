@@ -65,7 +65,10 @@ class DoTimeViewController: UIViewController ,  UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellidentifierTimeDo", for: indexPath)
+       
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellidentifierTimeDo", for: indexPath) as! DoTableViewCell
+        
+        
         configureCell(cell: cell, indexPath: indexPath)
         return cell;
     }
@@ -78,13 +81,16 @@ class DoTimeViewController: UIViewController ,  UITableViewDataSource, UITableVi
         return sectionInfo.numberOfObjects
         
     }
-    func configureCell(cell: UITableViewCell, indexPath: IndexPath) {
+    
+    func configureCell(cell: DoTableViewCell, indexPath: IndexPath) {
         guard let selectedTime = fetchedResultsController.object(at: indexPath) as? Time
             else{
                 fatalError("Failed to initialize ")
         }
-        cell.textLabel?.text = selectedTime.title
+        cell.initialize(color: .green, data: selectedTime.title!)
+        
     }
+ 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -154,7 +160,8 @@ extension DoTimeViewController:NSFetchedResultsControllerDelegate{
         case .delete:
             DoTimeTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
         case .update:
-            configureCell(cell: DoTimeTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
+            break;
+           // configureCell(cell: DoTimeTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
         case .move:
             DoTimeTableView.reloadData()
             

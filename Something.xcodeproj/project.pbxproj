@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		941C05041F6C7B1C00A7AD05 /* DoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C05031F6C7B1C00A7AD05 /* DoTableViewCell.swift */; };
+		941C05061F6C8A2200A7AD05 /* MakeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C05051F6C8A2200A7AD05 /* MakeTableViewCell.swift */; };
 		9473FEE01F6852980070F507 /* DoTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEDF1F6852980070F507 /* DoTimeViewController.swift */; };
 		9473FEE21F6852BA0070F507 /* MakeKindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE11F6852BA0070F507 /* MakeKindViewController.swift */; };
 		9473FEE41F687C4A0070F507 /* MakeTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE31F687C4A0070F507 /* MakeTimeViewController.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		941C05031F6C7B1C00A7AD05 /* DoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoTableViewCell.swift; sourceTree = "<group>"; };
+		941C05051F6C8A2200A7AD05 /* MakeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTableViewCell.swift; sourceTree = "<group>"; };
 		9473FEDF1F6852980070F507 /* DoTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoTimeViewController.swift; sourceTree = "<group>"; };
 		9473FEE11F6852BA0070F507 /* MakeKindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeKindViewController.swift; sourceTree = "<group>"; };
 		9473FEE31F687C4A0070F507 /* MakeTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTimeViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				9473FEE11F6852BA0070F507 /* MakeKindViewController.swift */,
 				9473FEE31F687C4A0070F507 /* MakeTimeViewController.swift */,
 				9473FEE71F6886830070F507 /* MakeNoteViewController.swift */,
+				941C05051F6C8A2200A7AD05 /* MakeTableViewCell.swift */,
 			);
 			name = MakeTaskViewControllers;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 				9473FEDF1F6852980070F507 /* DoTimeViewController.swift */,
 				94E4FA3F1F68B2DC00FA18A5 /* DoKindViewController.swift */,
 				94E4FA411F68B47900FA18A5 /* DoThingViewController.swift */,
+				941C05031F6C7B1C00A7AD05 /* DoTableViewCell.swift */,
 			);
 			name = DoTaskViewControllers;
 			sourceTree = "<group>";
@@ -334,6 +340,8 @@
 			files = (
 				BD07E8D21F67570D004A5851 /* PredicateFormulator.swift in Sources */,
 				94E4FA401F68B2DC00FA18A5 /* DoKindViewController.swift in Sources */,
+				941C05061F6C8A2200A7AD05 /* MakeTableViewCell.swift in Sources */,
+				941C05041F6C7B1C00A7AD05 /* DoTableViewCell.swift in Sources */,
 				9473FEE81F6886830070F507 /* MakeNoteViewController.swift in Sources */,
 				BD07E8A01F673350004A5851 /* ViewController.swift in Sources */,
 				9473FEE01F6852980070F507 /* DoTimeViewController.swift in Sources */,
