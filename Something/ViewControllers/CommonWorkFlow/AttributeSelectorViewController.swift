@@ -20,8 +20,8 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         self.view.backgroundColor = UIColor(rgb:0x69D300)
         
         
-        MakeKindTableView.delegate = self
-        MakeKindTableView.dataSource = self
+        makeKindTableView.delegate = self
+        makeKindTableView.dataSource = self
         initalizeFetchedResultsController()
         
         makeBackButton()
@@ -58,12 +58,12 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
  
 
     //TableView 
-    @IBOutlet weak var MakeKindTableView: UITableView!
+    @IBOutlet weak var makeKindTableView: UITableView!
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellidentifierKind", for: indexPath) as! MakeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AttributeTableViewCell", for: indexPath) as! AttributeTableViewCell
         configureCell(cell: cell, indexPath: indexPath)
         return cell;
     }
@@ -76,7 +76,7 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         return sectionInfo.numberOfObjects
 
     }
-    func configureCell(cell: MakeTableViewCell, indexPath: IndexPath) {
+    func configureCell(cell: AttributeTableViewCell, indexPath: IndexPath) {
         guard let selectedAttribute = fetchedResultsController.object(at: indexPath) as? Attribute
             else{
                 fatalError("Failed to initialize ")
@@ -104,7 +104,7 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
     
     //This is to not perform a segue that is executed by clicking on the cell via storyboard
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if let s = sender as? MakeTableViewCell{
+        if let s = sender as? AttributeTableViewCell{
             return false
             
         }
@@ -141,15 +141,15 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
 
 extension AttributeSelectorViewController:NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        MakeKindTableView.beginUpdates()
+        makeKindTableView.beginUpdates()
     }
     
     func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            MakeKindTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            makeKindTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .delete:
-            MakeKindTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            makeKindTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .move:
             break
         case .update:
@@ -160,21 +160,21 @@ extension AttributeSelectorViewController:NSFetchedResultsControllerDelegate{
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            MakeKindTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
+            makeKindTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
         case .delete:
-            MakeKindTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
+            makeKindTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
         case .update:
              break;
-            //configureCell(cell: MakeKindTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
+            //configureCell(cell: makeKindTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
            
         case .move:
-            MakeKindTableView.reloadData()
+            makeKindTableView.reloadData()
             
         }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        MakeKindTableView.endUpdates()
+        makeKindTableView.endUpdates()
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class MakeThingViewController: UIViewController {
+class TitleRememberViewController: UIViewController {
     
     
     //TODO This should not be capital

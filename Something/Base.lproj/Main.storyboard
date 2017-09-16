@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="InitialViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -89,7 +89,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellidentifierKind" rowHeight="148" id="vsx-tR-hJ2" customClass="MakeTableViewCell" customModule="Something" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttributeTableViewCell" rowHeight="148" id="vsx-tR-hJ2" customClass="AttributeTableViewCell" customModule="Something" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vsx-tR-hJ2" id="dYq-bV-cXI">
@@ -141,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="-15" y="38"/>
         </scene>
-        <!--Make Note View Controller-->
+        <!--Note Remember View Controller-->
         <scene sceneID="SN8-L2-1OT">
             <objects>
-                <viewController id="tgf-q3-TKT" customClass="MakeNoteViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tgf-q3-TKT" customClass="NoteRememberViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VH9-gQ-Uik"/>
                         <viewControllerLayoutGuide type="bottom" id="b72-qY-qhR"/>
@@ -177,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="5078" y="457"/>
         </scene>
-        <!--Make Thing View Controller-->
+        <!--Title Remember View Controller-->
         <scene sceneID="PGo-Qn-Hvq">
             <objects>
-                <viewController id="agc-is-LRB" customClass="MakeThingViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="agc-is-LRB" customClass="TitleRememberViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bir-2m-7xI"/>
                         <viewControllerLayoutGuide type="bottom" id="MUO-uK-UTo"/>
@@ -213,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="2088.8000000000002" y="456.52173913043481"/>
         </scene>
-        <!--Do Thing View Controller-->
+        <!--Things View Controller-->
         <scene sceneID="GbX-Ea-0BJ">
             <objects>
-                <viewController id="Ild-U4-4mj" customClass="DoThingViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ild-U4-4mj" customClass="ThingsViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lyO-FY-T1q"/>
                         <viewControllerLayoutGuide type="bottom" id="erq-ds-bci"/>
@@ -229,7 +229,7 @@
                                 <rect key="frame" x="16" y="203" width="343" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellidentifierThingDo" id="XgM-4I-P87" customClass="DoTableViewCell" customModule="Something" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThingTableViewCell" id="XgM-4I-P87" customClass="ThingTableViewCell" customModule="Something" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cellidentifier" tableViewCell="XgM-4I-P87" id="zb9-JN-v65">
@@ -258,6 +258,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="I17-Ag-Cer"/>
+        <segue reference="ehk-JE-obj"/>
     </inferredMetricsTieBreakers>
 </document>

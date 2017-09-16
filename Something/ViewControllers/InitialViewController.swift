@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class InitialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,16 +58,3 @@ class ViewController: UIViewController {
     
 }
 
-protocol Attribute {
-    var alpha:Float {get set};
-    var color:Int64 {get set};
-    var icon:NSData? {get set};
-    var id:Int64 {get set};
-    var title:String?{get set};
-}
-extension Time:Attribute{
-    
-}
-extension Kind:Attribute{
-    
-}

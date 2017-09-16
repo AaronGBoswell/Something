@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		941C05061F6C8A2200A7AD05 /* MakeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C05051F6C8A2200A7AD05 /* MakeTableViewCell.swift */; };
+		941C05061F6C8A2200A7AD05 /* AttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C05051F6C8A2200A7AD05 /* AttributeTableViewCell.swift */; };
 		9473FEE21F6852BA0070F507 /* AttributeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */; };
-		9473FEE61F6882BA0070F507 /* MakeThingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE51F6882BA0070F507 /* MakeThingViewController.swift */; };
-		9473FEE81F6886830070F507 /* MakeNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE71F6886830070F507 /* MakeNoteViewController.swift */; };
-		94E4FA421F68B47900FA18A5 /* DoThingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E4FA411F68B47900FA18A5 /* DoThingViewController.swift */; };
+		9473FEE61F6882BA0070F507 /* TitleRememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE51F6882BA0070F507 /* TitleRememberViewController.swift */; };
+		9473FEE81F6886830070F507 /* NoteRememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE71F6886830070F507 /* NoteRememberViewController.swift */; };
+		94E4FA421F68B47900FA18A5 /* ThingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E4FA411F68B47900FA18A5 /* ThingsViewController.swift */; };
 		BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E89D1F673350004A5851 /* AppDelegate.swift */; };
-		BD07E8A01F673350004A5851 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E89F1F673350004A5851 /* ViewController.swift */; };
+		BD07E8A01F673350004A5851 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E89F1F673350004A5851 /* InitialViewController.swift */; };
 		BD07E8A31F673350004A5851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD07E8A11F673350004A5851 /* Main.storyboard */; };
 		BD07E8A61F673350004A5851 /* Something.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD07E8A41F673350004A5851 /* Something.xcdatamodeld */; };
 		BD07E8A81F673350004A5851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD07E8A71F673350004A5851 /* Assets.xcassets */; };
@@ -25,7 +25,9 @@
 		BD07E8D41F675E2D004A5851 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E8D31F675E2C004A5851 /* ColorExtensions.swift */; };
 		BD92AEEA1F6CC44900C88397 /* Workflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEE91F6CC44900C88397 /* Workflow.swift */; };
 		BD92AEEC1F6CC46300C88397 /* WorkFlowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEEB1F6CC46300C88397 /* WorkFlowItem.swift */; };
-		BD92AEEE1F6CD7AB00C88397 /* DoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEED1F6CD7AB00C88397 /* DoTableViewCell.swift */; };
+		BD92AEEE1F6CD7AB00C88397 /* ThingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEED1F6CD7AB00C88397 /* ThingTableViewCell.swift */; };
+		BD92AEF31F6CF27D00C88397 /* AttributeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEF21F6CF27D00C88397 /* AttributeExtensions.swift */; };
+		BD92AEF51F6CF2A000C88397 /* DataSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEF41F6CF2A000C88397 /* DataSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,14 +48,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		941C05051F6C8A2200A7AD05 /* MakeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeTableViewCell.swift; sourceTree = "<group>"; };
-		9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeSelectorViewController.swift; sourceTree = "<group>"; };
-		9473FEE51F6882BA0070F507 /* MakeThingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeThingViewController.swift; sourceTree = "<group>"; };
-		9473FEE71F6886830070F507 /* MakeNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeNoteViewController.swift; sourceTree = "<group>"; };
-		94E4FA411F68B47900FA18A5 /* DoThingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoThingViewController.swift; sourceTree = "<group>"; };
+		941C05051F6C8A2200A7AD05 /* AttributeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeTableViewCell.swift; path = ViewControllers/CommonWorkFlow/AttributeTableViewCell.swift; sourceTree = "<group>"; };
+		9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeSelectorViewController.swift; path = ViewControllers/CommonWorkFlow/AttributeSelectorViewController.swift; sourceTree = "<group>"; };
+		9473FEE51F6882BA0070F507 /* TitleRememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleRememberViewController.swift; path = ViewControllers/Remember/TitleRememberViewController.swift; sourceTree = "<group>"; };
+		9473FEE71F6886830070F507 /* NoteRememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteRememberViewController.swift; path = ViewControllers/Remember/NoteRememberViewController.swift; sourceTree = "<group>"; };
+		94E4FA411F68B47900FA18A5 /* ThingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThingsViewController.swift; path = ViewControllers/Thing/ThingsViewController.swift; sourceTree = "<group>"; };
 		BD07E89A1F673350004A5851 /* Something.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Something.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD07E89D1F673350004A5851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD07E89F1F673350004A5851 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD07E89F1F673350004A5851 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitialViewController.swift; path = ViewControllers/InitialViewController.swift; sourceTree = "<group>"; };
 		BD07E8A21F673350004A5851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD07E8A51F673350004A5851 /* Something.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Something.xcdatamodel; sourceTree = "<group>"; };
 		BD07E8A71F673350004A5851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,7 +72,9 @@
 		BD07E8D31F675E2C004A5851 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorExtensions.swift; path = AuxillaryExtensions/ColorExtensions.swift; sourceTree = "<group>"; };
 		BD92AEE91F6CC44900C88397 /* Workflow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Workflow.swift; path = DataInteraction/Workflow.swift; sourceTree = "<group>"; };
 		BD92AEEB1F6CC46300C88397 /* WorkFlowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkFlowItem.swift; path = DataInteraction/WorkFlowItem.swift; sourceTree = "<group>"; };
-		BD92AEED1F6CD7AB00C88397 /* DoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoTableViewCell.swift; sourceTree = "<group>"; };
+		BD92AEED1F6CD7AB00C88397 /* ThingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThingTableViewCell.swift; path = ViewControllers/Thing/ThingTableViewCell.swift; sourceTree = "<group>"; };
+		BD92AEF21F6CF27D00C88397 /* AttributeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeExtensions.swift; path = AuxillaryExtensions/AttributeExtensions.swift; sourceTree = "<group>"; };
+		BD92AEF41F6CF2A000C88397 /* DataSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSetup.swift; path = DataInteraction/DataSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,25 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9473FEDD1F6851700070F507 /* MakeTaskViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				9473FEE51F6882BA0070F507 /* MakeThingViewController.swift */,
-				9473FEE71F6886830070F507 /* MakeNoteViewController.swift */,
-				941C05051F6C8A2200A7AD05 /* MakeTableViewCell.swift */,
-			);
-			name = MakeTaskViewControllers;
-			sourceTree = "<group>";
-		};
-		9473FEDE1F68519A0070F507 /* DoTaskViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				94E4FA411F68B47900FA18A5 /* DoThingViewController.swift */,
-				BD92AEED1F6CD7AB00C88397 /* DoTableViewCell.swift */,
-			);
-			name = DoTaskViewControllers;
-			sourceTree = "<group>";
-		};
 		BD07E8911F673350004A5851 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +163,7 @@
 				BD07E8D11F67570D004A5851 /* PredicateFormulator.swift */,
 				BD92AEE91F6CC44900C88397 /* Workflow.swift */,
 				BD92AEEB1F6CC46300C88397 /* WorkFlowItem.swift */,
+				BD92AEF41F6CF2A000C88397 /* DataSetup.swift */,
 			);
 			name = DataInteraction;
 			sourceTree = "<group>";
@@ -186,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				BD07E8D31F675E2C004A5851 /* ColorExtensions.swift */,
+				BD92AEF21F6CF27D00C88397 /* AttributeExtensions.swift */,
 			);
 			name = "Auxillary Extensions";
 			sourceTree = "<group>";
@@ -193,12 +180,39 @@
 		BD07E8D61F675F33004A5851 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */,
-				BD07E89F1F673350004A5851 /* ViewController.swift */,
-				9473FEDE1F68519A0070F507 /* DoTaskViewControllers */,
-				9473FEDD1F6851700070F507 /* MakeTaskViewControllers */,
+				BD07E89F1F673350004A5851 /* InitialViewController.swift */,
+				BD92AEEF1F6CEE6D00C88397 /* CommonWorkflow */,
+				BD92AEF01F6CEEA300C88397 /* Thing */,
+				BD92AEF11F6CF13800C88397 /* Remember */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BD92AEEF1F6CEE6D00C88397 /* CommonWorkflow */ = {
+			isa = PBXGroup;
+			children = (
+				9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */,
+				941C05051F6C8A2200A7AD05 /* AttributeTableViewCell.swift */,
+			);
+			name = CommonWorkflow;
+			sourceTree = "<group>";
+		};
+		BD92AEF01F6CEEA300C88397 /* Thing */ = {
+			isa = PBXGroup;
+			children = (
+				94E4FA411F68B47900FA18A5 /* ThingsViewController.swift */,
+				BD92AEED1F6CD7AB00C88397 /* ThingTableViewCell.swift */,
+			);
+			name = Thing;
+			sourceTree = "<group>";
+		};
+		BD92AEF11F6CF13800C88397 /* Remember */ = {
+			isa = PBXGroup;
+			children = (
+				9473FEE51F6882BA0070F507 /* TitleRememberViewController.swift */,
+				9473FEE71F6886830070F507 /* NoteRememberViewController.swift */,
+			);
+			name = Remember;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,15 +351,17 @@
 			files = (
 				BD92AEEC1F6CC46300C88397 /* WorkFlowItem.swift in Sources */,
 				BD07E8D21F67570D004A5851 /* PredicateFormulator.swift in Sources */,
-				BD92AEEE1F6CD7AB00C88397 /* DoTableViewCell.swift in Sources */,
-				941C05061F6C8A2200A7AD05 /* MakeTableViewCell.swift in Sources */,
+				BD92AEEE1F6CD7AB00C88397 /* ThingTableViewCell.swift in Sources */,
+				BD92AEF31F6CF27D00C88397 /* AttributeExtensions.swift in Sources */,
+				941C05061F6C8A2200A7AD05 /* AttributeTableViewCell.swift in Sources */,
+				BD92AEF51F6CF2A000C88397 /* DataSetup.swift in Sources */,
 				BD92AEEA1F6CC44900C88397 /* Workflow.swift in Sources */,
-				9473FEE81F6886830070F507 /* MakeNoteViewController.swift in Sources */,
-				BD07E8A01F673350004A5851 /* ViewController.swift in Sources */,
+				9473FEE81F6886830070F507 /* NoteRememberViewController.swift in Sources */,
+				BD07E8A01F673350004A5851 /* InitialViewController.swift in Sources */,
 				BD07E8D01F675086004A5851 /* CreateThingWizard.swift in Sources */,
 				BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */,
-				94E4FA421F68B47900FA18A5 /* DoThingViewController.swift in Sources */,
-				9473FEE61F6882BA0070F507 /* MakeThingViewController.swift in Sources */,
+				94E4FA421F68B47900FA18A5 /* ThingsViewController.swift in Sources */,
+				9473FEE61F6882BA0070F507 /* TitleRememberViewController.swift in Sources */,
 				9473FEE21F6852BA0070F507 /* AttributeSelectorViewController.swift in Sources */,
 				BD07E8A61F673350004A5851 /* Something.xcdatamodeld in Sources */,
 				BD07E8D41F675E2D004A5851 /* ColorExtensions.swift in Sources */,

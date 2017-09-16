@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class MakeNoteViewController: UIViewController {
+class NoteRememberViewController: UIViewController {
     
     
     

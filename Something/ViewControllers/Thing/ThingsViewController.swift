@@ -12,7 +12,7 @@ import UIKit
 import CoreData
 
 
-class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
+class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
     
     
     
@@ -23,8 +23,8 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
         self.view.backgroundColor = UIColor(rgb:0x69D300)
         
         
-        DoThingTableView.delegate = self
-        DoThingTableView.dataSource = self
+        doThingTableView.delegate = self
+        doThingTableView.dataSource = self
         initalizeFetchedResultsController()
         
         MakeBackButton()
@@ -62,12 +62,12 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
     
     
     //TableView
-    @IBOutlet weak var DoThingTableView: UITableView!
+    @IBOutlet weak var doThingTableView: UITableView!
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellidentifierThingDo", for: indexPath) as! DoTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ThingTableViewCell", for: indexPath) as! ThingTableViewCell
         configureCell(cell: cell, indexPath: indexPath)
         return cell;
     }
@@ -80,7 +80,7 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
         return sectionInfo.numberOfObjects
         
     }
-    func configureCell(cell: DoTableViewCell, indexPath: IndexPath) {
+    func configureCell(cell: ThingTableViewCell, indexPath: IndexPath) {
         guard let selectedThing = fetchedResultsController.object(at: indexPath) as? Thing
             else{
                 fatalError("Failed to initialize ")
@@ -144,17 +144,17 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
     
 }
 
-extension DoThingViewController:NSFetchedResultsControllerDelegate{
+extension ThingsViewController:NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        DoThingTableView.beginUpdates()
+        doThingTableView.beginUpdates()
     }
     
     func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            DoThingTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            doThingTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .delete:
-            DoThingTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            doThingTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .move:
             break
         case .update:
@@ -165,19 +165,19 @@ extension DoThingViewController:NSFetchedResultsControllerDelegate{
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            DoThingTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
+            doThingTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
         case .delete:
-            DoThingTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
+            doThingTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
         case .update:
-            configureCell(cell: DoThingTableView.cellForRow(at: indexPath! as IndexPath)! as! DoTableViewCell, indexPath: indexPath! as IndexPath)
+            configureCell(cell: doThingTableView.cellForRow(at: indexPath! as IndexPath)! as! ThingTableViewCell, indexPath: indexPath! as IndexPath)
         case .move:
-            DoThingTableView.reloadData()
+            doThingTableView.reloadData()
             
         }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        DoThingTableView.endUpdates()
+        doThingTableView.endUpdates()
     }
 }
 

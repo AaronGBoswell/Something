@@ -1,5 +1,5 @@
 //
-//  MakeTableViewCell.swift
+//  DoTableViewCell.swift
 //  Something
 //
 //  Created by Henry Boswell on 9/15/17.
@@ -7,9 +7,8 @@
 //
 
 
-
 import UIKit
-class MakeTableViewCell: UITableViewCell {
+class ThingTableViewCell: UITableViewCell {
     var baseView:UIView?
     var color:UIColor?
     var dataString:String?
@@ -19,6 +18,10 @@ class MakeTableViewCell: UITableViewCell {
         self.dataString = data   //eg time, kind and so on
         makeBaseView()
         makeLabel()
+        
+
+        //cludge alert!!!! cannot make contentview clear, need to fix this
+        self.contentView.backgroundColor = UIColor(rgb:0x69D300)
         
         
     }
@@ -35,13 +38,13 @@ class MakeTableViewCell: UITableViewCell {
     func makeBaseView(){
         let width = self.contentView.frame.width
         let height = self.contentView.frame.height
-        baseView  = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        baseView  = UIView(frame: CGRect(x: 25, y: 25, width: (width - 50), height: (height - 50)))
         baseView?.backgroundColor = color!
         self.contentView.addSubview(baseView!)
         
         
     }
     
-    
-    
+   
+  
 }
