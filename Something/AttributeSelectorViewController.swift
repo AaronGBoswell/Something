@@ -9,12 +9,12 @@ import UIKit
 import CoreData
 
 
-class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
+class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
     
     
-    
+    var attribute = Workflow.sharedWorkflow.getCurrentWorkFlowItem().attribute
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
-    
+    var canSegue = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(rgb:0x69D300)
@@ -35,7 +35,7 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
         label.backgroundColor = .clear
         label.textColor = UIColor(rgb:0x50514F)
         label.textAlignment = NSTextAlignment.center
-        label.text = "Kind"
+        label.text = attribute
         self.view.addSubview(label)
     }
     
@@ -77,34 +77,44 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
 
     }
     func configureCell(cell: MakeTableViewCell, indexPath: IndexPath) {
-        guard let selectedKind = fetchedResultsController.object(at: indexPath) as? Kind
+        guard let selectedAttribute = fetchedResultsController.object(at: indexPath) as? Attribute
             else{
                 fatalError("Failed to initialize ")
         }
-        //cell.initialize(color: UIColor(rgb: selectedKind.color as! Int), data: selectedKind.title!)
-        cell.initialize(color: .green, data: selectedKind.title!)
+        cell.initialize(color: UIColor(rgb: Int(selectedAttribute.color), a: CGFloat(selectedAttribute.alpha)), data: selectedAttribute.title!)
+        //cell.initialize(color: .green, data: selectedKind.title!)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        guard let selectedKind = fetchedResultsController.object(at: indexPath) as? Kind
+        guard let selectedAttribute = fetchedResultsController.object(at: indexPath) as? Attribute
             else{
                 fatalError("Failed to initialize ")
         }
         tableView.deselectRow(at: indexPath, animated: true)
         
-        CreateThingWizard.sharedCreateThingWizard.thing.kind = selectedKind
+        Workflow.sharedWorkflow.getCurrentWorkFlowItem().selectAttribute(attribute: selectedAttribute)
+        let segueIdentifier = Workflow.sharedWorkflow.getCurrentWorkFlowItem().segueIdentifier
         
-        performSegue(withIdentifier: "Make2", sender: tableView.cellForRow(at: indexPath))
+        Workflow.sharedWorkflow.nextWorkFlowItem()
+        performSegue(withIdentifier: segueIdentifier, sender: self)
         
         
     }
-
+    
+    //This is to not perform a segue that is executed by clicking on the cell via storyboard
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if let s = sender as? MakeTableViewCell{
+            return false
+            
+        }
+        return true
+    }
 
     
     
     func initalizeFetchedResultsController(){
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Kind")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: attribute)
         let sort = NSSortDescriptor(key: "id", ascending: true)
         request.sortDescriptors = [sort]
         
@@ -113,7 +123,7 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
-        fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "id != \(Int64.max)")
+        fetchedResultsController.fetchRequest.predicate = Workflow.sharedWorkflow.getCurrentWorkFlowItem().attributePredicate
 
         do{
             try fetchedResultsController.performFetch()
@@ -129,7 +139,7 @@ class MakeKindViewController: UIViewController ,  UITableViewDataSource, UITable
     
 }
 
-extension MakeKindViewController:NSFetchedResultsControllerDelegate{
+extension AttributeSelectorViewController:NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         MakeKindTableView.beginUpdates()
     }

@@ -16,27 +16,21 @@ class CreateThingWizard {
     public static var sharedCreateThingWizard = CreateThingWizard()
     
     public class func new(){
-        sharedCreateThingWizard = CreateThingWizard()
+        let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let thing = NSEntityDescription.insertNewObject(forEntityName: "Thing", into: moc) as! Thing
+        sharedCreateThingWizard.thing = thing
     }
-    
+
     //To use when editing an existing thing
     public class func newFromExisting(thing:Thing){
-        sharedCreateThingWizard = CreateThingWizard(thing: thing)
+        sharedCreateThingWizard.thing = thing
     }
     
-    public var thing:Thing
+    public var thing:Thing!
     
     public func save(){
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
-    
-    private init(thing:Thing){
-        self.thing = thing
-    }
-    private convenience init(){
-        let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let thing = NSEntityDescription.insertNewObject(forEntityName: "Thing", into: moc) as! Thing
-        self.init(thing: thing)
-    }
+
 
 }

@@ -64,18 +64,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fsk-Sr-FHG"/>
                     <connections>
-                        <segue destination="enh-CZ-6Np" kind="show" identifier="DoSeuge" id="nMN-DO-tiu"/>
                         <segue destination="agc-is-LRB" kind="show" identifier="MakeSeuge" id="eRh-bU-PDy"/>
+                        <segue destination="MtX-fS-kPZ" kind="show" identifier="StartToAttribute" id="I17-Ag-Cer"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="38.23088455772114"/>
         </scene>
-        <!--Make Kind View Controller-->
+        <!--Attribute Selector View Controller-->
         <scene sceneID="CUs-74-r4X">
             <objects>
-                <viewController id="MtX-fS-kPZ" customClass="MakeKindViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MtX-fS-kPZ" customClass="AttributeSelectorViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bQW-mp-Ueh"/>
                         <viewControllerLayoutGuide type="bottom" id="Hrn-FO-edX"/>
@@ -98,6 +98,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="MtX-fS-kPZ" kind="show" identifier="BacktoAttribute" id="7f9-e2-Ba2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -112,58 +115,13 @@
                     </view>
                     <connections>
                         <outlet property="MakeKindTableView" destination="0WM-v5-hoc" id="6yU-x1-1dm"/>
-                        <segue destination="RvO-3w-oeD" kind="show" identifier="Make2" id="FgK-lZ-XKV"/>
+                        <segue destination="tgf-q3-TKT" kind="show" identifier="AttributeToNote" id="8PY-qF-HYd"/>
+                        <segue destination="Ild-U4-4mj" kind="show" identifier="AttributeToThing" id="zgI-OD-7Ga"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMn-pV-1K5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3120.8000000000002" y="456.52173913043481"/>
-        </scene>
-        <!--Do Time View Controller-->
-        <scene sceneID="9nu-H3-9Hp">
-            <objects>
-                <viewController id="enh-CZ-6Np" customClass="DoTimeViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UWe-Lb-Bg7"/>
-                        <viewControllerLayoutGuide type="bottom" id="RLz-3m-qDe"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DJa-z7-9dz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="197" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nVs-xB-s96">
-                                <rect key="frame" x="16" y="203" width="343" height="456"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellidentifierTimeDo" rowHeight="197" id="cC1-JY-gsN" customClass="DoTableViewCell" customModule="Something" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="197"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cellidentifier" tableViewCell="cC1-JY-gsN" id="PfV-v3-qXg">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="196.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="nVs-xB-s96" firstAttribute="leading" secondItem="DJa-z7-9dz" secondAttribute="leadingMargin" id="6D5-eH-UVI"/>
-                            <constraint firstItem="nVs-xB-s96" firstAttribute="trailing" secondItem="DJa-z7-9dz" secondAttribute="trailingMargin" id="7uX-tq-RBz"/>
-                            <constraint firstItem="RLz-3m-qDe" firstAttribute="top" secondItem="nVs-xB-s96" secondAttribute="bottom" constant="8" id="sE1-nK-PCV"/>
-                            <constraint firstItem="nVs-xB-s96" firstAttribute="top" secondItem="UWe-Lb-Bg7" secondAttribute="bottom" constant="139" id="tHS-GW-ZtG"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="DoTimeTableView" destination="nVs-xB-s96" id="960-Nh-QKl"/>
-                        <segue destination="55J-GS-5zK" kind="show" identifier="Do" id="Nb6-xg-mGw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8ph-La-M8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2088.8000000000002" y="-301.79910044977515"/>
+            <point key="canvasLocation" x="2906" y="23"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5eH-0C-fMg">
@@ -182,50 +140,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ung-Gk-eMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-15" y="38"/>
-        </scene>
-        <!--Make Time View Controller-->
-        <scene sceneID="A6X-8P-cqm">
-            <objects>
-                <viewController id="RvO-3w-oeD" customClass="MakeTimeViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pcb-MK-hQz"/>
-                        <viewControllerLayoutGuide type="bottom" id="rcb-dS-PmQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nX4-LX-rN4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vbf-zo-p76">
-                                <rect key="frame" x="16" y="215" width="343" height="444"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellidentifierTime" id="mFt-V6-Ej2">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mFt-V6-Ej2" id="Kzb-KF-O8G">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="rcb-dS-PmQ" firstAttribute="top" secondItem="vbf-zo-p76" secondAttribute="bottom" constant="8" id="9fM-0X-jSF"/>
-                            <constraint firstItem="vbf-zo-p76" firstAttribute="leading" secondItem="nX4-LX-rN4" secondAttribute="leadingMargin" id="JSY-ky-3N8"/>
-                            <constraint firstItem="vbf-zo-p76" firstAttribute="trailing" secondItem="nX4-LX-rN4" secondAttribute="trailingMargin" id="Ox6-1p-S9f"/>
-                            <constraint firstItem="vbf-zo-p76" firstAttribute="top" secondItem="pcb-MK-hQz" secondAttribute="bottom" constant="151" id="Z1q-LU-IHS"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="MakeTimeTableView" destination="vbf-zo-p76" id="kSm-aX-54O"/>
-                        <segue destination="tgf-q3-TKT" kind="show" identifier="Make3" id="9T6-ol-Ero"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="erM-7B-ExQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4110" y="457"/>
         </scene>
         <!--Make Note View Controller-->
         <scene sceneID="SN8-L2-1OT">
@@ -299,50 +213,6 @@
             </objects>
             <point key="canvasLocation" x="2088.8000000000002" y="456.52173913043481"/>
         </scene>
-        <!--Do Kind View Controller-->
-        <scene sceneID="8zp-7g-GL6">
-            <objects>
-                <viewController id="55J-GS-5zK" customClass="DoKindViewController" customModule="Something" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="a7W-i7-Tlw"/>
-                        <viewControllerLayoutGuide type="bottom" id="1y5-Lm-A3b"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ImU-H4-PC2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fNM-nY-0ZZ">
-                                <rect key="frame" x="16" y="203" width="343" height="456"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellidentifierKindDo" id="DIr-h0-Dyh">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cellidentifier" tableViewCell="DIr-h0-Dyh" id="jQl-Uk-lks">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="fNM-nY-0ZZ" firstAttribute="top" secondItem="a7W-i7-Tlw" secondAttribute="bottom" constant="139" id="2eb-H4-W7D"/>
-                            <constraint firstItem="1y5-Lm-A3b" firstAttribute="top" secondItem="fNM-nY-0ZZ" secondAttribute="bottom" constant="8" id="6bf-oS-JLC"/>
-                            <constraint firstItem="fNM-nY-0ZZ" firstAttribute="trailing" secondItem="ImU-H4-PC2" secondAttribute="trailingMargin" id="8zJ-S7-1iB"/>
-                            <constraint firstItem="fNM-nY-0ZZ" firstAttribute="leading" secondItem="ImU-H4-PC2" secondAttribute="leadingMargin" id="bfb-FP-If0"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="DoKindTableView" destination="fNM-nY-0ZZ" id="cvJ-P4-P7h"/>
-                        <segue destination="Ild-U4-4mj" kind="show" identifier="Do2" id="FN5-Tn-16d"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9UA-cz-WY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3206" y="-302"/>
-        </scene>
         <!--Do Thing View Controller-->
         <scene sceneID="GbX-Ea-0BJ">
             <objects>
@@ -359,11 +229,11 @@
                                 <rect key="frame" x="16" y="203" width="343" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellidentifierThingDo" id="XgM-4I-P87">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellidentifierThingDo" id="XgM-4I-P87" customClass="DoTableViewCell" customModule="Something" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cellidentifier" tableViewCell="XgM-4I-P87" id="zb9-JN-v65">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -387,4 +257,7 @@
             <point key="canvasLocation" x="4110" y="-303"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="I17-Ag-Cer"/>
+    </inferredMetricsTieBreakers>
 </document>

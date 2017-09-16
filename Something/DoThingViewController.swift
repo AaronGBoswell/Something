@@ -67,7 +67,7 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellidentifierThingDo", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellidentifierThingDo", for: indexPath) as! DoTableViewCell
         configureCell(cell: cell, indexPath: indexPath)
         return cell;
     }
@@ -80,11 +80,12 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
         return sectionInfo.numberOfObjects
         
     }
-    func configureCell(cell: UITableViewCell, indexPath: IndexPath) {
+    func configureCell(cell: DoTableViewCell, indexPath: IndexPath) {
         guard let selectedThing = fetchedResultsController.object(at: indexPath) as? Thing
             else{
                 fatalError("Failed to initialize ")
         }
+        //cell.initialize(color: UIColor(rgb: Int((selectedThing.kind?.color)!), a: CGFloat((selectedThing.kind?.alpha)!)), data: selectedThing.title!)
         cell.textLabel?.text = selectedThing.title
     }
     
@@ -107,12 +108,9 @@ class DoThingViewController: UIViewController ,  UITableViewDataSource, UITableV
     }
     
     func popBack(_ nb: Int) {
-        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
-            guard viewControllers.count < nb else {
-                self.navigationController?.popToViewController(viewControllers[viewControllers.count - nb], animated: true)
-                return
-            }
-        }
+        var viewControllers = navigationController?.viewControllers
+        viewControllers?.removeLast(nb) // views to pop
+        navigationController?.setViewControllers(viewControllers!, animated: true)
     }
     
     
@@ -171,7 +169,7 @@ extension DoThingViewController:NSFetchedResultsControllerDelegate{
         case .delete:
             DoThingTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
         case .update:
-            configureCell(cell: DoThingTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
+            configureCell(cell: DoThingTableView.cellForRow(at: indexPath! as IndexPath)! as! DoTableViewCell, indexPath: indexPath! as IndexPath)
         case .move:
             DoThingTableView.reloadData()
             

@@ -35,12 +35,39 @@ class ViewController: UIViewController {
     }
 
     @IBAction func MakeButton(_ sender: Any) {
+        CreateThingWizard.new()
+        let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.time = (attribute as! Time)}
+        )
+        let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToNote", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.kind = (attribute as! Kind)
+        }
+        )
+        Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
         self.performSegue(withIdentifier: "MakeSeuge", sender: self)
     }
     
     @IBAction func DoButton(_ sender: Any) {
-         self.performSegue(withIdentifier: "DoSeuge", sender: self)
+        let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.time = (attribute as! Time)}
+        )
+        let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToThing", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.kind = (attribute as! Kind)
+        }
+        )
+        Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
+         self.performSegue(withIdentifier: "StartToAttribute", sender: self)
     }
     
+    
+}
+
+protocol Attribute {
+    var alpha:Float {get set};
+    var color:Int64 {get set};
+    var icon:NSData? {get set};
+    var id:Int64 {get set};
+    var title:String?{get set};
+}
+extension Time:Attribute{
+    
+}
+extension Kind:Attribute{
     
 }

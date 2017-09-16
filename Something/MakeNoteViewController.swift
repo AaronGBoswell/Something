@@ -76,7 +76,6 @@ class MakeNoteViewController: UIViewController {
     func doneAction(sender: UIButton!) {
         CreateThingWizard.sharedCreateThingWizard.thing.note = TextField.text;
         CreateThingWizard.sharedCreateThingWizard.save();
-        CreateThingWizard.new()
 
         //TODO
        self.popBack(5)
