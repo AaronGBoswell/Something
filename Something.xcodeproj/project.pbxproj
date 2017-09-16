@@ -11,6 +11,7 @@
 		9473FEE21F6852BA0070F507 /* AttributeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */; };
 		9473FEE61F6882BA0070F507 /* TitleRememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE51F6882BA0070F507 /* TitleRememberViewController.swift */; };
 		9473FEE81F6886830070F507 /* NoteRememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE71F6886830070F507 /* NoteRememberViewController.swift */; };
+		94B1B6381F6DB05E00DBA3CD /* ThingDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B1B6371F6DB05E00DBA3CD /* ThingDataViewController.swift */; };
 		94E4FA421F68B47900FA18A5 /* ThingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E4FA411F68B47900FA18A5 /* ThingsViewController.swift */; };
 		BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E89D1F673350004A5851 /* AppDelegate.swift */; };
 		BD07E8A01F673350004A5851 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07E89F1F673350004A5851 /* InitialViewController.swift */; };
@@ -53,6 +54,7 @@
 		9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeSelectorViewController.swift; path = ViewControllers/CommonWorkFlow/AttributeSelectorViewController.swift; sourceTree = "<group>"; };
 		9473FEE51F6882BA0070F507 /* TitleRememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleRememberViewController.swift; path = ViewControllers/Remember/TitleRememberViewController.swift; sourceTree = "<group>"; };
 		9473FEE71F6886830070F507 /* NoteRememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteRememberViewController.swift; path = ViewControllers/Remember/NoteRememberViewController.swift; sourceTree = "<group>"; };
+		94B1B6371F6DB05E00DBA3CD /* ThingDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingDataViewController.swift; sourceTree = "<group>"; };
 		94E4FA411F68B47900FA18A5 /* ThingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThingsViewController.swift; path = ViewControllers/Thing/ThingsViewController.swift; sourceTree = "<group>"; };
 		BD07E89A1F673350004A5851 /* Something.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Something.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD07E89D1F673350004A5851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				94E4FA411F68B47900FA18A5 /* ThingsViewController.swift */,
+				94B1B6371F6DB05E00DBA3CD /* ThingDataViewController.swift */,
 				BD92AEED1F6CD7AB00C88397 /* ThingTableViewCell.swift */,
 			);
 			name = Thing;
@@ -369,6 +372,7 @@
 				9473FEE21F6852BA0070F507 /* AttributeSelectorViewController.swift in Sources */,
 				BD07E8A61F673350004A5851 /* Something.xcdatamodeld in Sources */,
 				BD07E8D41F675E2D004A5851 /* ColorExtensions.swift in Sources */,
+				94B1B6381F6DB05E00DBA3CD /* ThingDataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

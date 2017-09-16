@@ -101,8 +101,8 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         //TODO
         //CreateThingWizard.sharedInstance.
         
-        //performSegue(withIdentifier: "Do2", sender: tableView.cellForRow(at: indexPath))
-        self.popBack(3)
+        performSegue(withIdentifier: "thingData", sender: tableView.cellForRow(at: indexPath))
+        //self.popBack(3)
 
         
     }
