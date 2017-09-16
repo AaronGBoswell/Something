@@ -10,10 +10,13 @@ import Foundation
 class Workflow{
     static var sharedWorkflow:Workflow = Workflow()
     
+    private var workflow:[WorkFlowItem]!
+    private var stats:DataStatistics = DataStatistics()
+    
     public func setWorkflow(workflow: [WorkFlowItem]){
         self.workflow = workflow
     }
-    private var workflow:[WorkFlowItem]!
+
     public func getCurrentWorkFlowItem() -> WorkFlowItem{
         return workflow.first!
     }
@@ -25,5 +28,12 @@ class Workflow{
         //acctually we put it at the end so pop(3) doesnt kill ourselves.. maybe should handle this elsewhere
         let first = workflow.remove(at: 0)
         workflow.append(first)
+    }
+    public func addToStats(attribute:Attribute){
+        stats = stats.dataStatisticsWithAttibute(attribute: attribute)
+
+    }
+    public func getCurrentDataStatistics() -> DataStatistics{
+        return stats
     }
 }

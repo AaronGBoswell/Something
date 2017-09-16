@@ -20,8 +20,8 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         self.view.backgroundColor = UIColor(rgb:0x69D300)
         
         
-        makeKindTableView.delegate = self
-        makeKindTableView.dataSource = self
+        attributeKindTableView.delegate = self
+        attributeKindTableView.dataSource = self
         initalizeFetchedResultsController()
         
         makeBackButton()
@@ -58,7 +58,7 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
  
 
     //TableView 
-    @IBOutlet weak var makeKindTableView: UITableView!
+    @IBOutlet weak var attributeKindTableView: UITableView!
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,11 +77,12 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
 
     }
     func configureCell(cell: AttributeTableViewCell, indexPath: IndexPath) {
-        guard let selectedAttribute = fetchedResultsController.object(at: indexPath) as? Attribute
+        guard let attributeInCell = fetchedResultsController.object(at: indexPath) as? Attribute
             else{
                 fatalError("Failed to initialize ")
         }
-        cell.initialize(color: UIColor(rgb: Int(selectedAttribute.color), a: CGFloat(selectedAttribute.alpha)), data: selectedAttribute.title!)
+        print(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWithAttibute(attribute: attributeInCell).calculateTotal())
+        cell.initialize(color: UIColor(rgb: Int(attributeInCell.color), a: CGFloat(attributeInCell.alpha)), data: attributeInCell.title!)
         //cell.initialize(color: .green, data: selectedKind.title!)
     }
     
@@ -94,8 +95,8 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         tableView.deselectRow(at: indexPath, animated: true)
         
         Workflow.sharedWorkflow.getCurrentWorkFlowItem().selectAttribute(attribute: selectedAttribute)
+        Workflow.sharedWorkflow.addToStats(attribute: selectedAttribute)
         let segueIdentifier = Workflow.sharedWorkflow.getCurrentWorkFlowItem().segueIdentifier
-        
         Workflow.sharedWorkflow.nextWorkFlowItem()
         performSegue(withIdentifier: segueIdentifier, sender: self)
         
@@ -141,15 +142,15 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
 
 extension AttributeSelectorViewController:NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        makeKindTableView.beginUpdates()
+        attributeKindTableView.beginUpdates()
     }
     
     func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            makeKindTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            attributeKindTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .delete:
-            makeKindTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            attributeKindTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .move:
             break
         case .update:
@@ -160,21 +161,21 @@ extension AttributeSelectorViewController:NSFetchedResultsControllerDelegate{
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            makeKindTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
+            attributeKindTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
         case .delete:
-            makeKindTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
+            attributeKindTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
         case .update:
              break;
-            //configureCell(cell: makeKindTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
+            //configureCell(cell: attributeKindTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
            
         case .move:
-            makeKindTableView.reloadData()
+            attributeKindTableView.reloadData()
             
         }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        makeKindTableView.endUpdates()
+        attributeKindTableView.endUpdates()
     }
 }
 

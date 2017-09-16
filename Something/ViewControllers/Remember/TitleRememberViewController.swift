@@ -14,7 +14,7 @@ class TitleRememberViewController: UIViewController {
     
     
     //TODO This should not be capital
-    @IBOutlet weak var TextField: UITextView!
+    @IBOutlet weak var textField: UITextView!
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class TitleRememberViewController: UIViewController {
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         //TODO
-        CreateThingWizard.sharedCreateThingWizard.thing.title = TextField.text
+        CreateThingWizard.sharedCreateThingWizard.thing.title = textField.text
         view.endEditing(true)
         performSegue(withIdentifier: "Make", sender: self)
     }

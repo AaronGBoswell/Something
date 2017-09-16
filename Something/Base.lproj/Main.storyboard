@@ -114,7 +114,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="MakeKindTableView" destination="0WM-v5-hoc" id="6yU-x1-1dm"/>
+                        <outlet property="attributeKindTableView" destination="0WM-v5-hoc" id="vje-eU-aua"/>
                         <segue destination="tgf-q3-TKT" kind="show" identifier="AttributeToNote" id="8PY-qF-HYd"/>
                         <segue destination="Ild-U4-4mj" kind="show" identifier="AttributeToThing" id="zgI-OD-7Ga"/>
                     </connections>
@@ -249,7 +249,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="DoThingTableView" destination="SfX-tl-bAY" id="0QU-tP-z0e"/>
+                        <outlet property="thingTableView" destination="SfX-tl-bAY" id="gQG-AB-pEK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yF-Ba-6GY" userLabel="First Responder" sceneMemberID="firstResponder"/>

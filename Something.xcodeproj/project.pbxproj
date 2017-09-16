@@ -28,6 +28,7 @@
 		BD92AEEE1F6CD7AB00C88397 /* ThingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEED1F6CD7AB00C88397 /* ThingTableViewCell.swift */; };
 		BD92AEF31F6CF27D00C88397 /* AttributeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEF21F6CF27D00C88397 /* AttributeExtensions.swift */; };
 		BD92AEF51F6CF2A000C88397 /* DataSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEF41F6CF2A000C88397 /* DataSetup.swift */; };
+		BD92AEF71F6CF95500C88397 /* DataStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD92AEF61F6CF95500C88397 /* DataStatistics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		BD92AEED1F6CD7AB00C88397 /* ThingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThingTableViewCell.swift; path = ViewControllers/Thing/ThingTableViewCell.swift; sourceTree = "<group>"; };
 		BD92AEF21F6CF27D00C88397 /* AttributeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeExtensions.swift; path = AuxillaryExtensions/AttributeExtensions.swift; sourceTree = "<group>"; };
 		BD92AEF41F6CF2A000C88397 /* DataSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSetup.swift; path = DataInteraction/DataSetup.swift; sourceTree = "<group>"; };
+		BD92AEF61F6CF95500C88397 /* DataStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataStatistics.swift; path = DataInteraction/DataStatistics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				BD92AEE91F6CC44900C88397 /* Workflow.swift */,
 				BD92AEEB1F6CC46300C88397 /* WorkFlowItem.swift */,
 				BD92AEF41F6CF2A000C88397 /* DataSetup.swift */,
+				BD92AEF61F6CF95500C88397 /* DataStatistics.swift */,
 			);
 			name = DataInteraction;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				BD07E8D01F675086004A5851 /* CreateThingWizard.swift in Sources */,
 				BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */,
 				94E4FA421F68B47900FA18A5 /* ThingsViewController.swift in Sources */,
+				BD92AEF71F6CF95500C88397 /* DataStatistics.swift in Sources */,
 				9473FEE61F6882BA0070F507 /* TitleRememberViewController.swift in Sources */,
 				9473FEE21F6852BA0070F507 /* AttributeSelectorViewController.swift in Sources */,
 				BD07E8A61F673350004A5851 /* Something.xcdatamodeld in Sources */,

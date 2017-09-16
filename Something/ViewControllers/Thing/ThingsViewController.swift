@@ -23,8 +23,8 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         self.view.backgroundColor = UIColor(rgb:0x69D300)
         
         
-        doThingTableView.delegate = self
-        doThingTableView.dataSource = self
+        thingTableView.delegate = self
+        thingTableView.dataSource = self
         initalizeFetchedResultsController()
         
         MakeBackButton()
@@ -62,7 +62,7 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
     
     
     //TableView
-    @IBOutlet weak var doThingTableView: UITableView!
+    @IBOutlet weak var thingTableView: UITableView!
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -146,15 +146,15 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
 
 extension ThingsViewController:NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        doThingTableView.beginUpdates()
+        thingTableView.beginUpdates()
     }
     
     func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            doThingTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            thingTableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .delete:
-            doThingTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+            thingTableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
         case .move:
             break
         case .update:
@@ -165,19 +165,19 @@ extension ThingsViewController:NSFetchedResultsControllerDelegate{
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            doThingTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
+            thingTableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
         case .delete:
-            doThingTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
+            thingTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
         case .update:
-            configureCell(cell: doThingTableView.cellForRow(at: indexPath! as IndexPath)! as! ThingTableViewCell, indexPath: indexPath! as IndexPath)
+            configureCell(cell: thingTableView.cellForRow(at: indexPath! as IndexPath)! as! ThingTableViewCell, indexPath: indexPath! as IndexPath)
         case .move:
-            doThingTableView.reloadData()
+            thingTableView.reloadData()
             
         }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        doThingTableView.endUpdates()
+        thingTableView.endUpdates()
     }
 }
 

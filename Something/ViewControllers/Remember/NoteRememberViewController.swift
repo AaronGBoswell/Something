@@ -14,7 +14,7 @@ class NoteRememberViewController: UIViewController {
     
     
     
-    @IBOutlet weak var TextField: UITextView!
+    @IBOutlet weak var textField: UITextView!
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class NoteRememberViewController: UIViewController {
     }
     
     func doneAction(sender: UIButton!) {
-        CreateThingWizard.sharedCreateThingWizard.thing.note = TextField.text;
+        CreateThingWizard.sharedCreateThingWizard.thing.note = textField.text;
         CreateThingWizard.sharedCreateThingWizard.save();
 
         //TODO
