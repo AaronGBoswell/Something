@@ -18,6 +18,8 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
     
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
+    var sendThing:Thing?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
@@ -96,16 +98,31 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
             else{
                 fatalError("Failed to initialize ")
         }
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
         //TODO
         //CreateThingWizard.sharedInstance.
-        
+        sendThing = selectedThing
         performSegue(withIdentifier: "thingData", sender: tableView.cellForRow(at: indexPath))
         //self.popBack(3)
 
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "thingData" {
+            
+            let nextView = segue.destination as! ThingDataViewController
+            
+            
+            
+            nextView.getThing = sendThing
+        }
+        
+        
+    }
+
     
     func popBack(_ nb: Int) {
         var viewControllers = navigationController?.viewControllers

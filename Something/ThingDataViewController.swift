@@ -23,7 +23,7 @@ import CoreData
 class ThingDataViewController: UIViewController{
     
     
-    
+     var getThing:Thing?
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
     override func viewDidLoad() {
@@ -35,6 +35,7 @@ class ThingDataViewController: UIViewController{
         MakeEditButton()
         MakeDoneButton()
         MakeTitle()
+        MakeThingDataLabel()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -49,7 +50,7 @@ class ThingDataViewController: UIViewController{
     }
     
     func MakeBackButton(){
-        let button = UIButton(frame: CGRect(x: 100, y: 20, width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: 10, y: 20, width: 100, height: 50))
         button.backgroundColor = .clear
         button.setTitle("Back", for: .normal)
         button.setTitleColor(StyleModel.sharedInstance.buttonColor , for: .normal)
@@ -59,7 +60,7 @@ class ThingDataViewController: UIViewController{
     }
 
     func MakeEditButton(){
-        let button = UIButton(frame: CGRect(x: 200, y: 20, width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: 100, y: 20, width: 100, height: 50))
         button.backgroundColor = .clear
         button.setTitle("Edit", for: .normal)
         button.setTitleColor(StyleModel.sharedInstance.buttonColor, for: .normal)
@@ -74,7 +75,7 @@ class ThingDataViewController: UIViewController{
         }
     }
     func MakeDoneButton(){
-        let button = UIButton(frame: CGRect(x: 400, y: 20, width: 100, height: 50))
+        let button = UIButton(frame: CGRect(x: 210, y: 20, width: 100, height: 50))
         button.backgroundColor = .clear
         button.setTitle("Done", for: .normal)
         button.setTitleColor(StyleModel.sharedInstance.buttonColor, for: .normal)
@@ -83,6 +84,15 @@ class ThingDataViewController: UIViewController{
         self.view.addSubview(button)
     }
     
+    func MakeThingDataLabel(){
+        let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
+        // label.frame = CGRectDo(50, 50, 200, 21)
+        label.backgroundColor = .clear
+        label.textColor = StyleModel.sharedInstance.labelColor
+        label.textAlignment = NSTextAlignment.center
+        label.text = getThing?.title
+        self.view.addSubview(label)
+    }
    
     
     
