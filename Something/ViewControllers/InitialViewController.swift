@@ -15,26 +15,76 @@ class InitialViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         makeTitle()
+        makeMakeButton()
+        madeDoButton()
+        makeSomethingButton()
+        makeTitleMotto()
     }
     
     
     //trying this on for size going to make it in storyboard
     func makeTitle(){
-        let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 100, width: self.view.frame.size.width, height: 100))
        // label.frame = CGRectMake(50, 50, 200, 21)
         label.backgroundColor = .clear
-        label.textColor = UIColor(rgb:0x50514F)  
+        label.textColor = StyleModel.sharedInstance.homeTitleColor
         label.textAlignment = NSTextAlignment.center
-        label.text = "SOMTHING"
+        label.text = "Something"
+        label.font = UIFont(name: "PingFang SC", size: 30)
         self.view.addSubview(label)
     }
+
+    func makeTitleMotto(){
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 175, width: self.view.frame.size.width, height: 220))
+        // label.frame = CGRectMake(50, 50, 200, 21)
+        label.backgroundColor = .clear
+        label.textColor = StyleModel.sharedInstance.buttonColor
+        label.textAlignment = NSTextAlignment.center
+        label.text = "Organize your thoughts."
+        label.font = UIFont(name: "PingFang SC", size: 14)
+        self.view.addSubview(label)
+    }
+
+    func makeMakeButton(){
+        let button = UIButton(frame: CGRect(x: 0, y: 300, width: self.view.frame.size.width, height: 100))
+        button.backgroundColor = .black
+        button.setTitle("MAKE", for: .normal)
+        button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
+        button.setTitleColor(StyleModel.sharedInstance.homeTextMakeColor , for: .normal)
+        button.addTarget(self, action: #selector(makeAction), for: .touchUpInside)
+        
+        self.view.addSubview(button)
+    }
+    func madeDoButton(){
+        let button = UIButton(frame: CGRect(x: 0, y: 401, width: self.view.frame.size.width, height: 100))
+        button.backgroundColor = .black
+        button.setTitle("DO", for: .normal)
+        button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
+        button.setTitleColor(StyleModel.sharedInstance.homeTextDoColor , for: .normal)
+        button.addTarget(self, action: #selector(doAction), for: .touchUpInside)
+        
+        self.view.addSubview(button)
+    }
+    func makeSomethingButton(){
+        let button = UIButton(frame: CGRect(x: 0, y: 502, width: self.view.frame.size.width, height: 100))
+        button.backgroundColor = .black
+        button.setTitle("SOMETHING", for: .normal)
+        button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
+        button.setTitleColor(StyleModel.sharedInstance.homeTextSomethingColor , for: .normal)
+        button.addTarget(self, action: #selector(makeAction), for: .touchUpInside)
+        
+        self.view.addSubview(button)
+    }
+
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func MakeButton(_ sender: Any) {
+     func makeAction(sender: UIButton!) {
         CreateThingWizard.new()
         let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.time = (attribute as! Time)}
         )
@@ -45,7 +95,7 @@ class InitialViewController: UIViewController {
         self.performSegue(withIdentifier: "MakeSeuge", sender: self)
     }
     
-    @IBAction func DoButton(_ sender: Any) {
+   func doAction(sender: UIButton!) {
         let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.time = (attribute as! Time)}
         )
         let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToThing", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.kind = (attribute as! Kind)
