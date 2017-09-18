@@ -52,10 +52,10 @@ func newKind(id:Int64, alpha:Float,color:Int64, title:String){
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
 }
 func setupKinds(){
-    newKind(id: 1,alpha: 0.5,color: 0xff0000,title: "need to do")
-    newKind(id: 2,alpha: 0.5,color: 0x00ff00,title: "nice to do")
-    newKind(id: 3,alpha: 0.5,color: 0x0000ff,title: "want to do")
-    newKind(id: Int64.max ,alpha: 1,color: 0xff0000,title: "Doesn't matter")
+    newKind(id: 1,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["need to do"]!),title: "need to do")
+    newKind(id: 2,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["nice to do"]!),title: "nice to do")
+    newKind(id: 3,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["want to do"]!),title: "want to do")
+    newKind(id: Int64.max ,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["Doesn't matter"]!),title: "Doesn't matter")
     
 }
 func newTime(id:Int64, alpha:Float,color:Int64, title:String){
@@ -69,9 +69,9 @@ func newTime(id:Int64, alpha:Float,color:Int64, title:String){
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
 }
 func setupTimes(){
-    newTime(id: 1,alpha: 1, color: 0xff0000, title: "5min")
-    newTime(id: 2,alpha: 1, color: 0xff0000, title: "30min")
-    newTime(id: 3,alpha: 1, color: 0xff0000, title: "60min")
-    newTime(id: Int64.max ,alpha: 1,color: 0xff0000,title: "Doesn't matter")
+    newTime(id: 1,alpha: 1, color:  Int64(StyleModel.sharedInstance.kindColors["5min"]!), title: "5min")
+    newTime(id: 2,alpha: 1, color:  Int64(StyleModel.sharedInstance.kindColors["30min"]!), title: "30min")
+    newTime(id: 3,alpha: 1, color:  Int64(StyleModel.sharedInstance.kindColors["60min"]!), title: "60min")
+    newTime(id: Int64.max ,alpha: 1,color:  Int64(StyleModel.sharedInstance.kindColors["Doesn't matter"]!),title: "Doesn't matter")
     
 }
