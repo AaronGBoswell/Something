@@ -23,7 +23,7 @@ class InitialViewController: UIViewController {
         let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
        // label.frame = CGRectMake(50, 50, 200, 21)
         label.backgroundColor = .clear
-        label.textColor = UIColor(rgb:0x50514F)
+        label.textColor = UIColor(rgb:0x50514F)  
         label.textAlignment = NSTextAlignment.center
         label.text = "SOMTHING"
         self.view.addSubview(label)

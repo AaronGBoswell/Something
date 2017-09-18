@@ -27,7 +27,7 @@ class AttributeTableViewCell: UITableViewCell {
         let label: UILabel = UILabel(frame: CGRect(x: 20, y: 10, width: 200, height: 30))
         // label.frame = CGRectDo(50, 50, 200, 21)
         label.backgroundColor = .clear
-        label.textColor = UIColor(rgb:0x50514F)
+        label.textColor = StyleModel.sharedInstance.labelColor
         label.textAlignment = NSTextAlignment.left
         label.text = "Time: " + dataString!
         baseView?.addSubview(label)

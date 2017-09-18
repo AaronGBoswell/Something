@@ -69,9 +69,9 @@ func newTime(id:Int64, alpha:Float,color:Int64, title:String){
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
 }
 func setupTimes(){
-    newTime(id: 1,alpha: 1, color:  Int64(StyleModel.sharedInstance.kindColors["5min"]!), title: "5min")
-    newTime(id: 2,alpha: 1, color:  Int64(StyleModel.sharedInstance.kindColors["30min"]!), title: "30min")
-    newTime(id: 3,alpha: 1, color:  Int64(StyleModel.sharedInstance.kindColors["60min"]!), title: "60min")
-    newTime(id: Int64.max ,alpha: 1,color:  Int64(StyleModel.sharedInstance.kindColors["Doesn't matter"]!),title: "Doesn't matter")
+    newTime(id: 1,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["5min"]!), title: "5min")
+    newTime(id: 2,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["30min"]!), title: "30min")
+    newTime(id: 3,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["60min"]!), title: "60min")
+    newTime(id: Int64.max ,alpha: 1,color:  Int64(StyleModel.sharedInstance.timeColors["Doesn't matter"]!),title: "Doesn't matter")
     
 }
