@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		941C05061F6C8A2200A7AD05 /* AttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C05051F6C8A2200A7AD05 /* AttributeTableViewCell.swift */; };
+		944F5A3C1F6F964600EA6D33 /* StyleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F5A3B1F6F964600EA6D33 /* StyleModel.swift */; };
 		9473FEE21F6852BA0070F507 /* AttributeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */; };
 		9473FEE61F6882BA0070F507 /* TitleRememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE51F6882BA0070F507 /* TitleRememberViewController.swift */; };
 		9473FEE81F6886830070F507 /* NoteRememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE71F6886830070F507 /* NoteRememberViewController.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		941C05051F6C8A2200A7AD05 /* AttributeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeTableViewCell.swift; path = ViewControllers/CommonWorkFlow/AttributeTableViewCell.swift; sourceTree = "<group>"; };
+		944F5A3B1F6F964600EA6D33 /* StyleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleModel.swift; sourceTree = "<group>"; };
 		9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeSelectorViewController.swift; path = ViewControllers/CommonWorkFlow/AttributeSelectorViewController.swift; sourceTree = "<group>"; };
 		9473FEE51F6882BA0070F507 /* TitleRememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleRememberViewController.swift; path = ViewControllers/Remember/TitleRememberViewController.swift; sourceTree = "<group>"; };
 		9473FEE71F6886830070F507 /* NoteRememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteRememberViewController.swift; path = ViewControllers/Remember/NoteRememberViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				BD07E8CF1F675086004A5851 /* CreateThingWizard.swift */,
 				BD07E8D11F67570D004A5851 /* PredicateFormulator.swift */,
 				BD92AEE91F6CC44900C88397 /* Workflow.swift */,
+				944F5A3B1F6F964600EA6D33 /* StyleModel.swift */,
 				BD92AEEB1F6CC46300C88397 /* WorkFlowItem.swift */,
 				BD92AEF41F6CF2A000C88397 /* DataSetup.swift */,
 				BD92AEF61F6CF95500C88397 /* DataStatistics.swift */,
@@ -364,6 +367,7 @@
 				BD92AEEA1F6CC44900C88397 /* Workflow.swift in Sources */,
 				9473FEE81F6886830070F507 /* NoteRememberViewController.swift in Sources */,
 				BD07E8A01F673350004A5851 /* InitialViewController.swift in Sources */,
+				944F5A3C1F6F964600EA6D33 /* StyleModel.swift in Sources */,
 				BD07E8D01F675086004A5851 /* CreateThingWizard.swift in Sources */,
 				BD07E89E1F673350004A5851 /* AppDelegate.swift in Sources */,
 				94E4FA421F68B47900FA18A5 /* ThingsViewController.swift in Sources */,

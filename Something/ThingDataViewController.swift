@@ -28,7 +28,7 @@ class ThingDataViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(rgb:0x69D300)
+        self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         
         
         MakeBackButton()

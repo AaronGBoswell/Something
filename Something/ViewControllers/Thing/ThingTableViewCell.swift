@@ -21,7 +21,7 @@ class ThingTableViewCell: UITableViewCell {
         
 
         //cludge alert!!!! cannot make contentview clear, need to fix this
-        self.contentView.backgroundColor = UIColor(rgb:0x69D300)
+        self.contentView.backgroundColor = StyleModel.sharedInstance.backgroundColor
         
         
     }

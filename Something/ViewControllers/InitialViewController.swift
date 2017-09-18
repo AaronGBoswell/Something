@@ -13,7 +13,7 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        self.view.backgroundColor = UIColor(rgb:0x69D300)
+        self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         makeTitle()
     }
     

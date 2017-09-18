@@ -17,7 +17,7 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
     var canSegue = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(rgb:0x69D300)
+        self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         
         
         attributeKindTableView.delegate = self

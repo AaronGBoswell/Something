@@ -19,7 +19,7 @@ class NoteRememberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(rgb:0x69D300)
+        self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
