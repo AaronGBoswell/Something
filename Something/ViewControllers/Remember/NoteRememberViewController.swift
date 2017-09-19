@@ -24,10 +24,15 @@ class NoteRememberViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        makeBackButton()
+        self.title = "Detail"
+        //makeBackButton()
         makeDoneButton()
-        makeTitle()
+        //makeTitle()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textField.becomeFirstResponder()
     }
     
     func dismissKeyboard() {
@@ -64,16 +69,11 @@ class NoteRememberViewController: UIViewController {
         }
     }
     func makeDoneButton(){
-        let button = UIButton(frame: CGRect(x: 300, y: 20, width: 100, height: 50))
-        button.backgroundColor = .clear
-        button.setTitle("Done", for: .normal)
-        button.setTitleColor(StyleModel.sharedInstance.buttonColor, for: .normal)
-        button.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
-        
-        self.view.addSubview(button)
+        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(doneAction)), animated: true)
+        //self.view.addSubview(button)
     }
     
-    func doneAction(sender: UIButton!) {
+    func doneAction(sender: AnyObject!) {
         CreateThingWizard.sharedCreateThingWizard.thing.note = textField.text;
         CreateThingWizard.sharedCreateThingWizard.save();
 
@@ -91,3 +91,4 @@ class NoteRememberViewController: UIViewController {
 
     
 }
+

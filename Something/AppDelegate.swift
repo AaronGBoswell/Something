@@ -22,8 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         purgeCoreData()
         setupCoreData()
         
-        
-        
+        UINavigationBar.appearance().barTintColor = StyleModel.sharedInstance.backgroundColor
+        UINavigationBar.appearance().titleTextAttributes =
+            [NSForegroundColorAttributeName: StyleModel.sharedInstance.homeTitleColor,
+             NSFontAttributeName: UIFont(name: "PingFang SC", size: 30)!]
+        UINavigationBar.appearance().tintColor = StyleModel.sharedInstance.labelColor
+
         return true
     }
 

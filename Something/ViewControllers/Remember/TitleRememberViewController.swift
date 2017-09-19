@@ -24,12 +24,17 @@ class TitleRememberViewController: UIViewController {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-             
-        makeBackButton()
-        makeTitle()
+        self.title = "Describe"
+        
+        //makeBackButton()
+        //makeTitle()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textField.becomeFirstResponder()
+    }
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         //TODO
@@ -59,10 +64,11 @@ class TitleRememberViewController: UIViewController {
         self.view.addSubview(button)
     }
     
-    func backAction(sender: UIButton!) {
+    func backAction(sender: AnyObject!) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }
     }
 
 }
+

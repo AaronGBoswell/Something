@@ -24,8 +24,9 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         attributeKindTableView.dataSource = self
         initalizeFetchedResultsController()
         
-        makeBackButton()
-         makeTitle()
+        title = attribute
+        //makeBackButton()
+        // makeTitle()
         // Do any additional setup after loading the view, typically from a nib.
     }
     

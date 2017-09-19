@@ -29,8 +29,9 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         thingTableView.dataSource = self
         initalizeFetchedResultsController()
         
-        MakeBackButton()
-        MakeTitle()
+        self.title = "Things"
+        //MakeBackButton()
+        //MakeTitle()
         // Do any additional setup after loading the view, typically from a nib.
     }
     

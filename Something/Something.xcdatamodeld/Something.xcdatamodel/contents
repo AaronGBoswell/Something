@@ -11,6 +11,7 @@
     <entity name="Thing" representedClassName="Thing" syncable="YES" codeGenerationType="class">
         <attribute name="completed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastCompleted" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="note" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" defaultValueString="Default Title" syncable="YES"/>
         <relationship name="kind" maxCount="1" deletionRule="Nullify" destinationEntity="Kind" inverseName="things" inverseEntity="Kind" syncable="YES"/>
@@ -26,7 +27,7 @@
     </entity>
     <elements>
         <element name="Kind" positionX="-63" positionY="-144" width="128" height="133"/>
-        <element name="Thing" positionX="-63" positionY="-360" width="128" height="133"/>
+        <element name="Thing" positionX="-63" positionY="-360" width="128" height="148"/>
         <element name="Time" positionX="108" positionY="-144" width="128" height="133"/>
     </elements>
 </model>

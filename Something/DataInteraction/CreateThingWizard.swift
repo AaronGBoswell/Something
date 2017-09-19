@@ -18,6 +18,7 @@ class CreateThingWizard {
     public class func new(){
         let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let thing = NSEntityDescription.insertNewObject(forEntityName: "Thing", into: moc) as! Thing
+        thing.dateCreated = NSDate()
         sharedCreateThingWizard.thing = thing
     }
 
