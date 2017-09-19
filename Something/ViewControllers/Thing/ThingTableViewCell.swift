@@ -25,6 +25,8 @@ class ThingTableViewCell: UITableViewCell {
         
         
     }
+    
+    
     func makeLabel(){
         
         let label: UILabel = UILabel(frame: CGRect(x: 20, y: 10, width: 200, height: 30))
@@ -32,18 +34,19 @@ class ThingTableViewCell: UITableViewCell {
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
         label.textAlignment = NSTextAlignment.left
-        label.text = "Time: " + dataString!
+        label.text = "Thing: " + dataString!
         baseView?.addSubview(label)
     }
     func makeBaseView(){
         let width = self.contentView.frame.width
         let height = self.contentView.frame.height
-        baseView  = UIView(frame: CGRect(x: 25, y: 25, width: (width - 50), height: (height - 50)))
+        baseView  = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         baseView?.backgroundColor = color!
         self.contentView.addSubview(baseView!)
         
         
     }
+
     
    
   

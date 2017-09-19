@@ -88,8 +88,8 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
             else{
                 fatalError("Failed to initialize ")
         }
-        //cell.initialize(color: UIColor(rgb: Int((selectedThing.kind?.color)!), a: CGFloat((selectedThing.kind?.alpha)!)), data: selectedThing.title!)
-        cell.textLabel?.text = selectedThing.title
+        cell.initialize(color: UIColor(rgb: Int((selectedThing.kind?.color)!), a: CGFloat((selectedThing.kind?.alpha)!)), data: selectedThing.title!)
+        //cell.textLabel?.text = selectedThing.title
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

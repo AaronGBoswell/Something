@@ -22,7 +22,7 @@ import CoreData
 
 class ThingDataViewController: UIViewController{
     
-    
+     var colorView:UIView?
      var getThing:Thing?
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
@@ -30,12 +30,18 @@ class ThingDataViewController: UIViewController{
         super.viewDidLoad()
         self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         
-        
-        MakeBackButton()
-        MakeEditButton()
+        MakeColorView()
+        //MakeBackButton()
+        //MakeEditButton()
         MakeDoneButton()
-        MakeTitle()
+        MakeNoteLabel()
+        //MakeTitle()
         MakeThingDataLabel()
+        MakeThingNoteDataLabel()
+        
+        self.title = "Selected Task"
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -75,24 +81,55 @@ class ThingDataViewController: UIViewController{
         }
     }
     func MakeDoneButton(){
-        let button = UIButton(frame: CGRect(x: 210, y: 20, width: 100, height: 50))
-        button.backgroundColor = .clear
-        button.setTitle("Done", for: .normal)
-        button.setTitleColor(StyleModel.sharedInstance.buttonColor, for: .normal)
-        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        
-        self.view.addSubview(button)
+    
+        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(backAction)), animated: true)
+            //self.view.addSubview(button)
     }
     
     func MakeThingDataLabel(){
-        let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
+        let width = self.view.frame.width
+        let label: UILabel = UILabel(frame: CGRect(x: 10, y: 20, width: width - 20, height: 50))
         // label.frame = CGRectDo(50, 50, 200, 21)
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
-        label.textAlignment = NSTextAlignment.center
-        label.text = getThing?.title
+        label.textAlignment = NSTextAlignment.left
+        label.text = "Task: " + (getThing?.title)!
         self.view.addSubview(label)
     }
+    func MakeNoteLabel(){
+        let width = self.view.frame.width
+        let label: UILabel = UILabel(frame: CGRect(x: 10, y: 70, width: width - 20, height: 50))
+        // label.frame = CGRectDo(50, 50, 200, 21)
+        label.backgroundColor = .clear
+        label.textColor = StyleModel.sharedInstance.labelColor
+        label.textAlignment = NSTextAlignment.left
+        label.text = "Note: "
+        self.view.addSubview(label)
+    }
+    
+    func MakeThingNoteDataLabel(){
+        let width = self.view.frame.width
+        let height = self.view.frame.height
+        let note: UITextView = UITextView(frame: CGRect(x: 20, y: 100, width: width - 40, height: height - 100))
+        // label.frame = CGRectDo(50, 50, 200, 21)
+        note.backgroundColor = .clear
+        note.textColor = StyleModel.sharedInstance.labelColor
+        note.textAlignment = NSTextAlignment.center
+        note.text = getThing?.note
+        self.view.addSubview(note)
+    }
+    
+    
+    func MakeColorView(){
+        let width = self.view.frame.width
+        let height = self.view.frame.height
+        colorView  = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        colorView?.backgroundColor = UIColor(rgb: Int((getThing!.kind?.color)!))
+        self.view.addSubview(colorView!)
+        
+        
+    }
+
    
     
     
