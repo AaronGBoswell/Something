@@ -17,8 +17,9 @@ class StyleModel  {
     var backgroundColor = UIColor(rgb:0x1985A1)
     var homeTextMakeColor = UIColor(rgb:0xFF146A)
     var homeTextDoColor = UIColor(rgb:0xFFBB3D)
-    var homeTextSomethingColor = UIColor(rgb:0x218380)
+    var homeTextSomethingColor = UIColor(rgb:0xACF39D)
     var homeTitleColor = UIColor(rgb:0x9FA9B2)
+    var homeTextHistoryColor = UIColor(rgb:0x218380)
     
     
     
