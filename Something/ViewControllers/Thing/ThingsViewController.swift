@@ -55,7 +55,7 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         self.view.addSubview(button)
     }
     
-    func backAction(sender: UIButton!) {
+    @objc func backAction(sender: UIButton!) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }

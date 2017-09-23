@@ -24,10 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().barTintColor = StyleModel.sharedInstance.backgroundColor
         UINavigationBar.appearance().titleTextAttributes =
-            [NSForegroundColorAttributeName: StyleModel.sharedInstance.homeTitleColor,
-             NSFontAttributeName: UIFont(name: "PingFang SC", size: 30)!]
+            [NSAttributedStringKey.foregroundColor: StyleModel.sharedInstance.homeTitleColor,
+             NSAttributedStringKey.font: UIFont(name: "PingFang SC", size: 30)!]
+        if #available(iOS 11.0, *) {
+            UINavigationBar.appearance().largeTitleTextAttributes =
+                [NSAttributedStringKey.foregroundColor: StyleModel.sharedInstance.homeTitleColor,
+                 NSAttributedStringKey.font: UIFont(name: "PingFang SC", size: 30)!,]
+        } else {
+            // Fallback on earlier versions
+        }
         UINavigationBar.appearance().tintColor = StyleModel.sharedInstance.labelColor
-
+        UINavigationBar.appearance().backgroundColor = StyleModel.sharedInstance.backgroundColor
         return true
     }
 

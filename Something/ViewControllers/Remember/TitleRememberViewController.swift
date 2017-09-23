@@ -35,7 +35,7 @@ class TitleRememberViewController: UIViewController {
         super.viewDidAppear(animated)
         textField.becomeFirstResponder()
     }
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         //TODO
         CreateThingWizard.sharedCreateThingWizard.thing.title = textField.text
@@ -64,7 +64,7 @@ class TitleRememberViewController: UIViewController {
         self.view.addSubview(button)
     }
     
-    func backAction(sender: AnyObject!) {
+    @objc func backAction(sender: AnyObject!) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }

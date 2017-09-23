@@ -28,7 +28,11 @@ class InitialViewController: UIViewController {
         //navBar.tintColor = StyleModel.sharedInstance.backgroundColor
         //navBar.backgroundColor = StyleModel.sharedInstance.backgroundColor
         navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-
+        if #available(iOS 11.0, *) {
+            navBar.prefersLargeTitles = true
+        } else {
+            // Fallback on earlier versions
+        }
         navBar.shadowImage = UIImage()
         self.title = "Something"
 
@@ -119,13 +123,13 @@ class InitialViewController: UIViewController {
         
         
     }
-    func somethingAction(sender: UIButton!) {
+    @objc func somethingAction(sender: UIButton!) {
         performSegue(withIdentifier: "InitialToThing", sender: self)
     }
     
 
 
-     func makeAction(sender: UIButton!) {
+     @objc func makeAction(sender: UIButton!) {
         CreateThingWizard.new()
         let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.time = (attribute as! Time)}
         )
@@ -136,7 +140,7 @@ class InitialViewController: UIViewController {
         self.performSegue(withIdentifier: "MakeSeuge", sender: self)
     }
     
-   func doAction(sender: UIButton!) {
+   @objc func doAction(sender: UIButton!) {
         let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.time = (attribute as! Time)}
         )
         let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToThing", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.kind = (attribute as! Kind)
@@ -152,7 +156,7 @@ class InitialViewController: UIViewController {
 //This sets the height of the NavBar
 
 extension UINavigationBar{
-    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+    @objc open override func sizeThatFits(_ size: CGSize) -> CGSize {
         var rec = self.frame
         let screenRect = UIScreen.main.bounds
         rec.size.width = screenRect.size.width

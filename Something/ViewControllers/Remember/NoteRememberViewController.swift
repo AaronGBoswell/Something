@@ -35,7 +35,7 @@ class NoteRememberViewController: UIViewController {
         textField.becomeFirstResponder()
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         
         view.endEditing(true)
@@ -63,7 +63,7 @@ class NoteRememberViewController: UIViewController {
         self.view.addSubview(button)
     }
     
-    func backAction(sender: UIButton!) {
+    @objc func backAction(sender: UIButton!) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }
@@ -73,7 +73,7 @@ class NoteRememberViewController: UIViewController {
         //self.view.addSubview(button)
     }
     
-    func doneAction(sender: AnyObject!) {
+    @objc func doneAction(sender: AnyObject!) {
         CreateThingWizard.sharedCreateThingWizard.thing.note = textField.text;
         CreateThingWizard.sharedCreateThingWizard.save();
 
