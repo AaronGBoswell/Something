@@ -25,6 +25,7 @@ class NoteRememberViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         self.title = "Detail"
+        textField.text = CreateThingWizard.sharedCreateThingWizard.thing.note ?? ""
         //makeBackButton()
         makeDoneButton()
         //makeTitle()
@@ -76,6 +77,7 @@ class NoteRememberViewController: UIViewController {
     @objc func doneAction(sender: AnyObject!) {
         CreateThingWizard.sharedCreateThingWizard.thing.note = textField.text;
         CreateThingWizard.sharedCreateThingWizard.save();
+        CreateThingWizard.sharedCreateThingWizard.editing = false;
 
         //TODO
        self.popBack(5)

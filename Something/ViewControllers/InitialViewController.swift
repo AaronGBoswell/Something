@@ -139,6 +139,9 @@ class InitialViewController: UIViewController {
         performSegue(withIdentifier: "InitialToThing", sender: self)
     }
     @objc func historyAction(sender: UIButton!) {
+        var statistics = DataStatistics()
+        statistics = statistics.dataStatisticsWithCompletion(completed: true)
+        var numCompleted = statistics.calculateTotal()
         PredicateFormulator.sharedPredicateFormulator.kind = nil
         PredicateFormulator.sharedPredicateFormulator.time = nil
         PredicateFormulator.sharedPredicateFormulator.completed = true

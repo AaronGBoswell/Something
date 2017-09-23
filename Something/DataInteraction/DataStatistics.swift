@@ -11,8 +11,15 @@ import UIKit
 import CoreData
 
 struct DataStatistics{
-    var kind:Kind?
-    var time:Time?
+    private var kind:Kind?
+    private var time:Time?
+    private var completed:Bool?
+    func dataStatisticsWithCompletion(completed:Bool) -> DataStatistics!{
+        var newDataStatistics = self
+        newDataStatistics.completed = completed
+        return newDataStatistics
+
+    }
     
     func dataStatisticsWithAttibute(attribute:Attribute) -> DataStatistics!{
         if let kind = attribute as? Kind{
@@ -35,6 +42,8 @@ struct DataStatistics{
             let predicateFormulator = PredicateFormulator()
             predicateFormulator.kind = kind
             predicateFormulator.time = time
+            predicateFormulator.completed = completed ?? false
+
             let request:NSFetchRequest<Thing> = Thing.fetchRequest()
             request.predicate = predicateFormulator.getPredicate()
             let results = try moc.fetch(request)

@@ -11,7 +11,7 @@ import Foundation
 protocol Attribute {
     var alpha:Float {get set};
     var color:Int64 {get set};
-    var icon:NSData? {get set};
+    var icon:Data? {get set};
     var id:Int64 {get set};
     var title:String?{get set};
 }

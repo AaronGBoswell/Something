@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="136" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="0WM-v5-hoc">
-                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -83,6 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="attributeKindTableView" destination="0WM-v5-hoc" id="vje-eU-aua"/>
+                        <outlet property="tableView" destination="0WM-v5-hoc" id="1HA-nh-qGp"/>
                         <segue destination="tgf-q3-TKT" kind="show" identifier="AttributeToNote" id="8PY-qF-HYd"/>
                         <segue destination="Ild-U4-4mj" kind="show" identifier="AttributeToThing" id="zgI-OD-7Ga"/>
                     </connections>
@@ -243,6 +244,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="agc-is-LRB" kind="show" identifier="ThingDataToTitleRemember" id="a00-jF-JeB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0d-FZ-RBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -251,7 +255,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="QnR-3e-YHo"/>
-        <segue reference="2xo-7u-1th"/>
+        <segue reference="zgI-OD-7Ga"/>
+        <segue reference="a00-jF-JeB"/>
         <segue reference="I17-Ag-Cer"/>
     </inferredMetricsTieBreakers>
 </document>

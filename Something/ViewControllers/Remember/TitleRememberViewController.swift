@@ -26,6 +26,7 @@ class TitleRememberViewController: UIViewController {
         view.addGestureRecognizer(tap)
         self.title = "Describe"
         
+        textField.text = CreateThingWizard.sharedCreateThingWizard.thing.title ?? ""
         //makeBackButton()
         //makeTitle()
         // Do any additional setup after loading the view, typically from a nib.

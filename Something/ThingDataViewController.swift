@@ -22,67 +22,46 @@ import CoreData
 
 class ThingDataViewController: UIViewController{
     
-     var colorView:UIView?
-     var getThing:Thing?
+    var colorView:UIView?
+    var getThing:Thing?
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
-    
+    var thingDataLabel: UILabel?
+    var noteDataLabel: UILabel?
+	var note: UITextView?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         
         MakeColorView()
-        //MakeBackButton()
-        //MakeEditButton()
         MakeDoneButton()
         MakeNoteLabel()
-        //MakeTitle()
         MakeThingDataLabel()
         MakeThingNoteDataLabel()
-        
-        self.title = "Selected Task"
+        note?.text = getThing?.note
+
         
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    func MakeTitle(){
-        let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
-        // label.frame = CGRectDo(50, 50, 200, 21)
-        label.backgroundColor = .clear
-        label.textColor = StyleModel.sharedInstance.labelColor
-        label.textAlignment = NSTextAlignment.center
-        label.text = "Data"
-        self.view.addSubview(label)
-    }
-    
-    func MakeBackButton(){
-        let button = UIButton(frame: CGRect(x: 10, y: 20, width: 100, height: 50))
-        button.backgroundColor = .clear
-        button.setTitle("Back", for: .normal)
-        button.setTitleColor(StyleModel.sharedInstance.buttonColor , for: .normal)
-        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        
-        self.view.addSubview(button)
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = getThing?.title
+        note?.text = getThing?.note
     }
 
-    func MakeEditButton(){
-        let button = UIButton(frame: CGRect(x: 100, y: 20, width: 100, height: 50))
-        button.backgroundColor = .clear
-        button.setTitle("Edit", for: .normal)
-        button.setTitleColor(StyleModel.sharedInstance.buttonColor, for: .normal)
-        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+    @objc func editAction(sender: UIButton!) {
+        performSegue(withIdentifier: "ThingDataToTitleRemember", sender: self)
+        CreateThingWizard.newFromExisting(thing: getThing!)
         
-        self.view.addSubview(button)
-    }
-
-    @objc func backAction(sender: UIButton!) {
-        if let navController = self.navigationController {
-            navController.popViewController(animated: true)
+        let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.time = (attribute as! Time)}
+        )
+        let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToNote", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.kind = (attribute as! Kind)
         }
+        )
+        Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
     }
     func MakeDoneButton(){
     
-        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(backAction)), animated: true)
+        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(editAction)), animated: true)
             //self.view.addSubview(button)
     }
     
@@ -110,13 +89,12 @@ class ThingDataViewController: UIViewController{
     func MakeThingNoteDataLabel(){
         let width = self.view.frame.width
         let height = self.view.frame.height
-        let note: UITextView = UITextView(frame: CGRect(x: 20, y: 100, width: width - 40, height: height - 100))
+        note = UITextView(frame: CGRect(x: 20, y: 100, width: width - 40, height: height - 100))
         // label.frame = CGRectDo(50, 50, 200, 21)
-        note.backgroundColor = .clear
-        note.textColor = StyleModel.sharedInstance.labelColor
-        note.textAlignment = NSTextAlignment.center
-        note.text = getThing?.note
-        self.view.addSubview(note)
+        note!.backgroundColor = .clear
+        note!.textColor = StyleModel.sharedInstance.labelColor
+        note!.textAlignment = NSTextAlignment.center
+        self.view.addSubview(note!)
     }
     
     

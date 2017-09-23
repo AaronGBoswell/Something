@@ -12,6 +12,7 @@ import CoreData
 class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
     
     
+    @IBOutlet weak var tableView: UITableView!
     var attribute = Workflow.sharedWorkflow.getCurrentWorkFlowItem().attribute
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     var canSegue = false
@@ -28,6 +29,9 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         //makeBackButton()
         // makeTitle()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
         if( self.navigationController?.viewControllers.index(of: self) == nil){
@@ -70,6 +74,20 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         }
         print(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWithAttibute(attribute: attributeInCell).calculateTotal())
         cell.initialize(color: UIColor(rgb: Int(attributeInCell.color), a: CGFloat(attributeInCell.alpha)), data: attributeInCell.title!)
+        cell.accessoryType = UITableViewCellAccessoryType.none
+        if CreateThingWizard.sharedCreateThingWizard.editing{
+            if CreateThingWizard.sharedCreateThingWizard.thing.kind != nil{
+                if attributeInCell as? Kind == CreateThingWizard.sharedCreateThingWizard.thing.kind{
+                    cell.accessoryType = UITableViewCellAccessoryType.checkmark
+                }
+            }
+            if CreateThingWizard.sharedCreateThingWizard.thing.time != nil{
+                if attributeInCell as? Time == CreateThingWizard.sharedCreateThingWizard.thing.time{
+                    cell.accessoryType = UITableViewCellAccessoryType.checkmark
+                }
+            }
+        }
+
         //cell.initialize(color: .green, data: selectedKind.title!)
     }
     
