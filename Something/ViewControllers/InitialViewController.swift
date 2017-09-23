@@ -21,6 +21,7 @@ class InitialViewController: UIViewController {
         makeSomethingButton()
         makeTitleMotto()
         beautifyNavigationBar()
+        makeHistoryButton()
     }
     func beautifyNavigationBar(){
         let navBar = self.navigationController!.navigationBar
@@ -53,7 +54,7 @@ class InitialViewController: UIViewController {
     }
 
     func makeTitleMotto(){
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 100))
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
         // label.frame = CGRectMake(50, 50, 200, 21)
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.buttonColor
@@ -64,7 +65,7 @@ class InitialViewController: UIViewController {
     }
 
     func makeMakeButton(){
-        let button = UIButton(frame: CGRect(x: 0, y: 100, width: self.view.frame.size.width, height: 100))
+        let button = UIButton(frame: CGRect(x: 0, y: 50, width: self.view.frame.size.width, height: 100))
         button.backgroundColor = .black
         button.setTitle("MAKE", for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -74,7 +75,7 @@ class InitialViewController: UIViewController {
         self.view.addSubview(button)
     }
     func madeDoButton(){
-        let button = UIButton(frame: CGRect(x: 0, y: 201, width: self.view.frame.size.width, height: 100))
+        let button = UIButton(frame: CGRect(x: 0, y: 151, width: self.view.frame.size.width, height: 100))
         button.backgroundColor = .black
         button.setTitle("DO", for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -84,11 +85,21 @@ class InitialViewController: UIViewController {
         self.view.addSubview(button)
     }
     func makeSomethingButton(){
-        let button = UIButton(frame: CGRect(x: 0, y: 302, width: self.view.frame.size.width, height: 100))
+        let button = UIButton(frame: CGRect(x: 0, y: 252, width: self.view.frame.size.width, height: 100))
         button.backgroundColor = .black
         button.setTitle("SOMETHING", for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
         button.setTitleColor(StyleModel.sharedInstance.homeTextSomethingColor , for: .normal)
+        button.addTarget(self, action: #selector(somethingAction), for: .touchUpInside)
+        
+        self.view.addSubview(button)
+    }
+    func makeHistoryButton(){
+        let button = UIButton(frame: CGRect(x: 0, y: 353, width: self.view.frame.size.width, height: 100))
+        button.backgroundColor = .black
+        button.setTitle("HISTORY", for: .normal)
+        button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
+        button.setTitleColor(StyleModel.sharedInstance.homeTextHistoryColor, for: .normal)
         button.addTarget(self, action: #selector(somethingAction), for: .touchUpInside)
         
         self.view.addSubview(button)
