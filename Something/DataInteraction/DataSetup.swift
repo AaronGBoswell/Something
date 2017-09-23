@@ -17,7 +17,7 @@ import CoreData
 
 
 func purgeCoreData(){
-    purge(entityName: "Thing")
+    //purge(entityName: "Thing")
     purge(entityName: "Time")
     purge(entityName: "Kind")
     

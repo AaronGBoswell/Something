@@ -12,22 +12,20 @@ class Workflow{
     
     private var workflow:[WorkFlowItem]!
     private var stats:DataStatistics = DataStatistics()
-    
+    private var workflowIndex = 0
     public func setWorkflow(workflow: [WorkFlowItem]){
         self.workflow = workflow
+        workflowIndex = 0
     }
 
     public func getCurrentWorkFlowItem() -> WorkFlowItem{
-        return workflow.first!
+        return workflow[workflowIndex]
     }
-    public func nextWorkFlowItem(){
-        //cluge alert, casting was all jacked up except if I did this
-        //just trying to remove the first element...
-        //workflow = workflow.dropFirst(1).reversed().reversed()
-
-        //acctually we put it at the end so pop(3) doesnt kill ourselves.. maybe should handle this elsewhere
-        let first = workflow.remove(at: 0)
-        workflow.append(first)
+    public func incrementWorkflow(){
+        workflowIndex = workflowIndex + 1
+    }
+    public func decrementWorkflow(){
+        workflowIndex = workflowIndex - 1
     }
     public func addToStats(attribute:Attribute){
         stats = stats.dataStatisticsWithAttibute(attribute: attribute)

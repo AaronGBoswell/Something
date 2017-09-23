@@ -29,27 +29,13 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         // makeTitle()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    func makeTitle(){
-        let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
-        // label.frame = CGRectMake(50, 50, 200, 21)
-        label.backgroundColor = .clear
-        label.textColor = StyleModel.sharedInstance.labelColor
-        label.textAlignment = NSTextAlignment.center
-        label.text = attribute
-        self.view.addSubview(label)
+    override func viewWillDisappear(_ animated: Bool) {
+        if( self.navigationController?.viewControllers.index(of: self) == nil){
+            Workflow.sharedWorkflow.decrementWorkflow()
+        }
+        super.viewWillDisappear(animated)
     }
-    
-    func makeBackButton(){
-        let button = UIButton(frame: CGRect(x: 10, y: 20, width: 100, height: 50))
-        button.backgroundColor = .clear
-        button.setTitle("Back", for: .normal)
-        button.setTitleColor(StyleModel.sharedInstance.buttonColor , for: .normal)
-        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        
-        self.view.addSubview(button)
-    }
-    
+
     @objc func backAction(sender: UIButton!) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
@@ -98,7 +84,7 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         Workflow.sharedWorkflow.getCurrentWorkFlowItem().selectAttribute(attribute: selectedAttribute)
         Workflow.sharedWorkflow.addToStats(attribute: selectedAttribute)
         let segueIdentifier = Workflow.sharedWorkflow.getCurrentWorkFlowItem().segueIdentifier
-        Workflow.sharedWorkflow.nextWorkFlowItem()
+        Workflow.sharedWorkflow.incrementWorkflow()
         performSegue(withIdentifier: segueIdentifier, sender: self)
         
         

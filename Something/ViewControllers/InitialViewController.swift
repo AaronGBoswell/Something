@@ -100,7 +100,7 @@ class InitialViewController: UIViewController {
         button.setTitle("HISTORY", for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
         button.setTitleColor(StyleModel.sharedInstance.homeTextHistoryColor, for: .normal)
-        button.addTarget(self, action: #selector(somethingAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(historyAction), for: .touchUpInside)
         
         self.view.addSubview(button)
     }
@@ -134,10 +134,16 @@ class InitialViewController: UIViewController {
         
         
     }
+    
     @objc func somethingAction(sender: UIButton!) {
         performSegue(withIdentifier: "InitialToThing", sender: self)
     }
-    
+    @objc func historyAction(sender: UIButton!) {
+        PredicateFormulator.sharedPredicateFormulator.kind = nil
+        PredicateFormulator.sharedPredicateFormulator.time = nil
+        PredicateFormulator.sharedPredicateFormulator.completed = true
+        performSegue(withIdentifier: "InitialToHistory", sender: self)
+    }
 
 
      @objc func makeAction(sender: UIButton!) {
@@ -152,6 +158,8 @@ class InitialViewController: UIViewController {
     }
     
    @objc func doAction(sender: UIButton!) {
+        PredicateFormulator.sharedPredicateFormulator.completed = false
+
         let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.time = (attribute as! Time)}
         )
         let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToThing", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.kind = (attribute as! Kind)
