@@ -13,12 +13,19 @@ class AttributeTableViewCell: UITableViewCell {
     var baseView:UIView?
     var color:UIColor?
     var dataString:String?
+    var statString:String?
+    var imageForCell:UIImage?
+    var imageViewForCell: UIImageView?
     
-    func initialize(color :UIColor, data: String){
+    func initialize(color :UIColor, data: String, stat: String, imageForCell:UIImage){
         self.color = color        // color from model
         self.dataString = data   //eg time, kind and so on
+        self.statString = stat
+        self.imageForCell = imageForCell
         makeBaseView()
         makeLabel()
+        makeStatLabel()
+        makeImageView()
         
         
     }
@@ -32,12 +39,31 @@ class AttributeTableViewCell: UITableViewCell {
         label.text = "Time: " + dataString!
         baseView?.addSubview(label)
     }
+    func makeStatLabel(){
+        
+        let statLabel: UILabel = UILabel(frame: CGRect(x: 20, y: 50, width: 200, height: 30))
+        // label.frame = CGRectDo(50, 50, 200, 21)
+        statLabel.backgroundColor = .clear
+        statLabel.textColor = StyleModel.sharedInstance.labelColor
+        statLabel.textAlignment = NSTextAlignment.left
+        statLabel.text = "Stat: " + statString!
+        baseView?.addSubview(statLabel)
+    }
     func makeBaseView(){
         let width = self.contentView.frame.width
         let height = self.contentView.frame.height
         baseView  = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         baseView?.backgroundColor = color!
         self.contentView.addSubview(baseView!)
+        
+        
+    }
+    func makeImageView(){
+        let width = self.contentView.frame.width
+        //let height = self.contentView.frame.height
+        imageViewForCell  = UIImageView(frame: CGRect(x: width - 100, y: (((baseView?.frame.height)!/2)-37), width: 75, height: 75))
+        imageViewForCell?.image = imageForCell
+        baseView?.addSubview(imageViewForCell!)
         
         
     }

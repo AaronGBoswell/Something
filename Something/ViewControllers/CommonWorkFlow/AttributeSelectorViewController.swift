@@ -72,8 +72,10 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
             else{
                 fatalError("Failed to initialize ")
         }
-        print(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWithAttibute(attribute: attributeInCell).calculateTotal())
-        cell.initialize(color: UIColor(rgb: Int(attributeInCell.color), a: CGFloat(attributeInCell.alpha)), data: attributeInCell.title!)
+        //print(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWithAttibute(attribute: attributeInCell).calculateTotal())
+        var statString =  String(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWithAttibute(attribute: attributeInCell).calculateTotal())
+       
+        cell.initialize(color: UIColor(rgb: Int(attributeInCell.color), a: CGFloat(attributeInCell.alpha)), data: attributeInCell.title!, stat: statString, imageForCell: UIImage(data: attributeInCell.icon! as Data)!)
         cell.accessoryType = UITableViewCellAccessoryType.none
         if CreateThingWizard.sharedCreateThingWizard.editing{
             if CreateThingWizard.sharedCreateThingWizard.thing.kind != nil{

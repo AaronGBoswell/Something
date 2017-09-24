@@ -48,6 +48,15 @@ class StyleModel  {
                                      "30min": 0xEA526F,
                                      "60min": 0xBCED09,
                                      "Doesn't matter": 0xACF39D]
+    var imageNamesTime: [String: UIImage] = ["5min": UIImage(named: "background.png")!,
+                                             "30min": UIImage(named: "background.png")!,
+                                             "60min": UIImage(named: "background.png")!,
+                                             "Doesn't matter": UIImage(named: "background.png")!]
+    
+    var imageNamesKind: [String: UIImage] = ["need to do": UIImage(named: "background.png")!,
+                                     "nice to do": UIImage(named: "background.png")!,
+                                     "want to do": UIImage(named: "background.png")!,
+                                     "Doesn't matter": UIImage(named: "background.png")!]
 
     /* Serbert scheme
  ["5min": 0xF9CB40,
@@ -55,4 +64,6 @@ class StyleModel  {
  "60min": 0xBCED09,
  "Doesn't matter": 0xACF39D]
  */
+    
+  
 }
