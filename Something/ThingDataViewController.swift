@@ -37,6 +37,7 @@ class ThingDataViewController: UIViewController{
         MakeNoteLabel()
         MakeThingDataLabel()
         MakeThingNoteDataLabel()
+        makeCompletedButton()
         note?.text = getThing?.note
 
         
@@ -58,6 +59,9 @@ class ThingDataViewController: UIViewController{
         }
         )
         Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
+    }
+    @objc func completedAction(sender: UIButton!) {
+        print("completed")
     }
     func MakeDoneButton(){
     
@@ -95,6 +99,16 @@ class ThingDataViewController: UIViewController{
         note!.textColor = StyleModel.sharedInstance.labelColor
         note!.textAlignment = NSTextAlignment.center
         self.view.addSubview(note!)
+    }
+    func makeCompletedButton(){
+        let button = UIButton(frame: CGRect(x: 0, y: 353, width: self.view.frame.size.width, height: 100))
+        button.backgroundColor = .black
+        button.setTitle("TASK COMPLETED", for: .normal)
+        button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
+        button.setTitleColor(StyleModel.sharedInstance.homeTextHistoryColor, for: .normal)
+        button.addTarget(self, action: #selector(completedAction), for: .touchUpInside)
+        
+        self.view.addSubview(button)
     }
     
     
