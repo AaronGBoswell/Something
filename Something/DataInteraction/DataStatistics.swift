@@ -14,6 +14,8 @@ struct DataStatistics{
     private var kind:Kind?
     private var time:Time?
     private var completed:Bool?
+    
+    
     func dataStatisticsWithCompletion(completed:Bool) -> DataStatistics!{
         var newDataStatistics = self
         newDataStatistics.completed = completed

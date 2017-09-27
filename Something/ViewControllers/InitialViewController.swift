@@ -22,6 +22,17 @@ class InitialViewController: UIViewController {
         makeTitleMotto()
         beautifyNavigationBar()
         makeHistoryButton()
+        
+        
+    }
+    
+    
+    func buttonMagic(){
+        var data = DataStatistics()
+        var test = data.dataStatisticsWithCompletion(completed: false)
+       
+        //data.dataStatisticsWithCompletion
+    
     }
     func beautifyNavigationBar(){
         let navBar = self.navigationController!.navigationBar
