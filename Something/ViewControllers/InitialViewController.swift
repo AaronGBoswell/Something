@@ -29,14 +29,40 @@ class InitialViewController: UIViewController {
         makeHistoryButton()
         
         
+        
+        
+        
+        buttonMagic()
+        
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        buttonMagic()
     }
     
     
     func buttonMagic(){
         var data = DataStatistics()
-        var test = data.dataStatisticsWithCompletion(completed: false)
-       
-        //data.dataStatisticsWithCompletion
+        
+        var test = data.dataStatisticsWithCompletion(completed: true)
+        var get = test?.calculateTotal()
+        
+        if(get == 0){
+            historyButton!.isEnabled = false
+        }else{
+            historyButton!.isEnabled = true
+        }
+        
+        test = data.dataStatisticsWithCompletion(completed: false)
+        get = test?.calculateTotal()
+        
+        if(get == 0){
+            doButton!.isEnabled = false
+            somethingButton!.isEnabled = false
+        }else{
+            doButton!.isEnabled = true
+            somethingButton!.isEnabled = true
+        }
     
     }
     func beautifyNavigationBar(){
@@ -96,6 +122,7 @@ class InitialViewController: UIViewController {
         doButton?.setTitle("DO", for: .normal)
         doButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
         doButton?.setTitleColor(StyleModel.sharedInstance.homeTextDoColor , for: .normal)
+        doButton?.setBackgroundColor(color: StyleModel.sharedInstance.greybuttonColor, forState: .disabled)
         doButton?.addTarget(self, action: #selector(doAction), for: .touchUpInside)
         
         self.view.addSubview(doButton!)
@@ -106,21 +133,24 @@ class InitialViewController: UIViewController {
         somethingButton?.setTitle("SOMETHING", for: .normal)
         somethingButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
         somethingButton?.setTitleColor(StyleModel.sharedInstance.homeTextSomethingColor , for: .normal)
+        somethingButton?.setBackgroundColor(color: StyleModel.sharedInstance.greybuttonColor, forState: .disabled)
         somethingButton?.addTarget(self, action: #selector(somethingAction), for: .touchUpInside)
         
         self.view.addSubview(somethingButton!)
     }
     func makeHistoryButton(){
-        let historyButton
+        historyButton
             
             = UIButton(frame: CGRect(x: 0, y: 353, width: self.view.frame.size.width, height: 100))
-        historyButton.backgroundColor = .black
-        historyButton.setTitle("HISTORY", for: .normal)
-        historyButton.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
-        historyButton.setTitleColor(StyleModel.sharedInstance.homeTextHistoryColor, for: .normal)
-        historyButton.addTarget(self, action: #selector(historyAction), for: .touchUpInside)
+        historyButton?.backgroundColor = .black
+        historyButton?.setTitle("HISTORY", for: .normal)
+        historyButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
+        historyButton?.setTitleColor(StyleModel.sharedInstance.homeTextHistoryColor, for: .normal)
+        //historyButton?.setTitleColor(StyleModel.sharedInstance.greybuttonColor, for: .disabled)
+        historyButton?.setBackgroundColor(color: StyleModel.sharedInstance.greybuttonColor, forState: .disabled)
+        historyButton?.addTarget(self, action: #selector(historyAction), for: .touchUpInside)
         
-        self.view.addSubview(historyButton)
+        self.view.addSubview(historyButton!)
     }
 
     
@@ -160,6 +190,7 @@ class InitialViewController: UIViewController {
         var statistics = DataStatistics()
         statistics = statistics.dataStatisticsWithCompletion(completed: true)
         var numCompleted = statistics.calculateTotal()
+        
         PredicateFormulator.sharedPredicateFormulator.kind = nil
         PredicateFormulator.sharedPredicateFormulator.time = nil
         PredicateFormulator.sharedPredicateFormulator.completed = true
@@ -194,7 +225,18 @@ class InitialViewController: UIViewController {
 }
 
 //This sets the height of the NavBar
-
+extension UIButton {
+    func setBackgroundColor(color: UIColor, forState: UIControlState) {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        UIGraphicsGetCurrentContext()!.setFillColor(color.cgColor)
+        UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.setBackgroundImage(colorImage, for: forState)
+    }
+    
+}
+//This sets the height of the NavBar
 extension UINavigationBar{
     @objc open override func sizeThatFits(_ size: CGSize) -> CGSize {
         var rec = self.frame

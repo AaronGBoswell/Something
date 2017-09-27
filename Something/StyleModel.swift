@@ -35,6 +35,7 @@ class StyleModel  {
     
     var labelColor = UIColor(rgb:0x070600)    //sharp black
     var buttonColor = UIColor(rgb:0x393F42)  //impact grey
+    var greybuttonColor = UIColor(rgb:0x393F42)  //impact grey
     
     //candy purple UIColor(rgb:0x7A306C)
     
