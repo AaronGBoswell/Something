@@ -61,7 +61,20 @@ class ThingDataViewController: UIViewController{
         Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
     }
     @objc func completedAction(sender: UIButton!) {
+        getThing?.lastCompleted = Date()
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
         print("completed")
+        self.popBack(5)
+        
+    }
+    func popBack(_ nb: Int) {
+        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
+            guard viewControllers.count < nb else {
+                self.navigationController?.popToViewController(viewControllers[viewControllers.count - nb], animated: true)
+                return
+            }
+        }
     }
     func MakeDoneButton(){
     
