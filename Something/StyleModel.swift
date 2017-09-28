@@ -54,10 +54,10 @@ class StyleModel  {
                                              "55min": UIImage(named: "55min.png")!,
                                              "Doesn't matter": UIImage(named: "infmin.png")!]
     
-    var imageNamesKind: [String: UIImage] = ["need to do": UIImage(named: "background.png")!,
-                                     "nice to do": UIImage(named: "background.png")!,
-                                     "want to do": UIImage(named: "background.png")!,
-                                     "Doesn't matter": UIImage(named: "background.png")!]
+    var imageNamesKind: [String: UIImage] = ["need to do": UIImage(named: "imp1.png")!,
+                                     "nice to do": UIImage(named: "imp2.png")!,
+                                     "want to do": UIImage(named: "imp3.png")!,
+                                     "Doesn't matter": UIImage(named: "infimp.png")!]
 
     /* Serbert scheme
  ["5min": 0xF9CB40,
