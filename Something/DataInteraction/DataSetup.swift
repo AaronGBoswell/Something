@@ -73,7 +73,7 @@ func newTime(id:Int64, alpha:Float,color:Int64, title:String,  icon:UIImage){
 func setupTimes(){
     newTime(id: 1,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["5min"]!), title: "5min", icon:  StyleModel.sharedInstance.imageNamesTime["5min"]!)
     newTime(id: 2,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["30min"]!), title: "30min", icon:  StyleModel.sharedInstance.imageNamesTime["30min"]!)
-    newTime(id: 3,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["60min"]!), title: "60min", icon:  StyleModel.sharedInstance.imageNamesTime["60min"]!)
-    newTime(id: Int64.max ,alpha: 1,color:  Int64(StyleModel.sharedInstance.timeColors["Doesn't matter"]!),title: "Doesn't matter", icon:  StyleModel.sharedInstance.imageNamesKind["Doesn't matter"]!)
+    newTime(id: 3,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["55min"]!), title: "55min", icon:  StyleModel.sharedInstance.imageNamesTime["55min"]!)
+    newTime(id: Int64.max ,alpha: 1,color:  Int64(StyleModel.sharedInstance.timeColors["Doesn't matter"]!),title: "Doesn't matter", icon:  StyleModel.sharedInstance.imageNamesTime["Doesn't matter"]!)
     
 }

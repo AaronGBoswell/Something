@@ -46,7 +46,7 @@ class AttributeTableViewCell: UITableViewCell {
         statLabel.backgroundColor = .clear
         statLabel.textColor = StyleModel.sharedInstance.labelColor
         statLabel.textAlignment = NSTextAlignment.left
-        statLabel.text = "Stat: " + statString!
+        statLabel.text = statString! + " Item" + "s" + "in this catagory"      //here is an excuse for a terenery operator
         baseView?.addSubview(statLabel)
     }
     func makeBaseView(){
