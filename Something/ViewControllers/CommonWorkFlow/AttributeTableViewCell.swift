@@ -61,7 +61,7 @@ class AttributeTableViewCell: UITableViewCell {
     func makeImageView(){
         let width = self.contentView.frame.width
         //let height = self.contentView.frame.height
-        imageViewForCell  = UIImageView(frame: CGRect(x: width - 100, y: (((baseView?.frame.height)!/2)-37), width: 75, height: 75))
+        imageViewForCell  = UIImageView(frame: CGRect(x: width - 100, y: (((baseView?.frame.height)!/2)-25), width: 50, height: 50))
         imageViewForCell?.image = imageForCell
         baseView?.addSubview(imageViewForCell!)
         
