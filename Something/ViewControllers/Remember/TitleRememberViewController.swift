@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class TitleRememberViewController: UIViewController {
+class TitleRememberViewController: UIViewController,UITextFieldDelegate{
     
     
     //TODO This should not be capital
@@ -25,28 +25,48 @@ class TitleRememberViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         self.title = "Describe"
+        textField.keyboardType = .default
         
         textField.text = CreateThingWizard.sharedCreateThingWizard.thing.title ?? ""
+        makeTitleMotto()
         //makeBackButton()
         //makeTitle()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+
+        performSegue(withIdentifier: "Make", sender: self)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         textField.becomeFirstResponder()
+        
     }
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         //TODO
         CreateThingWizard.sharedCreateThingWizard.thing.title = textField.text
         view.endEditing(true)
-        performSegue(withIdentifier: "Make", sender: self)
+         performSegue(withIdentifier: "Make", sender: self)
+        
+    }
+    
+    func makeTitleMotto(){
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 70, width: self.view.frame.size.width, height: 200))
+        // label.frame = CGRectMake(50, 50, 200, 21)
+        label.backgroundColor = .clear
+        label.textColor = StyleModel.sharedInstance.buttonColor
+        label.textAlignment = NSTextAlignment.center
+        label.text = "A Thoughtful Title."
+        label.font = UIFont(name: "PingFang SC", size: 14)
+        self.view.addSubview(label)
     }
 
     
     func makeTitle(){
-        let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
+        let label: UILabel = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 70))
         // label.frame = CGRectMake(50, 50, 200, 21)
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor

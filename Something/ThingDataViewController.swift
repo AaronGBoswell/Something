@@ -89,7 +89,7 @@ class ThingDataViewController: UIViewController{
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
         label.textAlignment = NSTextAlignment.left
-        label.text = "Task: " + (getThing?.title)!
+        label.text = (getThing?.title)!
         self.view.addSubview(label)
     }
     func MakeNoteLabel(){
@@ -99,7 +99,7 @@ class ThingDataViewController: UIViewController{
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
         label.textAlignment = NSTextAlignment.left
-        label.text = "Note: "
+        label.text = (getThing?.note)!
         self.view.addSubview(label)
     }
     

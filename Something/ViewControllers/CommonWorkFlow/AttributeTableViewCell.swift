@@ -31,22 +31,23 @@ class AttributeTableViewCell: UITableViewCell {
     }
     func makeLabel(){
         
-        let label: UILabel = UILabel(frame: CGRect(x: 20, y: 10, width: 200, height: 30))
+        let label: UILabel = UILabel(frame: CGRect(x: 20, y: 30, width: 400, height: 30))
         // label.frame = CGRectDo(50, 50, 200, 21)
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
         label.textAlignment = NSTextAlignment.left
-        label.text = "Time: " + dataString!
+        label.text = dataString!
+        label.font = UIFont(name: "PingFang SC", size: 35)
         baseView?.addSubview(label)
     }
     func makeStatLabel(){
         
-        let statLabel: UILabel = UILabel(frame: CGRect(x: 20, y: 50, width: 200, height: 30))
+        let statLabel: UILabel = UILabel(frame: CGRect(x: 22, y: 100, width: 200, height: 30))
         // label.frame = CGRectDo(50, 50, 200, 21)
         statLabel.backgroundColor = .clear
         statLabel.textColor = StyleModel.sharedInstance.labelColor
         statLabel.textAlignment = NSTextAlignment.left
-        statLabel.text = statString! + " Item" + "s" + "in this catagory"      //here is an excuse for a terenery operator
+        statLabel.text = statString! + " Common Items"      //here is an excuse for a terenery operator
         baseView?.addSubview(statLabel)
     }
     func makeBaseView(){

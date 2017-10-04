@@ -29,12 +29,13 @@ class ThingTableViewCell: UITableViewCell {
     
     func makeLabel(){
         
-        let label: UILabel = UILabel(frame: CGRect(x: 20, y: 10, width: 200, height: 30))
+        let label: UILabel = UILabel(frame: CGRect(x: 20, y: 20, width: 400, height: 30))
         // label.frame = CGRectDo(50, 50, 200, 21)
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
         label.textAlignment = NSTextAlignment.left
-        label.text = "Thing: " + dataString!
+        label.text = dataString!
+        label.font = UIFont(name: "PingFang SC", size: 30)
         baseView?.addSubview(label)
     }
     func makeBaseView(){

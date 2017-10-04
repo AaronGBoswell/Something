@@ -40,13 +40,13 @@ class StyleModel  {
     //candy purple UIColor(rgb:0x7A306C)
     
     
-    var kindColors: [String: Int] = ["need to do": 0xF9CB40,
-                                   "nice to do": 0xEA526F,
+    var kindColors: [String: Int] = ["need to do": 0xEA526F,
+                                   "nice to do": 0xF9CB40,
                                    "want to do": 0xBCED09,
                                    "Doesn't matter": 0xACF39D]
 
-    var timeColors: [String: Int] = ["5min": 0xF9CB40,
-                                     "30min": 0xEA526F,
+    var timeColors: [String: Int] = ["5min": 0xEA526F,
+                                     "30min": 0xF9CB40,
                                      "55min": 0xBCED09,
                                      "Doesn't matter": 0xACF39D]
     var imageNamesTime: [String: UIImage] = ["5min": UIImage(named: "5min.png")!,
