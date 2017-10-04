@@ -22,11 +22,11 @@ class TitleRememberViewController: UIViewController,UITextFieldDelegate{
         makeInputField()
         self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         
-        
+        textField?.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         self.title = "Describe"
-        textField?.keyboardType = .default
+        
         
         textField?.text = CreateThingWizard.sharedCreateThingWizard.thing.title ?? ""
         makeTitleMotto()
@@ -35,9 +35,12 @@ class TitleRememberViewController: UIViewController,UITextFieldDelegate{
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
         performSegue(withIdentifier: "Make", sender: self)
+        return true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,21 +53,23 @@ class TitleRememberViewController: UIViewController,UITextFieldDelegate{
         //TODO
         CreateThingWizard.sharedCreateThingWizard.thing.title = textField?.text
         view.endEditing(true)
-         performSegue(withIdentifier: "Make", sender: self)
+         //performSegue(withIdentifier: "Make", sender: self)
         
     }
     
     
     
     func makeInputField(){
-        let textField: UITextField = UITextField(frame: CGRect(x: 10, y: 50, width: self.view.frame.size.width - 20, height: 70))
+        textField = UITextField(frame: CGRect(x: 10, y: 50, width: self.view.frame.size.width - 20, height: 70))
         // label.frame = CGRectMake(50, 50, 200, 21)
-        textField.backgroundColor = .white
+        textField?.backgroundColor = .white
        // textField.textColor = StyleModel.sharedInstance.labelColor
-        textField.textAlignment = NSTextAlignment.center
-        textField.text = ""
-        textField.font = UIFont(name: "PingFang SC", size: 34)
-        self.view.addSubview(textField)
+        textField?.textAlignment = NSTextAlignment.center
+        textField?.text = ""
+        textField?.font = UIFont(name: "PingFang SC", size: 34)
+        textField?.keyboardType = .default
+        textField?.returnKeyType = .done
+        self.view.addSubview(textField!)
     }
     func makeTitleMotto(){
         let label: UILabel = UILabel(frame: CGRect(x: 0, y: 120, width: self.view.frame.size.width, height: 30))
