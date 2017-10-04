@@ -9,11 +9,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="PingFang.ttc">
-            <string>PingFangSC-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -157,27 +152,9 @@
                     <view key="view" contentMode="scaleToFill" id="J2y-hY-cdA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSn-oX-tCN">
-                                <rect key="frame" x="0.0" y="139" width="375" height="46"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="oL1-qc-EEN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="32"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="MUO-uK-UTo" firstAttribute="top" secondItem="qSn-oX-tCN" secondAttribute="bottom" constant="482" id="032-jo-3DM"/>
-                            <constraint firstItem="qSn-oX-tCN" firstAttribute="top" secondItem="Bir-2m-7xI" secondAttribute="bottom" constant="75" id="4DW-gr-DRd"/>
-                            <constraint firstItem="qSn-oX-tCN" firstAttribute="leading" secondItem="J2y-hY-cdA" secondAttribute="leading" id="jyk-6b-VXp"/>
-                            <constraint firstAttribute="trailing" secondItem="qSn-oX-tCN" secondAttribute="trailing" id="wEk-xH-qNl"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="TextField" destination="qSn-oX-tCN" id="2CF-Fc-yVK"/>
                         <segue destination="MtX-fS-kPZ" kind="show" identifier="Make" id="ehk-JE-obj"/>
                     </connections>
                 </viewController>
