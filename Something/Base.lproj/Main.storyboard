@@ -159,18 +159,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSn-oX-tCN">
-                                <rect key="frame" x="16" y="139" width="343" height="53"/>
+                                <rect key="frame" x="0.0" y="139" width="375" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="oL1-qc-EEN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="32"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qSn-oX-tCN" firstAttribute="leading" secondItem="J2y-hY-cdA" secondAttribute="leadingMargin" id="OiI-dT-rnc"/>
-                            <constraint firstItem="qSn-oX-tCN" firstAttribute="top" secondItem="Bir-2m-7xI" secondAttribute="bottom" constant="75" id="SkQ-8Q-Aja"/>
-                            <constraint firstItem="MUO-uK-UTo" firstAttribute="top" secondItem="qSn-oX-tCN" secondAttribute="bottom" constant="475" id="aZB-5h-0D2"/>
-                            <constraint firstItem="qSn-oX-tCN" firstAttribute="trailing" secondItem="J2y-hY-cdA" secondAttribute="trailingMargin" id="l4H-hs-h0n"/>
+                            <constraint firstItem="MUO-uK-UTo" firstAttribute="top" secondItem="qSn-oX-tCN" secondAttribute="bottom" constant="482" id="032-jo-3DM"/>
+                            <constraint firstItem="qSn-oX-tCN" firstAttribute="top" secondItem="Bir-2m-7xI" secondAttribute="bottom" constant="75" id="4DW-gr-DRd"/>
+                            <constraint firstItem="qSn-oX-tCN" firstAttribute="leading" secondItem="J2y-hY-cdA" secondAttribute="leading" id="jyk-6b-VXp"/>
+                            <constraint firstAttribute="trailing" secondItem="qSn-oX-tCN" secondAttribute="trailing" id="wEk-xH-qNl"/>
                         </constraints>
                     </view>
                     <connections>
