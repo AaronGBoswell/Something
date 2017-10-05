@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fsk-Sr-FHG"/>
+                    <navigationItem key="navigationItem" prompt="   " id="Fsk-Sr-FHG"/>
                     <connections>
                         <segue destination="agc-is-LRB" kind="show" identifier="MakeSeuge" id="eRh-bU-PDy"/>
                         <segue destination="MtX-fS-kPZ" kind="show" identifier="StartToAttribute" id="I17-Ag-Cer"/>
@@ -237,6 +237,6 @@
         <segue reference="lZy-ON-LHM"/>
         <segue reference="2xo-7u-1th"/>
         <segue reference="eRh-bU-PDy"/>
-        <segue reference="ehk-JE-obj"/>
+        <segue reference="I17-Ag-Cer"/>
     </inferredMetricsTieBreakers>
 </document>

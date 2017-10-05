@@ -18,7 +18,7 @@ class InitialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false
+       // self.navigationController?.isNavigationBarHidden = false
         self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         //makeTitle()
         makeMakeButton()
@@ -26,9 +26,11 @@ class InitialViewController: UIViewController {
         makeSomethingButton()
         makeTitleMotto()
         beautifyNavigationBar()
+        
         makeHistoryButton()
         
-        
+        //self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 80.0)
+
         
         
         
@@ -67,7 +69,7 @@ class InitialViewController: UIViewController {
     }
     func beautifyNavigationBar(){
         let navBar = self.navigationController!.navigationBar
-        navBar.isTranslucent = false
+        navBar.isTranslucent = true
         //navBar.tintColor = StyleModel.sharedInstance.backgroundColor
         //navBar.backgroundColor = StyleModel.sharedInstance.backgroundColor
         navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -107,7 +109,7 @@ class InitialViewController: UIViewController {
     }
 
     func makeMakeButton(){
-        makeButton = UIButton(frame: CGRect(x: 0, y: 50, width: self.view.frame.size.width, height: 100))
+        makeButton = UIButton(frame: CGRect(x: 0, y: 150, width: self.view.frame.size.width, height: 100))
         makeButton?.backgroundColor = .black
         makeButton?.setTitle("MAKE", for: .normal)
         makeButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -117,7 +119,7 @@ class InitialViewController: UIViewController {
         self.view.addSubview(makeButton!)
     }
     func madeDoButton(){
-        doButton = UIButton(frame: CGRect(x: 0, y: 151, width: self.view.frame.size.width, height: 100))
+        doButton = UIButton(frame: CGRect(x: 0, y: 251, width: self.view.frame.size.width, height: 100))
         doButton?.backgroundColor = .black
         doButton?.setTitle("DO", for: .normal)
         doButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -128,7 +130,7 @@ class InitialViewController: UIViewController {
         self.view.addSubview(doButton!)
     }
     func makeSomethingButton(){
-        somethingButton = UIButton(frame: CGRect(x: 0, y: 252, width: self.view.frame.size.width, height: 100))
+        somethingButton = UIButton(frame: CGRect(x: 0, y: 352, width: self.view.frame.size.width, height: 100))
         somethingButton?.backgroundColor = .black
         somethingButton?.setTitle("SOMETHING", for: .normal)
         somethingButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -141,7 +143,7 @@ class InitialViewController: UIViewController {
     func makeHistoryButton(){
         historyButton
             
-            = UIButton(frame: CGRect(x: 0, y: 353, width: self.view.frame.size.width, height: 100))
+            = UIButton(frame: CGRect(x: 0, y: 453, width: self.view.frame.size.width, height: 100))
         historyButton?.backgroundColor = .black
         historyButton?.setTitle("HISTORY", for: .normal)
         historyButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -237,6 +239,7 @@ extension UIButton {
     
 }
 //This sets the height of the NavBar
+
 extension UINavigationBar{
     @objc open override func sizeThatFits(_ size: CGSize) -> CGSize {
         var rec = self.frame
@@ -247,4 +250,5 @@ extension UINavigationBar{
         return rec.size
     }
 }
+
 

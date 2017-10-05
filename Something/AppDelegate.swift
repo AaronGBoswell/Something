@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //These functions defined in /DataInteraction/DataSetup.swift
         purgeCoreData()
         setupCoreData()
-        
+       
         UINavigationBar.appearance().barTintColor = StyleModel.sharedInstance.backgroundColor
         UINavigationBar.appearance().titleTextAttributes =
             [NSAttributedStringKey.foregroundColor: StyleModel.sharedInstance.homeTitleColor,
@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         UINavigationBar.appearance().tintColor = StyleModel.sharedInstance.labelColor
         UINavigationBar.appearance().backgroundColor = StyleModel.sharedInstance.backgroundColor
+ 
         return true
     }
 

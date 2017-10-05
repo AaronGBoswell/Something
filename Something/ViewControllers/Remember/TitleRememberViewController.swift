@@ -38,6 +38,7 @@ class TitleRememberViewController: UIViewController,UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
+        CreateThingWizard.sharedCreateThingWizard.thing.title = textField.text
         textField.resignFirstResponder()
         performSegue(withIdentifier: "Make", sender: self)
         return true
@@ -60,7 +61,7 @@ class TitleRememberViewController: UIViewController,UITextFieldDelegate{
     
     
     func makeInputField(){
-        textField = UITextField(frame: CGRect(x: 10, y: 50, width: self.view.frame.size.width - 20, height: 70))
+        textField = UITextField(frame: CGRect(x: 10, y: 150, width: self.view.frame.size.width - 20, height: 70))
         // label.frame = CGRectMake(50, 50, 200, 21)
         textField?.backgroundColor = .white
        // textField.textColor = StyleModel.sharedInstance.labelColor
@@ -72,7 +73,7 @@ class TitleRememberViewController: UIViewController,UITextFieldDelegate{
         self.view.addSubview(textField!)
     }
     func makeTitleMotto(){
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 120, width: self.view.frame.size.width, height: 30))
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 220, width: self.view.frame.size.width, height: 30))
         // label.frame = CGRectMake(50, 50, 200, 21)
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.buttonColor
