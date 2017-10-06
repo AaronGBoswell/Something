@@ -31,6 +31,8 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Workflow.sharedWorkflow.removeFromStats(attribute);
         tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,7 +75,7 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
                 fatalError("Failed to initialize ")
         }
         //print(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWithAttibute(attribute: attributeInCell).calculateTotal())
-        var statString =  String(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWithAttibute(attribute: attributeInCell).calculateTotal())
+        let statString =  String(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWith(attribute: attributeInCell).calculateTotal())
        
         cell.initialize(color: UIColor(rgb: Int(attributeInCell.color), a: CGFloat(attributeInCell.alpha)), data: attributeInCell.title!, stat: statString, imageForCell: UIImage(data: attributeInCell.icon! as Data)!)
         cell.accessoryType = UITableViewCellAccessoryType.none
@@ -112,7 +114,7 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
     
     //This is to not perform a segue that is executed by clicking on the cell via storyboard
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if let s = sender as? AttributeTableViewCell{
+        if sender is AttributeTableViewCell {
             return false
             
         }
@@ -135,7 +137,6 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
 
         do{
             try fetchedResultsController.performFetch()
-            print(fetchedResultsController.fetchedObjects ?? "default value")
         }catch{
             fatalError("Failed to initialize FetchedResultsController: \(error)")
         }

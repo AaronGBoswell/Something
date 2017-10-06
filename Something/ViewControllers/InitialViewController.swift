@@ -44,7 +44,7 @@ class InitialViewController: UIViewController {
     
     
     func buttonMagic(){
-        var data = DataStatistics()
+        let data = DataStatistics()
         
         var test = data.dataStatisticsWithCompletion(completed: true)
         var get = test?.calculateTotal()
@@ -69,9 +69,6 @@ class InitialViewController: UIViewController {
     }
     func beautifyNavigationBar(){
         let navBar = self.navigationController!.navigationBar
-        navBar.isTranslucent = true
-        //navBar.tintColor = StyleModel.sharedInstance.backgroundColor
-        //navBar.backgroundColor = StyleModel.sharedInstance.backgroundColor
         navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         if #available(iOS 11.0, *) {
             navBar.prefersLargeTitles = true
@@ -83,7 +80,8 @@ class InitialViewController: UIViewController {
 
         
     }
-    
+
+
     
     //trying this on for size going to make it in storyboard
     func makeTitle(){

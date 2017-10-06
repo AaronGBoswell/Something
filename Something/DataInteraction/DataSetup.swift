@@ -49,7 +49,7 @@ func newKind(id:Int64, alpha:Float,color:Int64, title:String, icon:UIImage){
     kind.alpha = alpha
     kind.color = color
     kind.title = title
-    kind.icon = (UIImagePNGRepresentation(icon) as! Data)
+    kind.icon = UIImagePNGRepresentation(icon)
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
 }
 func setupKinds(){
@@ -67,7 +67,7 @@ func newTime(id:Int64, alpha:Float,color:Int64, title:String,  icon:UIImage){
     time.alpha = alpha
     time.color = color
     time.title = title
-     time.icon = (UIImagePNGRepresentation(icon) as! Data)
+     time.icon = UIImagePNGRepresentation(icon)
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
 }
 func setupTimes(){

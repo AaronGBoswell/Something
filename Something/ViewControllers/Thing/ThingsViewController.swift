@@ -34,12 +34,6 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         //MakeTitle()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        if( self.navigationController?.viewControllers.index(of: self) == nil){
-            Workflow.sharedWorkflow.decrementWorkflow()
-        }
-        super.viewWillDisappear(animated)
-    }
     
     @objc func backAction(sender: UIButton!) {
         if let navController = self.navigationController {

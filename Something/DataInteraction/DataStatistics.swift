@@ -22,8 +22,20 @@ struct DataStatistics{
         return newDataStatistics
 
     }
-    
-    func dataStatisticsWithAttibute(attribute:Attribute) -> DataStatistics!{
+    func statsWithout(attributeString:String) -> DataStatistics!{
+        if(attributeString == "Time"){
+            var newDataStatistics = self
+            newDataStatistics.time = nil
+            return newDataStatistics
+        }
+        if(attributeString == "Kind"){
+            var newDataStatistics = self
+            newDataStatistics.kind = nil
+            return newDataStatistics
+        }
+        return self
+    }
+    func dataStatisticsWith(attribute:Attribute) -> DataStatistics!{
         if let kind = attribute as? Kind{
             var newDataStatistics = self
             newDataStatistics.kind = kind

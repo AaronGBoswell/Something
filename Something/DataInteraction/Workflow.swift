@@ -16,19 +16,23 @@ class Workflow{
     public func setWorkflow(workflow: [WorkFlowItem]){
         self.workflow = workflow
         workflowIndex = 0
+        stats = DataStatistics();
     }
 
+    public func removeFromStats(_ attribute:String){
+        stats = stats.statsWithout(attributeString: attribute)
+    }
     public func getCurrentWorkFlowItem() -> WorkFlowItem{
         return workflow[workflowIndex]
     }
     public func incrementWorkflow(){
-        workflowIndex = workflowIndex + 1
+        workflowIndex = min(workflowIndex + 1, workflow.count - 1)
     }
     public func decrementWorkflow(){
-        workflowIndex = workflowIndex - 1
+        workflowIndex = max(workflowIndex - 1, 0)
     }
     public func addToStats(attribute:Attribute){
-        stats = stats.dataStatisticsWithAttibute(attribute: attribute)
+        stats = stats.dataStatisticsWith(attribute: attribute)
 
     }
     public func getCurrentDataStatistics() -> DataStatistics{

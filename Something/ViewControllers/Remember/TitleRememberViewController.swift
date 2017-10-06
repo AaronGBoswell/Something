@@ -103,7 +103,13 @@ class TitleRememberViewController: UIViewController,UITextFieldDelegate{
         
         self.view.addSubview(button)
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        if( self.navigationController?.viewControllers.index(of: self) == nil){
+            CreateThingWizard.destroy()            
+        }
+        super.viewWillDisappear(animated)
+    }
+
     @objc func backAction(sender: AnyObject!) {
         if let navController = self.navigationController {
             navController.popViewController(animated: true)

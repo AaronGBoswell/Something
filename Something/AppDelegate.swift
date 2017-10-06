@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         UINavigationBar.appearance().tintColor = StyleModel.sharedInstance.labelColor
         UINavigationBar.appearance().backgroundColor = StyleModel.sharedInstance.backgroundColor
- 
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 

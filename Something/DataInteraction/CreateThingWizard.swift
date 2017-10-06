@@ -15,6 +15,14 @@ class CreateThingWizard {
     
     public static var sharedCreateThingWizard = CreateThingWizard()
     
+    public class func destroy(){
+        let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        moc.delete(sharedCreateThingWizard.thing)
+        sharedCreateThingWizard.save()
+        sharedCreateThingWizard.thing = nil
+    }
+
+        
     public class func new(){
         let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let thing = NSEntityDescription.insertNewObject(forEntityName: "Thing", into: moc) as! Thing
