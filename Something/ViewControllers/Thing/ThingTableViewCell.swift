@@ -11,11 +11,13 @@ import UIKit
 class ThingTableViewCell: UITableViewCell {
     var baseView:UIView?
     var color:UIColor?
-    var dataString:String?
     
-    func initialize(color :UIColor, data: String){
-        self.color = color        // color from model
-        self.dataString = data   //eg time, kind and so on
+    var data:Thing?
+    
+    func initialize(color :UIColor, data: Thing){
+       // self.color = color        // color from model
+        self.data = data   //eg time, kind and so on
+        
         makeBaseView()
         makeLabel()
         
@@ -34,7 +36,7 @@ class ThingTableViewCell: UITableViewCell {
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
         label.textAlignment = NSTextAlignment.left
-        label.text = dataString!
+        label.text = data?.title!
         label.font = UIFont(name: "PingFang SC", size: 30)
         baseView?.addSubview(label)
     }
@@ -42,7 +44,7 @@ class ThingTableViewCell: UITableViewCell {
         let width = self.contentView.frame.width
         let height = self.contentView.frame.height
         baseView  = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        baseView?.backgroundColor = color!
+        baseView?.backgroundColor = data.color!
         self.contentView.addSubview(baseView!)
         
         
