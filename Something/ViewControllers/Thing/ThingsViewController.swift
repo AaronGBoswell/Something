@@ -74,7 +74,7 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
             else{
                 fatalError("Failed to initialize ")
         }
-        cell.initialize(color: UIColor(rgb: Int((selectedThing.kind?.color)!), a: CGFloat((selectedThing.kind?.alpha)!)), data: selectedThing)
+        cell.initialize(data: selectedThing)
         //cell.textLabel?.text = selectedThing.title
     }
     

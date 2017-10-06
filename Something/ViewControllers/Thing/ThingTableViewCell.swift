@@ -14,9 +14,10 @@ class ThingTableViewCell: UITableViewCell {
     
     var data:Thing?
     
-    func initialize(color :UIColor, data: Thing){
+    func initialize( data: Thing){
        // self.color = color        // color from model
         self.data = data   //eg time, kind and so on
+        self.color = UIColor(rgb: Int((data.kind?.color)!), a: CGFloat((data.kind?.alpha)!))
         
         makeBaseView()
         makeLabel()
@@ -44,7 +45,7 @@ class ThingTableViewCell: UITableViewCell {
         let width = self.contentView.frame.width
         let height = self.contentView.frame.height
         baseView  = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        baseView?.backgroundColor = data.color!
+        baseView?.backgroundColor = color
         self.contentView.addSubview(baseView!)
         
         
