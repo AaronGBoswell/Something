@@ -21,7 +21,6 @@ class CreateThingWizard {
         sharedCreateThingWizard.save()
         sharedCreateThingWizard.thing = nil
     }
-
         
     public class func new(){
         let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -32,7 +31,6 @@ class CreateThingWizard {
 
     }
 
-    //To use when editing an existing thing
     public class func newFromExisting(thing:Thing){
         sharedCreateThingWizard.thing = thing
         sharedCreateThingWizard.editing = true
@@ -40,9 +38,8 @@ class CreateThingWizard {
     
     public var thing:Thing!
     public var editing = false
+    
     public func save(){
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
-
-
 }

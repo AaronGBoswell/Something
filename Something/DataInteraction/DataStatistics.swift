@@ -5,7 +5,6 @@
 //  Created by Aaron Boswell on 2017-09-16.
 //  Copyright © 2017 Aaron Boswell. All rights reserved.
 //
-
 import Foundation
 import UIKit
 import CoreData
@@ -15,13 +14,13 @@ struct DataStatistics{
     private var time:Time?
     private var completed:Bool?
     
-    
     func dataStatisticsWithCompletion(completed:Bool) -> DataStatistics!{
         var newDataStatistics = self
         newDataStatistics.completed = completed
         return newDataStatistics
 
     }
+    
     func statsWithout(attributeString:String) -> DataStatistics!{
         if(attributeString == "Time"){
             var newDataStatistics = self
@@ -35,6 +34,7 @@ struct DataStatistics{
         }
         return self
     }
+    
     func dataStatisticsWith(attribute:Attribute) -> DataStatistics!{
         if let kind = attribute as? Kind{
             var newDataStatistics = self
@@ -51,7 +51,6 @@ struct DataStatistics{
     
     func calculateTotal() -> Int{
         let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
         do {
             let predicateFormulator = PredicateFormulator()
             predicateFormulator.kind = kind

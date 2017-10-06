@@ -8,33 +8,30 @@
 import UIKit
 import CoreData
 
-
 class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
-    
     
     @IBOutlet weak var tableView: UITableView!
     var attribute = Workflow.sharedWorkflow.getCurrentWorkFlowItem().attribute
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     var canSegue = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
-        
         
         attributeKindTableView.delegate = self
         attributeKindTableView.dataSource = self
         initalizeFetchedResultsController()
         
         title = attribute
-        //makeBackButton()
-        // makeTitle()
-        // Do any additional setup after loading the view, typically from a nib.
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Workflow.sharedWorkflow.removeFromStats(attribute);
         tableView.reloadData()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         if( self.navigationController?.viewControllers.index(of: self) == nil){
             Workflow.sharedWorkflow.decrementWorkflow()
@@ -48,14 +45,10 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         }
     }
     
- 
-
     //TableView 
     @IBOutlet weak var attributeKindTableView: UITableView!
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "AttributeTableViewCell", for: indexPath) as! AttributeTableViewCell
         configureCell(cell: cell, indexPath: indexPath)
         return cell;
@@ -74,7 +67,6 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
             else{
                 fatalError("Failed to initialize ")
         }
-        //print(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWithAttibute(attribute: attributeInCell).calculateTotal())
         let statString =  String(Workflow.sharedWorkflow.getCurrentDataStatistics().dataStatisticsWith(attribute: attributeInCell).calculateTotal())
        
         cell.initialize(color: UIColor(rgb: Int(attributeInCell.color), a: CGFloat(attributeInCell.alpha)), data: attributeInCell.title!, stat: statString, imageForCell: UIImage(data: attributeInCell.icon! as Data)!)
@@ -91,8 +83,6 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
                 }
             }
         }
-
-        //cell.initialize(color: .green, data: selectedKind.title!)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,27 +98,21 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         let segueIdentifier = Workflow.sharedWorkflow.getCurrentWorkFlowItem().segueIdentifier
         Workflow.sharedWorkflow.incrementWorkflow()
         performSegue(withIdentifier: segueIdentifier, sender: self)
-        
-        
     }
     
     //This is to not perform a segue that is executed by clicking on the cell via storyboard
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if sender is AttributeTableViewCell {
             return false
-            
         }
         return true
     }
 
-    
-    
     func initalizeFetchedResultsController(){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: attribute)
         let sort = NSSortDescriptor(key: "id", ascending: true)
         request.sortDescriptors = [sort]
         
-      
         let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
@@ -140,12 +124,7 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         }catch{
             fatalError("Failed to initialize FetchedResultsController: \(error)")
         }
-        
-        
     }
-
-    
-    
 }
 
 extension AttributeSelectorViewController:NSFetchedResultsControllerDelegate{
@@ -174,11 +153,8 @@ extension AttributeSelectorViewController:NSFetchedResultsControllerDelegate{
             attributeKindTableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
         case .update:
              break;
-            //configureCell(cell: attributeKindTableView.cellForRow(at: indexPath! as IndexPath)!, indexPath: indexPath! as IndexPath)
-           
         case .move:
             attributeKindTableView.reloadData()
-            
         }
     }
     
@@ -186,4 +162,3 @@ extension AttributeSelectorViewController:NSFetchedResultsControllerDelegate{
         attributeKindTableView.endUpdates()
     }
 }
-

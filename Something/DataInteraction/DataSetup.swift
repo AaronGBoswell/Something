@@ -10,11 +10,9 @@
 //Ultra global
 //Demons attend ye henceforth
 //***************************
-
 import Foundation
 import UIKit
 import CoreData
-
 
 func purgeCoreData(){
     purge(entityName: "Thing")
@@ -22,7 +20,6 @@ func purgeCoreData(){
     purge(entityName: "Kind")
     
 }
-
 
 func purge(entityName:String){
     let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -35,12 +32,12 @@ func purge(entityName:String){
         print("Something went wrong.\n")
     }
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
-    
 }
 func setupCoreData(){
     setupKinds()
     setupTimes()
 }
+
 func newKind(id:Int64, alpha:Float,color:Int64, title:String, icon:UIImage){
     let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -52,13 +49,14 @@ func newKind(id:Int64, alpha:Float,color:Int64, title:String, icon:UIImage){
     kind.icon = UIImagePNGRepresentation(icon)
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
 }
+
 func setupKinds(){
     newKind(id: 1,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["need to do"]!),title: "need to do", icon:  StyleModel.sharedInstance.imageNamesKind["need to do"]!)
     newKind(id: 2,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["nice to do"]!),title: "nice to do", icon:  StyleModel.sharedInstance.imageNamesKind["nice to do"]!)
     newKind(id: 3,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["want to do"]!),title: "want to do", icon:  StyleModel.sharedInstance.imageNamesKind["want to do"]!)
     newKind(id: Int64.max ,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["Doesn't matter"]!),title: "Doesn't matter", icon:  StyleModel.sharedInstance.imageNamesKind["Doesn't matter"]!)
-    
 }
+
 func newTime(id:Int64, alpha:Float,color:Int64, title:String,  icon:UIImage){
     let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -70,6 +68,7 @@ func newTime(id:Int64, alpha:Float,color:Int64, title:String,  icon:UIImage){
      time.icon = UIImagePNGRepresentation(icon)
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
 }
+
 func setupTimes(){
     newTime(id: 1,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["5min"]!), title: "5min", icon:  StyleModel.sharedInstance.imageNamesTime["5min"]!)
     newTime(id: 2,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["30min"]!), title: "30min", icon:  StyleModel.sharedInstance.imageNamesTime["30min"]!)

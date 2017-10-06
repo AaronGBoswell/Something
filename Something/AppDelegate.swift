@@ -5,7 +5,6 @@
 //  Created by Aaron Boswell on 2017-09-11.
 //  Copyright © 2017 Aaron Boswell. All rights reserved.
 //
-
 import UIKit
 import CoreData
 
@@ -14,11 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        //These functions defined in /DataInteraction/DataSetup.swift
         purgeCoreData()
         setupCoreData()
        
@@ -30,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().largeTitleTextAttributes =
                 [NSAttributedStringKey.foregroundColor: StyleModel.sharedInstance.homeTitleColor,
                  NSAttributedStringKey.font: UIFont(name: "PingFang SC", size: 30)!,]
-        } else {
-            // Fallback on earlier versions
         }
         UINavigationBar.appearance().tintColor = StyleModel.sharedInstance.labelColor
         UINavigationBar.appearance().backgroundColor = StyleModel.sharedInstance.backgroundColor
@@ -112,4 +105,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

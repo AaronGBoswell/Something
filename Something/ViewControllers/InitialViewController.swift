@@ -5,7 +5,6 @@
 //  Created by Aaron Boswell on 2017-09-11.
 //  Copyright © 2017 Aaron Boswell. All rights reserved.
 //
-
 import UIKit
 import CoreData
 
@@ -18,30 +17,21 @@ class InitialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.navigationController?.isNavigationBarHidden = false
         self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
-        //makeTitle()
         makeMakeButton()
         madeDoButton()
         makeSomethingButton()
         makeTitleMotto()
         beautifyNavigationBar()
-        
         makeHistoryButton()
-        
-        //self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 80.0)
-
-        
-        
         
         buttonMagic()
         
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         buttonMagic()
     }
-    
     
     func buttonMagic(){
         let data = DataStatistics()
@@ -65,34 +55,16 @@ class InitialViewController: UIViewController {
             doButton!.isEnabled = true
             somethingButton!.isEnabled = true
         }
-    
     }
+    
     func beautifyNavigationBar(){
         let navBar = self.navigationController!.navigationBar
         navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         if #available(iOS 11.0, *) {
             navBar.prefersLargeTitles = true
-        } else {
-            // Fallback on earlier versions
         }
         navBar.shadowImage = UIImage()
         self.title = "Something"
-
-        
-    }
-
-
-    
-    //trying this on for size going to make it in storyboard
-    func makeTitle(){
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 100, width: self.view.frame.size.width, height: 100))
-       // label.frame = CGRectMake(50, 50, 200, 21)
-        label.backgroundColor = .clear
-        label.textColor = StyleModel.sharedInstance.homeTitleColor
-        label.textAlignment = NSTextAlignment.center
-        label.text = "Something"
-        label.font = UIFont(name: "PingFang SC", size: 30)
-        self.view.addSubview(label)
     }
 
     func makeTitleMotto(){
@@ -116,6 +88,7 @@ class InitialViewController: UIViewController {
         
         self.view.addSubview(makeButton!)
     }
+    
     func madeDoButton(){
         doButton = UIButton(frame: CGRect(x: 0, y: 251, width: self.view.frame.size.width, height: 100))
         doButton?.backgroundColor = .black
@@ -127,6 +100,7 @@ class InitialViewController: UIViewController {
         
         self.view.addSubview(doButton!)
     }
+    
     func makeSomethingButton(){
         somethingButton = UIButton(frame: CGRect(x: 0, y: 352, width: self.view.frame.size.width, height: 100))
         somethingButton?.backgroundColor = .black
@@ -138,28 +112,23 @@ class InitialViewController: UIViewController {
         
         self.view.addSubview(somethingButton!)
     }
+    
     func makeHistoryButton(){
-        historyButton
-            
-            = UIButton(frame: CGRect(x: 0, y: 453, width: self.view.frame.size.width, height: 100))
+        historyButton = UIButton(frame: CGRect(x: 0, y: 453, width: self.view.frame.size.width, height: 100))
         historyButton?.backgroundColor = .black
         historyButton?.setTitle("HISTORY", for: .normal)
         historyButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
         historyButton?.setTitleColor(StyleModel.sharedInstance.homeTextHistoryColor, for: .normal)
-        //historyButton?.setTitleColor(StyleModel.sharedInstance.greybuttonColor, for: .disabled)
         historyButton?.setBackgroundColor(color: StyleModel.sharedInstance.greybuttonColor, forState: .disabled)
         historyButton?.addTarget(self, action: #selector(historyAction), for: .touchUpInside)
         
         self.view.addSubview(historyButton!)
     }
 
-    
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "InitialToThing" {
             
@@ -177,19 +146,16 @@ class InitialViewController: UIViewController {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
-            
         }
-        
-        
     }
     
     @objc func somethingAction(sender: UIButton!) {
         performSegue(withIdentifier: "InitialToThing", sender: self)
     }
+    
     @objc func historyAction(sender: UIButton!) {
         var statistics = DataStatistics()
         statistics = statistics.dataStatisticsWithCompletion(completed: true)
-        var numCompleted = statistics.calculateTotal()
         
         PredicateFormulator.sharedPredicateFormulator.kind = nil
         PredicateFormulator.sharedPredicateFormulator.time = nil
@@ -197,13 +163,11 @@ class InitialViewController: UIViewController {
         performSegue(withIdentifier: "InitialToHistory", sender: self)
     }
 
-
      @objc func makeAction(sender: UIButton!) {
         CreateThingWizard.new()
         let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.time = (attribute as! Time)}
         )
-        let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToNote", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.kind = (attribute as! Kind)
-        }
+        let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToNote", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.kind = (attribute as! Kind)}
         )
         Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
         self.performSegue(withIdentifier: "MakeSeuge", sender: self)
@@ -214,17 +178,13 @@ class InitialViewController: UIViewController {
 
         let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.time = (attribute as! Time)}
         )
-        let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToThing", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.kind = (attribute as! Kind)
-        }
+        let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToThing", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.kind = (attribute as! Kind)}
         )
         Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
          self.performSegue(withIdentifier: "StartToAttribute", sender: self)
     }
-    
-    
 }
 
-//This sets the height of the NavBar
 extension UIButton {
     func setBackgroundColor(color: UIColor, forState: UIControlState) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
@@ -234,19 +194,4 @@ extension UIButton {
         UIGraphicsEndImageContext()
         self.setBackgroundImage(colorImage, for: forState)
     }
-    
 }
-//This sets the height of the NavBar
-
-extension UINavigationBar{
-    @objc open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        var rec = self.frame
-        let screenRect = UIScreen.main.bounds
-        rec.size.width = screenRect.size.width
-        rec.size.height = 150
-        
-        return rec.size
-    }
-}
-
-

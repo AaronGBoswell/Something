@@ -20,9 +20,11 @@ class WorkFlowItem{
         self.attributePredicate = attributePredicate
         self.selectAttributeClosure = selectAttributeClosure
     }
+    
     convenience init(attribute:String, segueIdentifier:String, selectAttributeClosure: @escaping (Attribute)->Void) {
         self.init(attribute: attribute, segueIdentifier: segueIdentifier, attributePredicate: NSPredicate(value: true), selectAttributeClosure: selectAttributeClosure)
     }
+    
     func selectAttribute(attribute:Attribute){
         selectAttributeClosure(attribute)
     }

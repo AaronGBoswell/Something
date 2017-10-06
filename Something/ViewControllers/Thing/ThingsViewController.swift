@@ -5,34 +5,22 @@
 //  Created by Henry Boswell on 9/12/17.
 //  Copyright © 2017 Aaron Boswell. All rights reserved.
 //
-
-
-
 import UIKit
 import CoreData
 
-
 class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
-    
-    
-    
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
-    
     var sendThing:Thing?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = StyleModel.sharedInstance.backgroundColor
         
-        
         thingTableView.delegate = self
         thingTableView.dataSource = self
         initalizeFetchedResultsController()
         
         self.title = "Things"
-        //MakeBackButton()
-        //MakeTitle()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     @objc func backAction(sender: UIButton!) {
@@ -40,16 +28,11 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
             navController.popViewController(animated: true)
         }
     }
-    
-    
-    
-    
+
     //TableView
     @IBOutlet weak var thingTableView: UITableView!
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ThingTableViewCell", for: indexPath) as! ThingTableViewCell
         configureCell(cell: cell, indexPath: indexPath)
         return cell;
@@ -69,63 +52,44 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
                 fatalError("Failed to initialize ")
         }
         cell.initialize(data: selectedThing)
-        //cell.textLabel?.text = selectedThing.title
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //TODO this should bring you to a detaile view of the Thing
         guard let selectedThing = fetchedResultsController.object(at: indexPath) as? Thing
             else{
                 fatalError("Failed to initialize ")
         }
-        
+    
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //TODO
-        //CreateThingWizard.sharedInstance.
         sendThing = selectedThing
         performSegue(withIdentifier: "thingData", sender: tableView.cellForRow(at: indexPath))
-        //self.popBack(3)
-
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "thingData" {
-            
             let nextView = segue.destination as! ThingDataViewController
-            
-            
             
             nextView.getThing = sendThing
         }
-        
-        
     }
 
-    
     func popBack(_ nb: Int) {
         var viewControllers = navigationController?.viewControllers
         viewControllers?.removeLast(nb) // views to pop
         navigationController?.setViewControllers(viewControllers!, animated: true)
     }
     
-    
-    
-    
     func initalizeFetchedResultsController(){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Thing")
         let sort = NSSortDescriptor(key: "title", ascending: true)
         request.sortDescriptors = [sort]
-        
         
         let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         
-        //TODO FYI henry, delete after viewing
         fetchedResultsController.fetchRequest.predicate = PredicateFormulator.sharedPredicateFormulator.getPredicate()
         
         do{
@@ -134,12 +98,7 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         }catch{
             fatalError("Failed to initialize FetchedResultsController: \(error)")
         }
-        
-        
     }
-    
-    
-    
 }
 
 extension ThingsViewController:NSFetchedResultsControllerDelegate{

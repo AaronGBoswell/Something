@@ -12,6 +12,7 @@ import CoreData
 class PredicateFormulator {
     
     public static var sharedPredicateFormulator = PredicateFormulator()
+    
     public var kind:Kind?
     public var time:Time?
     public var completed = false
