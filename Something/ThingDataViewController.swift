@@ -32,7 +32,7 @@ class ThingDataViewController: UIViewController{
         
         makeColorView()
         makeDoneButton()
-        makeNoteLabel()
+        //makeNoteLabel()
         makeThingDataLabel()
         makeThingNoteDataLabel()
         makeCompletedButton()
@@ -88,7 +88,7 @@ class ThingDataViewController: UIViewController{
     
     func makeNoteLabel(){
         let width = self.view.frame.width
-        let label: UILabel = UILabel(frame: CGRect(x: 10, y: 70, width: width - 20, height: 50))
+        let label: UILabel = UILabel(frame: CGRect(x: 10, y: 130, width: width - 20, height: 500))
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
         label.textAlignment = NSTextAlignment.left
@@ -99,15 +99,16 @@ class ThingDataViewController: UIViewController{
     func makeThingNoteDataLabel(){
         let width = self.view.frame.width
         let height = self.view.frame.height
-        note = UITextView(frame: CGRect(x: 20, y: 100, width: width - 40, height: height - 100))
+        note = UITextView(frame: CGRect(x: 20, y: 130, width: width - 40, height: height - 100))
         note!.backgroundColor = .clear
         note!.textColor = StyleModel.sharedInstance.labelColor
-        note!.textAlignment = NSTextAlignment.center
+        note!.textAlignment = NSTextAlignment.left
+        note!.font = UIFont(name: "PingFang SC Thin", size: 20)
         self.view.addSubview(note!)
     }
     
     func makeCompletedButton(){
-        let button = UIButton(frame: CGRect(x: 0, y: 353, width: self.view.frame.size.width, height: 100))
+        let button = UIButton(frame: CGRect(x: 0, y: self.view.frame.size.height - 125, width: self.view.frame.size.width, height: 100))
         button.backgroundColor = .black
         button.setTitle("TASK COMPLETED", for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -120,7 +121,7 @@ class ThingDataViewController: UIViewController{
     func makeColorView(){
         let width = self.view.frame.width
         let height = self.view.frame.height
-        colorView  = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        colorView  = UIView(frame: CGRect(x: 0, y: 100, width: width, height: height-400))
         colorView?.backgroundColor = UIColor(rgb: Int((getThing!.kind?.color)!))
         self.view.addSubview(colorView!)
     }
