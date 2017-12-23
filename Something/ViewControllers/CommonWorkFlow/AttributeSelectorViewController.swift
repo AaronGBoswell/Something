@@ -97,8 +97,28 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         Workflow.sharedWorkflow.addToStats(attribute: selectedAttribute)
         let segueIdentifier = Workflow.sharedWorkflow.getCurrentWorkFlowItem().segueIdentifier
         Workflow.sharedWorkflow.incrementWorkflow()
-        performSegue(withIdentifier: segueIdentifier, sender: self)
+        if(segueIdentifier != nil){
+            performSegue(withIdentifier: segueIdentifier!, sender: self)
+        }
+        else{
+            submit()
+        }
     }
+    func submit(){
+        CreateThingWizard.sharedCreateThingWizard.save();
+        CreateThingWizard.sharedCreateThingWizard.editing = false;
+        self.popBack(4)
+    }
+
+    func popBack(_ nb: Int) {
+        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
+            guard viewControllers.count < nb else {
+                self.navigationController?.popToViewController(viewControllers[viewControllers.count - nb], animated: true)
+                return
+            }
+        }
+    }
+
     
     //This is to not perform a segue that is executed by clicking on the cell via storyboard
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

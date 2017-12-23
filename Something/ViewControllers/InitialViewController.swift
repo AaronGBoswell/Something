@@ -23,7 +23,7 @@ class InitialViewController: UIViewController {
         makeSomethingButton()
         makeTitleMotto()
         beautifyNavigationBar()
-        makeHistoryButton()
+        //makeHistoryButton()
         
         buttonMagic()
         
@@ -38,13 +38,13 @@ class InitialViewController: UIViewController {
         
         var test = data.dataStatisticsWithCompletion(completed: true)
         var get = test?.calculateTotal()
-        
+        /*
         if(get == 0){
             historyButton!.isEnabled = false
         }else{
             historyButton!.isEnabled = true
         }
-        
+        */
         test = data.dataStatisticsWithCompletion(completed: false)
         get = test?.calculateTotal()
         
@@ -79,7 +79,7 @@ class InitialViewController: UIViewController {
     }
 
     func makeMakeButton(){
-        makeButton = UIButton(frame: CGRect(x: 0, y: 150, width: self.view.frame.size.width, height: 100))
+        makeButton = UIButton(frame: CGRect(x: 0, y: 250, width: self.view.frame.size.width, height: 100))
         makeButton?.backgroundColor = .black
         makeButton?.setTitle("MAKE", for: .normal)
         makeButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -90,7 +90,7 @@ class InitialViewController: UIViewController {
     }
     
     func madeDoButton(){
-        doButton = UIButton(frame: CGRect(x: 0, y: 251, width: self.view.frame.size.width, height: 100))
+        doButton = UIButton(frame: CGRect(x: 0, y: 351, width: self.view.frame.size.width, height: 100))
         doButton?.backgroundColor = .black
         doButton?.setTitle("DO", for: .normal)
         doButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -102,7 +102,7 @@ class InitialViewController: UIViewController {
     }
     
     func makeSomethingButton(){
-        somethingButton = UIButton(frame: CGRect(x: 0, y: 352, width: self.view.frame.size.width, height: 100))
+        somethingButton = UIButton(frame: CGRect(x: 0, y: 452, width: self.view.frame.size.width, height: 100))
         somethingButton?.backgroundColor = .black
         somethingButton?.setTitle("SOMETHING", for: .normal)
         somethingButton?.titleLabel?.font = UIFont(name: "PingFang SC Thin", size: 20)
@@ -112,7 +112,7 @@ class InitialViewController: UIViewController {
         
         self.view.addSubview(somethingButton!)
     }
-    
+    /*
     func makeHistoryButton(){
         historyButton = UIButton(frame: CGRect(x: 0, y: 453, width: self.view.frame.size.width, height: 100))
         historyButton?.backgroundColor = .black
@@ -124,33 +124,36 @@ class InitialViewController: UIViewController {
         
         self.view.addSubview(historyButton!)
     }
-
+*/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "InitialToThing" {
-            
-            let nextView = segue.destination as! ThingDataViewController
-            let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Thing")
-            request.predicate = NSPredicate(format: "lastCompleted == nil")
-            do{
-                let results = try moc.fetch(request)as! [Thing]
-                let randomIndex = Int(arc4random_uniform(UInt32(results.count)))
-                print(randomIndex)
-                print(results)
-                nextView.getThing = results[randomIndex]
-            }catch{
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
+//        if segue.identifier == "InitialToThing" {
+//            
+//            let nextView = segue.destination as! ThingDataViewController
+//            let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Thing")
+//            request.predicate = NSPredicate(format: "lastCompleted == nil")
+//            do{
+//                let results = try moc.fetch(request)as! [Thing]
+//                let randomIndex = Int(arc4random_uniform(UInt32(results.count)))
+//                print(randomIndex)
+//                print(results)
+//                nextView.getThing = results[randomIndex]
+//            }catch{
+//                let nserror = error as NSError
+//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//            }
+//        }
     }
     
     @objc func somethingAction(sender: UIButton!) {
-        performSegue(withIdentifier: "InitialToThing", sender: self)
+        PredicateFormulator.sharedPredicateFormulator.kind = nil
+        PredicateFormulator.sharedPredicateFormulator.time = nil
+        PredicateFormulator.sharedPredicateFormulator.completed = false
+        performSegue(withIdentifier: "InitialToThings", sender: self)
     }
     
     @objc func historyAction(sender: UIButton!) {
@@ -167,7 +170,7 @@ class InitialViewController: UIViewController {
         CreateThingWizard.new()
         let workflowItemOne = WorkFlowItem(attribute: "Time", segueIdentifier: "BacktoAttribute", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.time = (attribute as! Time)}
         )
-        let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToNote", attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.kind = (attribute as! Kind)}
+        let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: nil, attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.kind = (attribute as! Kind)}
         )
         Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
         self.performSegue(withIdentifier: "MakeSeuge", sender: self)

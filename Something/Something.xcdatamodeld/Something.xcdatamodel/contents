@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Kind" representedClassName="Kind" syncable="YES" codeGenerationType="class">
         <attribute name="alpha" attributeType="Float" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="color" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -12,7 +12,7 @@
         <attribute name="completed" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="lastCompleted" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="note" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="kind" maxCount="1" deletionRule="Nullify" destinationEntity="Kind" inverseName="things" inverseEntity="Kind" syncable="YES"/>
         <relationship name="time" maxCount="1" deletionRule="Nullify" destinationEntity="Time" inverseName="things" inverseEntity="Time" syncable="YES"/>
@@ -26,7 +26,7 @@
         <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Thing" inverseName="time" inverseEntity="Thing" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Kind" positionX="-63" positionY="-144" width="128" height="133"/>
+        <element name="Kind" positionX="-171" positionY="-97" width="128" height="133"/>
         <element name="Thing" positionX="-63" positionY="-360" width="128" height="148"/>
         <element name="Time" positionX="108" positionY="-144" width="128" height="133"/>
     </elements>
