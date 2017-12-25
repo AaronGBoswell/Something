@@ -7,6 +7,7 @@
 //
 import UIKit
 import CoreData
+import MGSwipeTableCell
 
 class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableViewDelegate {
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
@@ -54,21 +55,7 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         cell.initialize(data: selectedThing)
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        print("here")
-        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
-            //TODO: edit the row at indexPath here
-        }
-        editAction.backgroundColor = .blue
-        
-        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
-            //TODO: Delete the row at indexPath here
-        }
-        deleteAction.backgroundColor = .red
-        
-        return [editAction,deleteAction]
-    }
+   
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         if let value = tableView.indexPathsForSelectedRows?.contains(indexPath){
@@ -80,6 +67,14 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         
     }
     
+    /*
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = self.contextualDeleteAction(forRowAtIndexPath: indexPath)
+        let flagAction = self.contextualToggleFlagAction(forRowAtIndexPath: indexPath)
+        let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction, flagAction])
+        return swipeConfig
+    }
+ */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedThing = fetchedResultsController.object(at: indexPath) as? Thing
             else{
@@ -91,9 +86,16 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         sendThing = selectedThing
         //performSegue(withIdentifier: "thingData", sender: tableView.cellForRow(at: indexPath))
         let cell = tableView.cellForRow(at: indexPath) as! ThingTableViewCell
-        tableView.setEditing(true, animated: true)
-        print("here twii")
-        cell.setEditing(true, animated: true)
+        
+        //self.tableView(tableView, trailingSwipeActionsConfigurationForRowAt: indexPath)
+        //tableView(tableView, trailingSwipeActionsConfigurationForRowAt: indexPath)
+        
+        
+        
+        cell.showSwipe(MGSwipeDirection.rightToLeft, animated: true)
+        //tableView.setEditing(true, animated: true)
+        //print("here twii")
+        //cell.setEditing(true, animated: true)
         
     }
     
