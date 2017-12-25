@@ -173,6 +173,7 @@ class InitialViewController: UIViewController {
         let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: nil, attributePredicate: NSPredicate(format: "id != \(Int64.max)"), selectAttributeClosure: {attribute in CreateThingWizard.sharedCreateThingWizard.thing.kind = (attribute as! Kind)}
         )
         Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
+        Workflow.sharedWorkflow.creating = true
         self.performSegue(withIdentifier: "MakeSeuge", sender: self)
     }
     
@@ -184,6 +185,8 @@ class InitialViewController: UIViewController {
         let workflowItemTwo = WorkFlowItem(attribute: "Kind", segueIdentifier: "AttributeToThing", selectAttributeClosure: {attribute in PredicateFormulator.sharedPredicateFormulator.kind = (attribute as! Kind)}
         )
         Workflow.sharedWorkflow.setWorkflow(workflow: [workflowItemOne, workflowItemTwo])
+        Workflow.sharedWorkflow.creating = false
+
          self.performSegue(withIdentifier: "StartToAttribute", sender: self)
     }
 }

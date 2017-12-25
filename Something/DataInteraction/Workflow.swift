@@ -13,6 +13,7 @@ class Workflow{
     private var workflow:[WorkFlowItem]!
     private var stats:DataStatistics = DataStatistics()
     private var workflowIndex = 0
+    public var creating : Bool!
     
     public func setWorkflow(workflow: [WorkFlowItem]){
         self.workflow = workflow

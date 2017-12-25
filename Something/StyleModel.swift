@@ -23,22 +23,22 @@ class StyleModel  {
     var buttonColor = UIColor(rgb:0x393F42)  //impact grey
     var greybuttonColor = UIColor(rgb:0x393F42)  //impact grey
     
-    var kindColors: [String: Int] = ["need to do": 0xEA526F,
-                                   "nice to do": 0xF9CB40,
-                                   "want to do": 0xBCED09,
-                                   "Doesn't matter": 0xACF39D]
+    var kindColors: [String: Int] = ["Need to do.": 0xEA526F,
+                                   "Nice to do.": 0xF9CB40,
+                                   "Want to do.": 0xBCED09,
+                                   "Doesn't matter.": 0xACF39D]
 
     var timeColors: [String: Int] = ["5min": 0xEA526F,
                                      "30min": 0xF9CB40,
                                      "55min": 0xBCED09,
-                                     "Doesn't matter": 0xACF39D]
+                                     "Doesn't matter.": 0xACF39D]
     var imageNamesTime: [String: UIImage] = ["5min": UIImage(named: "5min.png")!,
                                              "30min": UIImage(named: "30min.png")!,
                                              "55min": UIImage(named: "55min.png")!,
-                                             "Doesn't matter": UIImage(named: "infmin.png")!]
+                                             "Doesn't matter.": UIImage(named: "infmin.png")!]
     
-    var imageNamesKind: [String: UIImage] = ["need to do": UIImage(named: "imp1.png")!,
-                                     "nice to do": UIImage(named: "imp2.png")!,
-                                     "want to do": UIImage(named: "imp3.png")!,
-                                     "Doesn't matter": UIImage(named: "infimp.png")!]
+    var imageNamesKind: [String: UIImage] = ["Need to do.": UIImage(named: "imp1.png")!,
+                                     "Nice to do.": UIImage(named: "imp2.png")!,
+                                     "Want to do.": UIImage(named: "imp3.png")!,
+                                     "Doesn't matter.": UIImage(named: "infimp.png")!]
 }

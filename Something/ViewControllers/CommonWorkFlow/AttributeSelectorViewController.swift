@@ -25,6 +25,22 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         
         title = attribute
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let label: UILabel = UILabel()
+        label.backgroundColor = .clear
+        label.textColor = StyleModel.sharedInstance.buttonColor
+        label.textAlignment = NSTextAlignment.left
+        label.text = (attribute == "Kind") ? "      How important is this?" : "      How long will this take?."
+        if Workflow.sharedWorkflow.creating == false{
+            label.text = (attribute == "Kind") ? "      What would you like to do?" : "      How long do you have?"
+        }
+        label.font = UIFont(name: "PingFang SC", size: 20)
+        return label
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

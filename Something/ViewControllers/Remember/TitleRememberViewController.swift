@@ -49,7 +49,7 @@ class TitleRememberViewController: UIViewController,UITextFieldDelegate{
         textField?.backgroundColor = .white
         textField?.textAlignment = NSTextAlignment.center
         textField?.text = ""
-        textField?.font = UIFont(name: "PingFang SC", size: 34)
+        textField?.font = UIFont(name: "PingFang SC", size: 20)
         textField?.keyboardType = .default
         textField?.returnKeyType = .done
         self.view.addSubview(textField!)
@@ -60,7 +60,7 @@ class TitleRememberViewController: UIViewController,UITextFieldDelegate{
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.buttonColor
         label.textAlignment = NSTextAlignment.center
-        label.text = "A Thoughtful Title."
+        label.text = "A Thoughtful Description."
         label.font = UIFont(name: "PingFang SC", size: 14)
         self.view.addSubview(label)
     }

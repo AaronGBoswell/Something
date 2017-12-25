@@ -24,7 +24,7 @@ func purgeCoreData(){
 func purge(entityName:String){
     let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let venueFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entityName )
-    do {
+    do{
         let fetched = try moc.fetch(venueFetch) as! [NSManagedObject]
         fetched.forEach({moc.delete($0)})
         
@@ -51,10 +51,10 @@ func newKind(id:Int64, alpha:Float,color:Int64, title:String, icon:UIImage){
 }
 
 func setupKinds(){
-    newKind(id: 1,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["need to do"]!),title: "need to do", icon:  StyleModel.sharedInstance.imageNamesKind["need to do"]!)
-    newKind(id: 2,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["nice to do"]!),title: "nice to do", icon:  StyleModel.sharedInstance.imageNamesKind["nice to do"]!)
-    newKind(id: 3,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["want to do"]!),title: "want to do", icon:  StyleModel.sharedInstance.imageNamesKind["want to do"]!)
-    newKind(id: Int64.max ,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["Doesn't matter"]!),title: "Doesn't matter", icon:  StyleModel.sharedInstance.imageNamesKind["Doesn't matter"]!)
+    newKind(id: 1,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["Need to do."]!),title: "Need to do.", icon:  StyleModel.sharedInstance.imageNamesKind["Need to do."]!)
+    newKind(id: 2,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["Nice to do."]!),title: "Nice to do.", icon:  StyleModel.sharedInstance.imageNamesKind["Nice to do."]!)
+    newKind(id: 3,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["Want to do."]!),title: "Want to do.", icon:  StyleModel.sharedInstance.imageNamesKind["Want to do."]!)
+    newKind(id: Int64.max ,alpha: 1,color: Int64(StyleModel.sharedInstance.kindColors["Doesn't matter."]!),title: "Doesn't matter", icon:  StyleModel.sharedInstance.imageNamesKind["Doesn't matter."]!)
 }
 
 func newTime(id:Int64, alpha:Float,color:Int64, title:String,  icon:UIImage){
@@ -70,9 +70,9 @@ func newTime(id:Int64, alpha:Float,color:Int64, title:String,  icon:UIImage){
 }
 
 func setupTimes(){
-    newTime(id: 1,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["5min"]!), title: "5min", icon:  StyleModel.sharedInstance.imageNamesTime["5min"]!)
-    newTime(id: 2,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["30min"]!), title: "30min", icon:  StyleModel.sharedInstance.imageNamesTime["30min"]!)
-    newTime(id: 3,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["55min"]!), title: "55min", icon:  StyleModel.sharedInstance.imageNamesTime["55min"]!)
-    newTime(id: Int64.max ,alpha: 1,color:  Int64(StyleModel.sharedInstance.timeColors["Doesn't matter"]!),title: "Doesn't matter", icon:  StyleModel.sharedInstance.imageNamesTime["Doesn't matter"]!)
+    newTime(id: 1,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["5min"]!), title: "Short", icon:  StyleModel.sharedInstance.imageNamesTime["5min"]!)
+    newTime(id: 2,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["30min"]!), title: "Medium", icon:  StyleModel.sharedInstance.imageNamesTime["30min"]!)
+    newTime(id: 3,alpha: 1, color:  Int64(StyleModel.sharedInstance.timeColors["55min"]!), title: "Long", icon:  StyleModel.sharedInstance.imageNamesTime["55min"]!)
+    newTime(id: Int64.max ,alpha: 1,color:  Int64(StyleModel.sharedInstance.timeColors["Doesn't matter."]!),title: "Doesn't matter", icon:  StyleModel.sharedInstance.imageNamesTime["Doesn't matter."]!)
     
 }

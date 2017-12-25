@@ -23,11 +23,12 @@ class AttributeTableViewCell: UITableViewCell {
         makeBaseView()
         makeLabel()
         makeStatLabel()
+        makeLabel()
         makeImageView()
     }
     
     func makeLabel(){
-        let label: UILabel = UILabel(frame: CGRect(x: 20, y: 30, width: 400, height: 30))
+        let label: UILabel = UILabel(frame: CGRect(x: 20, y: 30, width: 400, height: 50))
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
         label.textAlignment = NSTextAlignment.left
