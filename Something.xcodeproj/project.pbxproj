@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		941C05061F6C8A2200A7AD05 /* AttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C05051F6C8A2200A7AD05 /* AttributeTableViewCell.swift */; };
+		943F353E1FF1AE4E0072AFD9 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943F353D1FF1AE4D0072AFD9 /* MGSwipeTableCell.framework */; };
 		944F5A3C1F6F964600EA6D33 /* StyleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F5A3B1F6F964600EA6D33 /* StyleModel.swift */; };
 		9473FEE21F6852BA0070F507 /* AttributeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */; };
 		9473FEE61F6882BA0070F507 /* TitleRememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FEE51F6882BA0070F507 /* TitleRememberViewController.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		941C05051F6C8A2200A7AD05 /* AttributeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeTableViewCell.swift; path = ViewControllers/CommonWorkFlow/AttributeTableViewCell.swift; sourceTree = "<group>"; };
+		943F353D1FF1AE4D0072AFD9 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = Carthage/Build/iOS/MGSwipeTableCell.framework; sourceTree = "<group>"; };
 		944F5A3B1F6F964600EA6D33 /* StyleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleModel.swift; sourceTree = "<group>"; };
 		9473FEE11F6852BA0070F507 /* AttributeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributeSelectorViewController.swift; path = ViewControllers/CommonWorkFlow/AttributeSelectorViewController.swift; sourceTree = "<group>"; };
 		9473FEE51F6882BA0070F507 /* TitleRememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleRememberViewController.swift; path = ViewControllers/Remember/TitleRememberViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943F353E1FF1AE4E0072AFD9 /* MGSwipeTableCell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		943F353C1FF1AE4D0072AFD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				943F353D1FF1AE4D0072AFD9 /* MGSwipeTableCell.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BD07E8911F673350004A5851 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +126,7 @@
 				BD07E8B41F673350004A5851 /* SomethingTests */,
 				BD07E8BF1F673350004A5851 /* SomethingUITests */,
 				BD07E89B1F673350004A5851 /* Products */,
+				943F353C1FF1AE4D0072AFD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +246,7 @@
 				BD07E8961F673350004A5851 /* Sources */,
 				BD07E8971F673350004A5851 /* Frameworks */,
 				BD07E8981F673350004A5851 /* Resources */,
+				943F353F1FF1AE7B0072AFD9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -356,6 +369,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		943F353F1FF1AE7B0072AFD9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/MGSwipeTableCell.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BD07E8961F673350004A5851 /* Sources */ = {
@@ -549,6 +579,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NN7HR27RDT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Something/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -564,6 +598,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NN7HR27RDT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Something/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

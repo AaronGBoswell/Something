@@ -6,8 +6,10 @@
 //  Copyright © 2017 Aaron Boswell. All rights reserved.
 //
 import UIKit
+import MGSwipeTableCell
 
-class ThingTableViewCell: UITableViewCell {
+
+class ThingTableViewCell: MGSwipeTableCell{
     var baseView:UIView?
     var color:UIColor?
     var data:Thing?
@@ -20,6 +22,19 @@ class ThingTableViewCell: UITableViewCell {
         
         //cludge alert!!!! cannot make contentview clear, need to fix this
         self.contentView.backgroundColor = StyleModel.sharedInstance.backgroundColor
+        
+        
+        //configure left buttons
+        self.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named:"check.png"), backgroundColor: .green),
+                            MGSwipeButton(title: "", icon: UIImage(named:"fav.png"), backgroundColor: .blue)]
+        self.leftSwipeSettings.transition = .clipCenter
+        
+        //configure right buttons
+        self.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: .red),
+                             MGSwipeButton(title: "More",backgroundColor: .lightGray)]
+        self.rightSwipeSettings.transition = .clipCenter
+
+        
     }
 
     func makeLabel(){
