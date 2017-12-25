@@ -20,25 +20,31 @@ class ThingTableViewCell: MGSwipeTableCell{
         makeBaseView()
         makeLabel()
         
+        
         //cludge alert!!!! cannot make contentview clear, need to fix this
         self.contentView.backgroundColor = StyleModel.sharedInstance.backgroundColor
         
-        
         //configure left buttons
-        self.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named:"check.png"), backgroundColor: .green),
-                            MGSwipeButton(title: "", icon: UIImage(named:"fav.png"), backgroundColor: .blue)]
-        self.leftSwipeSettings.transition = .clipCenter
+        let button = MGSwipeButton(title: "", icon: UIImage(named:"check.png"), backgroundColor: .green, insets: UIEdgeInsetsMake(0, 200.0, 0, 200.0)) { (cell) -> Bool in
+            //mark thing as completed
+            //tell the tableview-view controller to pop.
+            data.lastCompleted = Date()
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            return true
+        }
+        self.leftButtons = [button]
+        self.leftSwipeSettings.transition = .drag
         
-        //configure right buttons
-        self.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: .red),
-                             MGSwipeButton(title: "More",backgroundColor: .lightGray)]
-        self.rightSwipeSettings.transition = .clipCenter
+//        //configure right buttons
+//        self.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: .red),
+//                             MGSwipeButton(title: "More",backgroundColor: .lightGray)]
+//        self.rightSwipeSettings.transition = .clipCenter
 
         
     }
 
     func makeLabel(){
-        let label: UILabel = UILabel(frame: CGRect(x: 20, y: 20, width: 400, height: 30))
+        let label: UILabel = UILabel(frame: CGRect(x: 20, y: 20, width: 400, height: 50))
         // label.frame = CGRectDo(50, 50, 200, 21)
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.labelColor
@@ -55,8 +61,8 @@ class ThingTableViewCell: MGSwipeTableCell{
         baseView?.backgroundColor = color
         self.contentView.addSubview(baseView!)
     }
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: true)
-        self.setNeedsLayout()
-    }
+//    override func setEditing(_ editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: true)
+//        self.setNeedsLayout()
+//    }
 }

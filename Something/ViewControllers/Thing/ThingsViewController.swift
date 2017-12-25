@@ -20,7 +20,7 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         thingTableView.delegate = self
         thingTableView.dataSource = self
         initalizeFetchedResultsController()
-        
+        makeDoneButton()
         self.title = "Things"
     }
     
@@ -57,15 +57,15 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
     
    
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        if let value = tableView.indexPathsForSelectedRows?.contains(indexPath){
-            if value == true{
-                return UITableViewCellEditingStyle.delete
-            }
-        }
-        return UITableViewCellEditingStyle.none
-        
-    }
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+//        if let value = tableView.indexPathsForSelectedRows?.contains(indexPath){
+//            if value == true{
+//                return UITableViewCellEditingStyle.delete
+//            }
+//        }
+//        return UITableViewCellEditingStyle.none
+//        
+//    }
     
     /*
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -92,10 +92,11 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         
         
         
-        cell.showSwipe(MGSwipeDirection.rightToLeft, animated: true)
+        cell.showSwipe(MGSwipeDirection.leftToRight, animated: true)
         //tableView.setEditing(true, animated: true)
         //print("here twii")
         //cell.setEditing(true, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
     
@@ -108,11 +109,37 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
             nextView.getThing = sendThing
         }
     }
+    func makeDoneButton(){
+        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(doneAction)), animated: true)
+    }
+    @objc func doneAction(sender: UIButton!) {
+        if let viewControllers = navigationController?.viewControllers{
+            if viewControllers[viewControllers.count - 2] is InitialViewController{
+                self.popBack(1)
+            }else{
+            self.popBack(3)
+            }
+        }
+    }
 
     func popBack(_ nb: Int) {
         var viewControllers = navigationController?.viewControllers
         viewControllers?.removeLast(nb) // views to pop
         navigationController?.setViewControllers(viewControllers!, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let label: UILabel = UILabel()
+        label.backgroundColor = .clear
+        label.textColor = StyleModel.sharedInstance.buttonColor
+        label.textAlignment = NSTextAlignment.left
+        label.text = "      Tap to mark as completed."
+        label.font = UIFont(name: "PingFang SC", size: 20)
+        return label
     }
     
     func initalizeFetchedResultsController(){
