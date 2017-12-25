@@ -40,4 +40,8 @@ class ThingTableViewCell: UITableViewCell {
         baseView?.backgroundColor = color
         self.contentView.addSubview(baseView!)
     }
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: true)
+        self.setNeedsLayout()
+    }
 }

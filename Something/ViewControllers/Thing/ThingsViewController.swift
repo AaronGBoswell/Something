@@ -54,17 +54,50 @@ class ThingsViewController: UIViewController ,  UITableViewDataSource, UITableVi
         cell.initialize(data: selectedThing)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        print("here")
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
+            //TODO: edit the row at indexPath here
+        }
+        editAction.backgroundColor = .blue
+        
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
+            //TODO: Delete the row at indexPath here
+        }
+        deleteAction.backgroundColor = .red
+        
+        return [editAction,deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if let value = tableView.indexPathsForSelectedRows?.contains(indexPath){
+            if value == true{
+                return UITableViewCellEditingStyle.delete
+            }
+        }
+        return UITableViewCellEditingStyle.none
+        
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedThing = fetchedResultsController.object(at: indexPath) as? Thing
             else{
                 fatalError("Failed to initialize ")
         }
     
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
         
         sendThing = selectedThing
-        performSegue(withIdentifier: "thingData", sender: tableView.cellForRow(at: indexPath))
+        //performSegue(withIdentifier: "thingData", sender: tableView.cellForRow(at: indexPath))
+        let cell = tableView.cellForRow(at: indexPath) as! ThingTableViewCell
+        tableView.setEditing(true, animated: true)
+        print("here twii")
+        cell.setEditing(true, animated: true)
+        
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "thingData" {
