@@ -14,8 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //purgeCoreData()
-        //setupCoreData()
+        
+        
+        if (!UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
+            UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
+            UserDefaults.standard.synchronize()
+            purgeCoreData()
+            setupCoreData()
+            
+        } 
+        
        
         UINavigationBar.appearance().barTintColor = StyleModel.sharedInstance.backgroundColor
         UINavigationBar.appearance().titleTextAttributes =

@@ -68,7 +68,7 @@ class InitialViewController: UIViewController {
     }
 
     func makeTitleMotto(){
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 200, width: self.view.frame.size.width, height: 50))
         // label.frame = CGRectMake(50, 50, 200, 21)
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.buttonColor

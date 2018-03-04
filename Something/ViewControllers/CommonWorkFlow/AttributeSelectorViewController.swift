@@ -34,7 +34,7 @@ class AttributeSelectorViewController: UIViewController ,  UITableViewDataSource
         label.backgroundColor = .clear
         label.textColor = StyleModel.sharedInstance.buttonColor
         label.textAlignment = NSTextAlignment.left
-        label.text = (attribute == "Kind") ? "      How important is this?" : "      How long will this take?."
+        label.text = (attribute == "Kind") ? "      How important is this?" : "      How long will this take?"
         if Workflow.sharedWorkflow.creating == false{
             label.text = (attribute == "Kind") ? "      What would you like to do?" : "      How long do you have?"
         }
